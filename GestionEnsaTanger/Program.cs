@@ -10,7 +10,7 @@ namespace GestionEnsaTanger
     {
         static void Main(string[] args)
         {
-            new UI().ShowDialog();
+            new GestionEtudiants().ShowDialog();
         }
     }
 }

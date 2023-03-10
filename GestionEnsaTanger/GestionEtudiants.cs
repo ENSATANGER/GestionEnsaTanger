@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace GestionEnsaTanger
 {
-    public partial class UI : Form
+    public partial class GestionEtudiants : Form
     {
-        public UI()
+        public GestionEtudiants()
         {
             InitializeComponent();
+        }
+
+        private void GestionEtudiants_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

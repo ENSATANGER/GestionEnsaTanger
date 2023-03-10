@@ -1,6 +1,6 @@
 ﻿namespace GestionEnsaTanger
 {
-    partial class UI
+    partial class GestionEtudiants
     {
         /// <summary>
         /// Required designer variable.
@@ -31,13 +31,13 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.gestionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.affichageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bilanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.quitterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.filieresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.matieresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.etudiantsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.notesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.affichageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bilanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.quitterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,6 +71,30 @@
             this.gestionToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.gestionToolStripMenuItem.Text = "Gestion";
             // 
+            // filieresToolStripMenuItem
+            // 
+            this.filieresToolStripMenuItem.Name = "filieresToolStripMenuItem";
+            this.filieresToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.filieresToolStripMenuItem.Text = "Filieres";
+            // 
+            // matieresToolStripMenuItem
+            // 
+            this.matieresToolStripMenuItem.Name = "matieresToolStripMenuItem";
+            this.matieresToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.matieresToolStripMenuItem.Text = "Matieres";
+            // 
+            // etudiantsToolStripMenuItem
+            // 
+            this.etudiantsToolStripMenuItem.Name = "etudiantsToolStripMenuItem";
+            this.etudiantsToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.etudiantsToolStripMenuItem.Text = "Etudiants";
+            // 
+            // notesToolStripMenuItem
+            // 
+            this.notesToolStripMenuItem.Name = "notesToolStripMenuItem";
+            this.notesToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.notesToolStripMenuItem.Text = "Notes";
+            // 
             // affichageToolStripMenuItem
             // 
             this.affichageToolStripMenuItem.Name = "affichageToolStripMenuItem";
@@ -89,31 +113,7 @@
             this.quitterToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.quitterToolStripMenuItem.Text = "Quitter";
             // 
-            // filieresToolStripMenuItem
-            // 
-            this.filieresToolStripMenuItem.Name = "filieresToolStripMenuItem";
-            this.filieresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.filieresToolStripMenuItem.Text = "Filieres";
-            // 
-            // matieresToolStripMenuItem
-            // 
-            this.matieresToolStripMenuItem.Name = "matieresToolStripMenuItem";
-            this.matieresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.matieresToolStripMenuItem.Text = "Matieres";
-            // 
-            // etudiantsToolStripMenuItem
-            // 
-            this.etudiantsToolStripMenuItem.Name = "etudiantsToolStripMenuItem";
-            this.etudiantsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.etudiantsToolStripMenuItem.Text = "Etudiants";
-            // 
-            // notesToolStripMenuItem
-            // 
-            this.notesToolStripMenuItem.Name = "notesToolStripMenuItem";
-            this.notesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.notesToolStripMenuItem.Text = "Notes";
-            // 
-            // UI
+            // GestionEtudiants
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -121,8 +121,9 @@
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "UI";
+            this.Name = "GestionEtudiants";
             this.Text = "UI";
+            this.Load += new System.EventHandler(this.GestionEtudiants_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

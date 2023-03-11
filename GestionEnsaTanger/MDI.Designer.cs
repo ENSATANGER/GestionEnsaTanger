@@ -1,6 +1,6 @@
 ﻿namespace GestionEnsaTanger
 {
-    partial class GestionEtudiants
+    partial class MDI
     {
         /// <summary>
         /// Required designer variable.
@@ -50,6 +50,7 @@
             this.bilanToolStripMenuItem,
             this.quitterToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.MdiWindowListItem = this.toolStripMenuItem1;
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
             this.menuStrip1.TabIndex = 1;
@@ -74,26 +75,27 @@
             // filieresToolStripMenuItem
             // 
             this.filieresToolStripMenuItem.Name = "filieresToolStripMenuItem";
-            this.filieresToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.filieresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.filieresToolStripMenuItem.Text = "Filieres";
             // 
             // matieresToolStripMenuItem
             // 
             this.matieresToolStripMenuItem.Name = "matieresToolStripMenuItem";
-            this.matieresToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.matieresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.matieresToolStripMenuItem.Text = "Matieres";
             // 
             // etudiantsToolStripMenuItem
             // 
             this.etudiantsToolStripMenuItem.Name = "etudiantsToolStripMenuItem";
-            this.etudiantsToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.etudiantsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.etudiantsToolStripMenuItem.Text = "Etudiants";
             // 
             // notesToolStripMenuItem
             // 
             this.notesToolStripMenuItem.Name = "notesToolStripMenuItem";
-            this.notesToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.notesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.notesToolStripMenuItem.Text = "Notes";
+            this.notesToolStripMenuItem.Click += new System.EventHandler(this.notesToolStripMenuItem_Click);
             // 
             // affichageToolStripMenuItem
             // 

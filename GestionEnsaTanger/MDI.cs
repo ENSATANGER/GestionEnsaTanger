@@ -10,16 +10,27 @@ using System.Windows.Forms;
 
 namespace GestionEnsaTanger
 {
-    public partial class GestionEtudiants : Form
+    public partial class MDI : Form
     {
-        public GestionEtudiants()
+        public MDI()
         {
             InitializeComponent();
         }
 
+        
+
         private void GestionEtudiants_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void notesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GestionNotes newMDIChild = new GestionNotes();
+            // Set the Parent Form of the Child window.
+            newMDIChild.MdiParent = this;
+            // Display the new form.
+            newMDIChild.Show();
         }
     }
 }

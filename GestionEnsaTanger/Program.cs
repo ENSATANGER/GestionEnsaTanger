@@ -10,7 +10,7 @@ namespace GestionEnsaTanger
     {
         static void Main(string[] args)
         {
-            new GestionEtudiants().ShowDialog();
+            new MDI().ShowDialog();
         }
     }
 }

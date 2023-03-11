@@ -30,7 +30,7 @@ namespace GestionEnsaTanger
             List<dynamic> ListeFilieres = F1.All();
 
             foreach(dynamic item in ListeFilieres)
-                Console.WriteLine(item+"\n");
+                Console.WriteLine(item.ToString+"\n");
         }
     }
 }

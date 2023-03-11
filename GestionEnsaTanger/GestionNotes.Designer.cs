@@ -28,111 +28,111 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.l_CodeEleve = new System.Windows.Forms.Label();
+            this.l_matiere = new System.Windows.Forms.Label();
+            this.l_Note = new System.Windows.Forms.Label();
+            this.t_CodeEleve = new System.Windows.Forms.TextBox();
+            this.t_Note = new System.Windows.Forms.TextBox();
+            this.t_Matiere = new System.Windows.Forms.TextBox();
+            this.b_Nouveau = new System.Windows.Forms.Button();
+            this.b_Ajouter = new System.Windows.Forms.Button();
+            this.b_Modifier = new System.Windows.Forms.Button();
+            this.b_Supprimer = new System.Windows.Forms.Button();
+            this.b_Rechercher = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // l_CodeEleve
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(93, 53);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Code Eleve";
+            this.l_CodeEleve.AutoSize = true;
+            this.l_CodeEleve.Location = new System.Drawing.Point(93, 53);
+            this.l_CodeEleve.Name = "l_CodeEleve";
+            this.l_CodeEleve.Size = new System.Drawing.Size(62, 13);
+            this.l_CodeEleve.TabIndex = 0;
+            this.l_CodeEleve.Text = "Code Eleve";
             // 
-            // label2
+            // l_matiere
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(93, 94);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Matiere";
+            this.l_matiere.AutoSize = true;
+            this.l_matiere.Location = new System.Drawing.Point(93, 94);
+            this.l_matiere.Name = "l_matiere";
+            this.l_matiere.Size = new System.Drawing.Size(42, 13);
+            this.l_matiere.TabIndex = 1;
+            this.l_matiere.Text = "Matiere";
             // 
-            // label3
+            // l_Note
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(93, 138);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(30, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Note";
+            this.l_Note.AutoSize = true;
+            this.l_Note.Location = new System.Drawing.Point(93, 138);
+            this.l_Note.Name = "l_Note";
+            this.l_Note.Size = new System.Drawing.Size(30, 13);
+            this.l_Note.TabIndex = 2;
+            this.l_Note.Text = "Note";
             // 
-            // textBox1
+            // t_CodeEleve
             // 
-            this.textBox1.Location = new System.Drawing.Point(187, 50);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 3;
+            this.t_CodeEleve.Location = new System.Drawing.Point(187, 50);
+            this.t_CodeEleve.Name = "t_CodeEleve";
+            this.t_CodeEleve.Size = new System.Drawing.Size(100, 20);
+            this.t_CodeEleve.TabIndex = 3;
             // 
-            // textBox2
+            // t_Note
             // 
-            this.textBox2.Location = new System.Drawing.Point(187, 135);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 4;
+            this.t_Note.Location = new System.Drawing.Point(187, 135);
+            this.t_Note.Name = "t_Note";
+            this.t_Note.Size = new System.Drawing.Size(100, 20);
+            this.t_Note.TabIndex = 4;
             // 
-            // textBox3
+            // t_Matiere
             // 
-            this.textBox3.Location = new System.Drawing.Point(187, 91);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 5;
+            this.t_Matiere.Location = new System.Drawing.Point(187, 91);
+            this.t_Matiere.Name = "t_Matiere";
+            this.t_Matiere.Size = new System.Drawing.Size(100, 20);
+            this.t_Matiere.TabIndex = 5;
             // 
-            // button1
+            // b_Nouveau
             // 
-            this.button1.Location = new System.Drawing.Point(442, 47);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.b_Nouveau.Location = new System.Drawing.Point(442, 47);
+            this.b_Nouveau.Name = "b_Nouveau";
+            this.b_Nouveau.Size = new System.Drawing.Size(75, 23);
+            this.b_Nouveau.TabIndex = 6;
+            this.b_Nouveau.Text = "Nouveau";
+            this.b_Nouveau.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // b_Ajouter
             // 
-            this.button2.Location = new System.Drawing.Point(442, 88);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.b_Ajouter.Location = new System.Drawing.Point(442, 88);
+            this.b_Ajouter.Name = "b_Ajouter";
+            this.b_Ajouter.Size = new System.Drawing.Size(75, 23);
+            this.b_Ajouter.TabIndex = 7;
+            this.b_Ajouter.Text = "Ajouter";
+            this.b_Ajouter.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // b_Modifier
             // 
-            this.button3.Location = new System.Drawing.Point(442, 132);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 8;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.b_Modifier.Location = new System.Drawing.Point(442, 132);
+            this.b_Modifier.Name = "b_Modifier";
+            this.b_Modifier.Size = new System.Drawing.Size(75, 23);
+            this.b_Modifier.TabIndex = 8;
+            this.b_Modifier.Text = "Modifier";
+            this.b_Modifier.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // b_Supprimer
             // 
-            this.button4.Location = new System.Drawing.Point(611, 66);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 9;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
+            this.b_Supprimer.Location = new System.Drawing.Point(611, 66);
+            this.b_Supprimer.Name = "b_Supprimer";
+            this.b_Supprimer.Size = new System.Drawing.Size(75, 23);
+            this.b_Supprimer.TabIndex = 9;
+            this.b_Supprimer.Text = "Supprimer";
+            this.b_Supprimer.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // b_Rechercher
             // 
-            this.button5.Location = new System.Drawing.Point(611, 109);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 10;
-            this.button5.Text = "button5";
-            this.button5.UseVisualStyleBackColor = true;
+            this.b_Rechercher.Location = new System.Drawing.Point(611, 109);
+            this.b_Rechercher.Name = "b_Rechercher";
+            this.b_Rechercher.Size = new System.Drawing.Size(75, 23);
+            this.b_Rechercher.TabIndex = 10;
+            this.b_Rechercher.Text = "Rechercher";
+            this.b_Rechercher.UseVisualStyleBackColor = true;
             // 
             // GestionNotes
             // 
@@ -141,17 +141,17 @@
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.b_Rechercher);
+            this.Controls.Add(this.b_Supprimer);
+            this.Controls.Add(this.b_Modifier);
+            this.Controls.Add(this.b_Ajouter);
+            this.Controls.Add(this.b_Nouveau);
+            this.Controls.Add(this.t_Matiere);
+            this.Controls.Add(this.t_Note);
+            this.Controls.Add(this.t_CodeEleve);
+            this.Controls.Add(this.l_Note);
+            this.Controls.Add(this.l_matiere);
+            this.Controls.Add(this.l_CodeEleve);
             this.Name = "GestionNotes";
             this.Text = "GestionNotes";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -162,16 +162,16 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Label l_CodeEleve;
+        private System.Windows.Forms.Label l_matiere;
+        private System.Windows.Forms.Label l_Note;
+        private System.Windows.Forms.TextBox t_CodeEleve;
+        private System.Windows.Forms.TextBox t_Note;
+        private System.Windows.Forms.TextBox t_Matiere;
+        private System.Windows.Forms.Button b_Nouveau;
+        private System.Windows.Forms.Button b_Ajouter;
+        private System.Windows.Forms.Button b_Modifier;
+        private System.Windows.Forms.Button b_Supprimer;
+        private System.Windows.Forms.Button b_Rechercher;
     }
 }

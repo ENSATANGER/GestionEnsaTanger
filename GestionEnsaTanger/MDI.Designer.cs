@@ -122,7 +122,7 @@
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "GestionEtudiants";
-            this.Text = "UI";
+            this.Text = "Ensa Tanger";
             this.Load += new System.EventHandler(this.GestionEtudiants_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

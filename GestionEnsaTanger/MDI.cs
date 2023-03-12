@@ -12,14 +12,22 @@ namespace GestionEnsaTanger
 {
     public partial class MDI : Form
     {
+        GestionEleves formEleves;
         public MDI()
         {
             InitializeComponent();
+            formEleves = new GestionEleves(this);
+            formEleves.Show();
         }
 
         private void GestionEtudiants_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void etudiantsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formEleves.Show();
         }
     }
 }

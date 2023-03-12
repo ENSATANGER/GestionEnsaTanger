@@ -12,8 +12,10 @@ namespace GestionEnsaTanger
     {
         static void Main(string[] args)
         {
-            new MDI().ShowDialog();
+            /*new MDI().ShowDialog();*/
 
+            Eleve eleve = new Eleve("boulouqat", "jawad", "2", "F1");
+            eleve.show();
             Console.ReadKey();
         }
     }

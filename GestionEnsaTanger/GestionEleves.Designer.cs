@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonGestionAbsence = new System.Windows.Forms.Button();
+            this.buttonGestionNotes = new System.Windows.Forms.Button();
             this.buttonRechercher = new System.Windows.Forms.Button();
             this.buttonSupprimer = new System.Windows.Forms.Button();
             this.buttonModifier = new System.Windows.Forms.Button();
@@ -58,14 +58,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.ElevesTable)).BeginInit();
             this.SuspendLayout();
             // 
-            // buttonGestionAbsence
+            // buttonGestionNotes
             // 
-            this.buttonGestionAbsence.Location = new System.Drawing.Point(496, 172);
-            this.buttonGestionAbsence.Name = "buttonGestionAbsence";
-            this.buttonGestionAbsence.Size = new System.Drawing.Size(141, 21);
-            this.buttonGestionAbsence.TabIndex = 26;
-            this.buttonGestionAbsence.Text = "Gestion des notes";
-            this.buttonGestionAbsence.UseVisualStyleBackColor = true;
+            this.buttonGestionNotes.Location = new System.Drawing.Point(496, 172);
+            this.buttonGestionNotes.Name = "buttonGestionNotes";
+            this.buttonGestionNotes.Size = new System.Drawing.Size(141, 21);
+            this.buttonGestionNotes.TabIndex = 26;
+            this.buttonGestionNotes.Text = "Gestion des notes";
+            this.buttonGestionNotes.UseVisualStyleBackColor = true;
+            this.buttonGestionNotes.Click += new System.EventHandler(this.buttonGestionNotes_Click);
             // 
             // buttonRechercher
             // 
@@ -298,7 +299,7 @@
             this.Controls.Add(this.buttonNouveau);
             this.Controls.Add(this.filiere);
             this.Controls.Add(this.ElevesTable);
-            this.Controls.Add(this.buttonGestionAbsence);
+            this.Controls.Add(this.buttonGestionNotes);
             this.Controls.Add(this.buttonRechercher);
             this.Controls.Add(this.buttonSupprimer);
             this.Controls.Add(this.buttonModifier);
@@ -311,6 +312,7 @@
             this.Controls.Add(this.nomLabel);
             this.Controls.Add(this.codeLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MaximizeBox = false;
             this.Name = "GestionEleves";
             this.Text = "GestionEleves";
             ((System.ComponentModel.ISupportInitialize)(this.ElevesTable)).EndInit();
@@ -320,7 +322,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button buttonGestionAbsence;
+        private System.Windows.Forms.Button buttonGestionNotes;
         private System.Windows.Forms.Button buttonRechercher;
         private System.Windows.Forms.Button buttonSupprimer;
         private System.Windows.Forms.Button buttonModifier;

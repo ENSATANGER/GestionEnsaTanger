@@ -96,7 +96,7 @@
             this.notesToolStripMenuItem.Name = "notesToolStripMenuItem";
             this.notesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.notesToolStripMenuItem.Text = "Notes";
-            this.notesToolStripMenuItem.Click += new System.EventHandler(this.notesToolStripMenuItem_Click);
+            //this.notesToolStripMenuItem.Click += new System.EventHandler(this.notesToolStripMenuItem_Click);
             // 
             // affichageToolStripMenuItem
             // 

@@ -78,6 +78,7 @@
   <ItemGroup>
     <EmbeddedResource Include="GestionNotes.resx">
       <DependentUpon>GestionNotes.cs</DependentUpon>
+    </EmbeddedResource>  
     <EmbeddedResource Include="GestionEleves.resx">
       <DependentUpon>GestionEleves.cs</DependentUpon>
     </EmbeddedResource>

@@ -1,6 +1,6 @@
 ﻿namespace GestionEnsaTanger
 {
-    partial class GestionEtudiants
+    partial class MDI
     {
         /// <summary>
         /// Required designer variable.
@@ -74,25 +74,25 @@
             // filieresToolStripMenuItem
             // 
             this.filieresToolStripMenuItem.Name = "filieresToolStripMenuItem";
-            this.filieresToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.filieresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.filieresToolStripMenuItem.Text = "Filieres";
             // 
             // matieresToolStripMenuItem
             // 
             this.matieresToolStripMenuItem.Name = "matieresToolStripMenuItem";
-            this.matieresToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.matieresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.matieresToolStripMenuItem.Text = "Matieres";
             // 
             // etudiantsToolStripMenuItem
             // 
             this.etudiantsToolStripMenuItem.Name = "etudiantsToolStripMenuItem";
-            this.etudiantsToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.etudiantsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.etudiantsToolStripMenuItem.Text = "Etudiants";
             // 
             // notesToolStripMenuItem
             // 
             this.notesToolStripMenuItem.Name = "notesToolStripMenuItem";
-            this.notesToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.notesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.notesToolStripMenuItem.Text = "Notes";
             // 
             // affichageToolStripMenuItem
@@ -113,7 +113,7 @@
             this.quitterToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.quitterToolStripMenuItem.Text = "Quitter";
             // 
-            // GestionEtudiants
+            // MDI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -121,7 +121,7 @@
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "GestionEtudiants";
+            this.Name = "MDI";
             this.Text = "Ensa Tanger";
             this.Load += new System.EventHandler(this.GestionEtudiants_Load);
             this.menuStrip1.ResumeLayout(false);

@@ -115,7 +115,7 @@
             this.quitterToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.quitterToolStripMenuItem.Text = "Quitter";
             // 
-            // GestionEtudiants
+            // MDI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -123,7 +123,7 @@
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "GestionEtudiants";
+            this.Name = "MDI";
             this.Text = "Ensa Tanger";
             this.Load += new System.EventHandler(this.GestionEtudiants_Load);
             this.menuStrip1.ResumeLayout(false);

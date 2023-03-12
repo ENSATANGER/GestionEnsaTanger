@@ -42,6 +42,11 @@
             this.codeLabel = new System.Windows.Forms.Label();
             this.filiere = new System.Windows.Forms.ComboBox();
             this.ElevesTable = new System.Windows.Forms.DataGridView();
+            this.ElevesID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ElevesNom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ElevesPrenom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ElevesGroupe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TableCode_Fil = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonNouveau = new System.Windows.Forms.Button();
             this.niveau = new System.Windows.Forms.ComboBox();
             this.niveauLabel = new System.Windows.Forms.Label();
@@ -50,11 +55,6 @@
             this.checkBoxFiliere = new System.Windows.Forms.CheckBox();
             this.checkBoxPrenom = new System.Windows.Forms.CheckBox();
             this.checkBoxNom = new System.Windows.Forms.CheckBox();
-            this.ElevesID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ElevesNom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ElevesPrenom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ElevesGroupe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TableCode_Fil = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ElevesTable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,7 +64,7 @@
             this.buttonGestionAbsence.Name = "buttonGestionAbsence";
             this.buttonGestionAbsence.Size = new System.Drawing.Size(141, 21);
             this.buttonGestionAbsence.TabIndex = 26;
-            this.buttonGestionAbsence.Text = "Gestion d\'absence";
+            this.buttonGestionAbsence.Text = "Gestion des notes";
             this.buttonGestionAbsence.UseVisualStyleBackColor = true;
             // 
             // buttonRechercher
@@ -182,6 +182,35 @@
             this.ElevesTable.Size = new System.Drawing.Size(543, 150);
             this.ElevesTable.TabIndex = 27;
             // 
+            // ElevesID
+            // 
+            this.ElevesID.DataPropertyName = "TableCode";
+            this.ElevesID.HeaderText = "CodeElev";
+            this.ElevesID.Name = "ElevesID";
+            // 
+            // ElevesNom
+            // 
+            this.ElevesNom.DataPropertyName = "TableNom";
+            this.ElevesNom.HeaderText = "Nom";
+            this.ElevesNom.Name = "ElevesNom";
+            // 
+            // ElevesPrenom
+            // 
+            this.ElevesPrenom.DataPropertyName = "TablePrenom";
+            this.ElevesPrenom.HeaderText = "Prenom";
+            this.ElevesPrenom.Name = "ElevesPrenom";
+            // 
+            // ElevesGroupe
+            // 
+            this.ElevesGroupe.DataPropertyName = "TableNiveau";
+            this.ElevesGroupe.HeaderText = "Niveau";
+            this.ElevesGroupe.Name = "ElevesGroupe";
+            // 
+            // TableCode_Fil
+            // 
+            this.TableCode_Fil.HeaderText = "code_Fil";
+            this.TableCode_Fil.Name = "TableCode_Fil";
+            // 
             // buttonNouveau
             // 
             this.buttonNouveau.Location = new System.Drawing.Point(496, 27);
@@ -252,35 +281,6 @@
             this.checkBoxNom.Size = new System.Drawing.Size(15, 14);
             this.checkBoxNom.TabIndex = 36;
             this.checkBoxNom.UseVisualStyleBackColor = true;
-            // 
-            // ElevesID
-            // 
-            this.ElevesID.DataPropertyName = "TableCode";
-            this.ElevesID.HeaderText = "CodeElev";
-            this.ElevesID.Name = "ElevesID";
-            // 
-            // ElevesNom
-            // 
-            this.ElevesNom.DataPropertyName = "TableNom";
-            this.ElevesNom.HeaderText = "Nom";
-            this.ElevesNom.Name = "ElevesNom";
-            // 
-            // ElevesPrenom
-            // 
-            this.ElevesPrenom.DataPropertyName = "TablePrenom";
-            this.ElevesPrenom.HeaderText = "Prenom";
-            this.ElevesPrenom.Name = "ElevesPrenom";
-            // 
-            // ElevesGroupe
-            // 
-            this.ElevesGroupe.DataPropertyName = "TableNiveau";
-            this.ElevesGroupe.HeaderText = "Niveau";
-            this.ElevesGroupe.Name = "ElevesGroupe";
-            // 
-            // TableCode_Fil
-            // 
-            this.TableCode_Fil.HeaderText = "code_Fil";
-            this.TableCode_Fil.Name = "TableCode_Fil";
             // 
             // GestionEleves
             // 

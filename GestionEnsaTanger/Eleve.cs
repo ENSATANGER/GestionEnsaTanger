@@ -11,20 +11,19 @@ namespace GestionEnsaTanger
     class Eleve : DB.Model
     {
         public string code, nom, prenom, niveau, code_Fil;
-        public Eleve()
+        public Eleve() { }
+        public Eleve(string nom, string prenom, string niveau, string code_Fil)
         {
-            code = "e7";
-            nom = "boulouqat";
-            prenom = "jawad";
-            niveau = "2";
-            code_Fil = "F1";
+            this.nom = nom;
+            this.prenom = prenom;
+            this.niveau = niveau;
+            this.code_Fil = code_Fil;
         }
-        public void Create()
+        public Boolean Create()
         {
             if (save() != -1)
-                Console.WriteLine("added");
-            else
-                Console.WriteLine("error");
+                return true;
+            return false;
         }
         public void show()
         {

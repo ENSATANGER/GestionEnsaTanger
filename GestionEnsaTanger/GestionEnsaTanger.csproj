@@ -76,6 +76,7 @@
     <EmbeddedResource Include="ConsultationNotes.resx">
       <DependentUpon>ConsultationNotes.cs</DependentUpon>
     </EmbeddedResource>
+
     <EmbeddedResource Include="MDI.resx">
       <DependentUpon>MDI.cs</DependentUpon>
     </EmbeddedResource>

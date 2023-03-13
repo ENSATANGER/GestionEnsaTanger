@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GestionEnsaTanger
 {
-    public partial class GestionEtudiants : Form
+    public partial class MDI : Form
     {
-        public GestionEtudiants()
+        public MDI()
         {
             InitializeComponent();
         }

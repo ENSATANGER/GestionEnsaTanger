@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GestionEnsaTanger
 {
-    public partial class Form1 : Form
+    public partial class BilanAnnuel : Form
     {
-        public Form1()
+        public BilanAnnuel()
         {
             InitializeComponent();
         }

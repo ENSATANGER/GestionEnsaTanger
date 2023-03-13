@@ -49,7 +49,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class1.cs" />
     <Compile Include="Eleve.cs" />
+    <Compile Include="BilanAnnuel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BilanAnnuel.Designer.cs">
+      <DependentUpon>BilanAnnuel.cs</DependentUpon>
+    </Compile>
     <Compile Include="GestionEleves.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +82,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="BilanAnnuel.resx">
+      <DependentUpon>BilanAnnuel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GestionEleves.resx">
       <DependentUpon>GestionEleves.cs</DependentUpon>
     </EmbeddedResource>

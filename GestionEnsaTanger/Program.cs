@@ -14,10 +14,8 @@ namespace GestionEnsaTanger
         {
             /*new MDI().ShowDialog();*/
 
-            Eleve eleve = new Eleve("boulouqat", "jawad", "2", "F1");
-            eleve.Create();
-            Console.WriteLine("created successefully");
-
+            Module m = new Module("c1", "d1", "n1", "s1","f1");
+            Console.WriteLine("4");
             Console.ReadKey();
         }
     }

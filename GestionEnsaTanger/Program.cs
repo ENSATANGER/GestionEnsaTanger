@@ -15,7 +15,9 @@ namespace GestionEnsaTanger
             /*new MDI().ShowDialog();*/
 
             Eleve eleve = new Eleve("boulouqat", "jawad", "2", "F1");
-            eleve.show();
+            eleve.Create();
+            Console.WriteLine("created successefully");
+
             Console.ReadKey();
         }
     }

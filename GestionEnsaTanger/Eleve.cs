@@ -10,15 +10,61 @@ namespace GestionEnsaTanger
 {
     class Eleve : DB.Model
     {
-        public string code, nom, prenom, niveau, code_Fil;
+        /*private string code, nom, prenom, niveau, code_Fil;*/
+        private string Code, Nom, Prenom, Niveau, Code_Fil;
         public Eleve() { }
-        public Eleve(string nom, string prenom, string niveau, string code_Fil)
+        public string code
         {
-            this.nom = nom;
-            this.prenom = prenom;
-            this.niveau = niveau;
-            this.code_Fil = code_Fil;
+            get { return Code; }
+            set { Code = value; }
         }
+        public string nom
+        {
+            get { return Nom; }
+            set { Nom = value; }
+        }
+        public string prenom
+        {
+            get { return Prenom; }
+            set { Prenom = value; }
+        }
+        public string niveau
+        {
+            get { return Niveau; }
+            set
+            {
+                Niveau = value;
+            }
+        }
+        public string code_Fil
+        {
+            get { return Code_Fil; }
+            set
+            {
+                Code_Fil = value;
+            }
+        }
+        /*public string Code
+        {
+            get { return code; }
+        }
+        public string Nom
+        {
+            get { return nom; }
+        }
+        public string Prenom
+        {
+            get { return prenom; }
+        }
+        public string Niveau
+        {
+            get { return niveau; }
+        }
+        public string Code_Fil
+        {
+            get { return code_Fil; }
+        }*/
+
         public Boolean Create()
         {
             if (save() != -1)
@@ -27,10 +73,12 @@ namespace GestionEnsaTanger
         }
         public void show()
         {
-            if (find() != null)
-                Console.WriteLine("found");
-            else
-                Console.WriteLine("error");
+            find();
+        }
+
+        public override string ToString()
+        {
+            return "id: "+id+" nom: "+Nom+" code: "+Code;
         }
     }
 }

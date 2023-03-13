@@ -14,9 +14,18 @@ namespace GestionEnsaTanger
         {
             /*new MDI().ShowDialog();*/
 
-            Eleve eleve = new Eleve("boulouqat", "jawad", "2", "F1");
+            /*IDataReader data = Connexion.Select("select * from eleve");
+            int i = 0;
+            while (data.Read())
+            {
+                Console.Write(data.GetName(i)+": "+data.GetValue(i)+ "; ");
+                i++;
+            }*/
+            Eleve eleve = new Eleve();
+            eleve.id = 1;
             eleve.show();
-            Console.ReadKey();
+            Console.WriteLine(eleve);
+                Console.ReadKey();
         }
     }
 }

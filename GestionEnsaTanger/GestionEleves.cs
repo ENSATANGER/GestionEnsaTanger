@@ -19,5 +19,14 @@ namespace GestionEnsaTanger
             TopLevel = false;
             Dock = DockStyle.Fill;
         }
+
+        private void buttonGestionNotes_Click(object sender, EventArgs e)
+        {
+            GestionNotes newMDIChild = new GestionNotes();
+            // Set the Parent Form of the Child window.
+            newMDIChild.MdiParent = this.MdiParent;
+            // Display the new form.
+            newMDIChild.Show();
+        }
     }
 }

@@ -14,19 +14,19 @@ namespace GestionEnsaTanger
 {
     class Module : DB.Model
     {
-        public string code, designation, niveau, semestre,code_fil;
+        private string code, designation, niveau, semestre,code_fil;
 
         public Module() { }
 
         public void setcode(string code)
         {
-                this.code = code;
-            if (CheckCode(code))
+            this.code = code;
+           /* if (CheckCode(code))
             {
                 this.code = code;
                 Console.WriteLine("done");
             }
-            else Console.WriteLine("false");
+            else Console.WriteLine("false");*/
         }
         public Module(string code, string designation, string niveau, string semestre, string code_fil)
         {
@@ -38,7 +38,7 @@ namespace GestionEnsaTanger
         }
 
         //if code exists already in the database then the return is false
-        public bool CheckCode(string code)
+       /* public bool CheckCode(string code)
         {
             using (var conn = new SqlConnection("Data Source=localhost;Initial Catalog=ENSA_TANGER;Integrated Security=True"))
             {
@@ -50,7 +50,7 @@ namespace GestionEnsaTanger
                     return count == 0;
                 }
             }
-        }
+        }*/
 
 
 

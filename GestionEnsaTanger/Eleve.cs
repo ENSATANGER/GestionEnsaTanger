@@ -13,10 +13,11 @@ namespace GestionEnsaTanger
         /*private string code, nom, prenom, niveau, code_Fil;*/
         private string Code, Nom, Prenom, Niveau, Code_Fil;
         public Eleve() { }
+
         public string code
         {
             get { return Code; }
-            set { Code = value; }
+            set {Code = value;}
         }
         public string nom
         {
@@ -73,9 +74,16 @@ namespace GestionEnsaTanger
         }
         public void show()
         {
-            find();
+            Initialize(find());
         }
-
+        private void Initialize(Eleve eleve)
+        {
+            Code = eleve.Code;
+            Nom = eleve.Nom;
+            Prenom = eleve.Prenom;
+            Niveau = eleve.Niveau;
+            Code_Fil = eleve.Code_Fil;
+        }
         public override string ToString()
         {
             return "id: "+id+" nom: "+Nom+" code: "+Code;

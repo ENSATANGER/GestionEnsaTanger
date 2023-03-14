@@ -22,10 +22,20 @@ namespace GestionEnsaTanger
                 i++;
             }*/
             Eleve eleve = new Eleve();
-            eleve.id = 1;
-            eleve.show();
-            Console.WriteLine(eleve);
-                Console.ReadKey();
+            eleve.code = "m2";
+            eleve.nom = "hachguer";
+            eleve.prenom = "mohamed";
+            eleve.niveau = "3";
+            eleve.code_Fil = "F1";
+            if (eleve.Create())
+            {
+                Console.WriteLine("added");
+            }
+            else
+            {
+                Console.WriteLine("error");
+            }
+
         }
     }
 }

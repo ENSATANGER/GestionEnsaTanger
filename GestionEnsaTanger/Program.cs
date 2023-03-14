@@ -11,22 +11,13 @@ namespace GestionEnsaTanger
     {
         static void Main(string[] args)
         {
-            new MDI().ShowDialog();
+            /*new MDI().ShowDialog();*/
 
-            IDataReader data = Connexion.Select("select * from eleve");
-            int i = 0;
-            while (data.Read())
-            {
-                Console.Write(data.GetName(i) + ": " + data.GetValue(i) + "; ");
-                i++;
-            }
-            /*Eleve eleve = new Eleve();
-            eleve.code = "m2";
-            eleve.nom = "hachguer";
-            eleve.prenom = "mohamed";
-            eleve.niveau = "3";
-            eleve.code_Fil = "F1";
-            if (eleve.Create())
+            Eleve eleve = new Eleve();
+            eleve.id = 10;
+            eleve.Rechercher();
+            /*Console.WriteLine(eleve.ToString());*/
+            /*if (eleve.Ajouter("m2", "hachguer","mohamed","3","F1"))
             {
                 Console.WriteLine("added");
             }
@@ -34,6 +25,7 @@ namespace GestionEnsaTanger
             {
                 Console.WriteLine("error");
             }*/
+            Console.ReadKey();  
         }
     }
 }

@@ -46,15 +46,47 @@ namespace GestionEnsaTanger
             }
         }
 
-        public Boolean Create()
+        public Boolean Ajouter(string code, string nom, string pernom, string niveau, string code_Fil)
         {
-            if (save() != -1)
+            Code = code;
+            Nom = nom;
+            Prenom = pernom;
+            Niveau = niveau;
+            Code_Fil = code_Fil;
+            int i = save();
+            if (i != -1 && i !=-2)
                 return true;
             return false;
         }
-        public void show()
+
+        public Boolean Modifier(string code, string nom, string pernom, string niveau, string code_Fil)
         {
-            Initialize(find());
+
+            Code = code;
+            Nom = nom;
+            Prenom = pernom;
+            Niveau = niveau;
+            Code_Fil = code_Fil;
+            int i = save();
+            if (i != -1 && i != -2)
+                return true;
+            return false;
+        }
+        public Boolean Supprimer()
+        {
+            if (delete() != 0)
+                return true;
+            return false;
+        }
+        public void Rechercher()
+        {
+            /*Initialize(find());*/
+            Dictionary<string, object> dico = ObjectToDictionary<object>(this);
+            List<object> eleves = Select(dico);
+            foreach (var item in eleves)
+            {
+                Console.WriteLine(item.ToString());
+            }
         }
         private void Initialize(Eleve eleve)
         {
@@ -66,7 +98,7 @@ namespace GestionEnsaTanger
         }
         public override string ToString()
         {
-            return "id: "+id+" nom: "+Nom+" code: "+Code;
+            return base.ToString()+" nom: "+Nom+" code: "+Code;
         }
     }
 }

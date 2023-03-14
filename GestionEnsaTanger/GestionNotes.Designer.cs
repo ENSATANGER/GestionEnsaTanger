@@ -106,6 +106,7 @@
             this.b_Ajouter.TabIndex = 7;
             this.b_Ajouter.Text = "Ajouter";
             this.b_Ajouter.UseVisualStyleBackColor = true;
+            this.b_Ajouter.Click += new System.EventHandler(this.b_Ajouter_Click);
             // 
             // b_Modifier
             // 

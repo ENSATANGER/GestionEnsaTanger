@@ -16,5 +16,11 @@ namespace GestionEnsaTanger
         {
             InitializeComponent();
         }
+
+        private void b_Ajouter_Click(object sender, EventArgs e)
+        {
+            Notes note = new Notes(t_CodeEleve.Text, t_Matiere.Text, (float)Double.Parse(t_Note.Text));
+            note.save();
+        }
     }
 }

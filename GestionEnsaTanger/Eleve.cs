@@ -8,10 +8,14 @@ using DB;
 
 namespace GestionEnsaTanger
 {
-    class Eleve : DB.Model
+    class Eleve : Model
     {
         public string code, nom, prenom, niveau, code_Fil;
         public Eleve() { }
+        public Eleve(string c)
+        {
+            this.code = c;
+        }
         public Eleve(string nom, string prenom, string niveau, string code_Fil)
         {
             this.nom = nom;
@@ -32,5 +36,6 @@ namespace GestionEnsaTanger
             else
                 Console.WriteLine("error");
         }
+        
     }
 }

@@ -33,12 +33,13 @@
             this.l_Note = new System.Windows.Forms.Label();
             this.t_CodeEleve = new System.Windows.Forms.TextBox();
             this.t_Note = new System.Windows.Forms.TextBox();
-            this.t_Matiere = new System.Windows.Forms.TextBox();
             this.b_Nouveau = new System.Windows.Forms.Button();
             this.b_Ajouter = new System.Windows.Forms.Button();
             this.b_Modifier = new System.Windows.Forms.Button();
             this.b_Supprimer = new System.Windows.Forms.Button();
             this.b_Rechercher = new System.Windows.Forms.Button();
+            this.c_Matiere = new System.Windows.Forms.ComboBox();
+            this.error = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // l_CodeEleve
@@ -72,22 +73,16 @@
             // 
             this.t_CodeEleve.Location = new System.Drawing.Point(187, 50);
             this.t_CodeEleve.Name = "t_CodeEleve";
-            this.t_CodeEleve.Size = new System.Drawing.Size(100, 20);
+            this.t_CodeEleve.ReadOnly = true;
+            this.t_CodeEleve.Size = new System.Drawing.Size(121, 20);
             this.t_CodeEleve.TabIndex = 3;
             // 
             // t_Note
             // 
             this.t_Note.Location = new System.Drawing.Point(187, 135);
             this.t_Note.Name = "t_Note";
-            this.t_Note.Size = new System.Drawing.Size(100, 20);
+            this.t_Note.Size = new System.Drawing.Size(121, 20);
             this.t_Note.TabIndex = 4;
-            // 
-            // t_Matiere
-            // 
-            this.t_Matiere.Location = new System.Drawing.Point(187, 91);
-            this.t_Matiere.Name = "t_Matiere";
-            this.t_Matiere.Size = new System.Drawing.Size(100, 20);
-            this.t_Matiere.TabIndex = 5;
             // 
             // b_Nouveau
             // 
@@ -135,6 +130,22 @@
             this.b_Rechercher.Text = "Rechercher";
             this.b_Rechercher.UseVisualStyleBackColor = true;
             // 
+            // c_Matiere
+            // 
+            this.c_Matiere.FormattingEnabled = true;
+            this.c_Matiere.Location = new System.Drawing.Point(187, 94);
+            this.c_Matiere.Name = "c_Matiere";
+            this.c_Matiere.Size = new System.Drawing.Size(121, 21);
+            this.c_Matiere.TabIndex = 11;
+            // 
+            // error
+            // 
+            this.error.AutoSize = true;
+            this.error.Location = new System.Drawing.Point(55, 246);
+            this.error.Name = "error";
+            this.error.Size = new System.Drawing.Size(0, 13);
+            this.error.TabIndex = 12;
+            // 
             // GestionNotes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -142,12 +153,13 @@
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
+            this.Controls.Add(this.error);
+            this.Controls.Add(this.c_Matiere);
             this.Controls.Add(this.b_Rechercher);
             this.Controls.Add(this.b_Supprimer);
             this.Controls.Add(this.b_Modifier);
             this.Controls.Add(this.b_Ajouter);
             this.Controls.Add(this.b_Nouveau);
-            this.Controls.Add(this.t_Matiere);
             this.Controls.Add(this.t_Note);
             this.Controls.Add(this.t_CodeEleve);
             this.Controls.Add(this.l_Note);
@@ -156,6 +168,7 @@
             this.Name = "GestionNotes";
             this.Text = "GestionNotes";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.GestionNotes_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -168,11 +181,12 @@
         private System.Windows.Forms.Label l_Note;
         private System.Windows.Forms.TextBox t_CodeEleve;
         private System.Windows.Forms.TextBox t_Note;
-        private System.Windows.Forms.TextBox t_Matiere;
         private System.Windows.Forms.Button b_Nouveau;
         private System.Windows.Forms.Button b_Ajouter;
         private System.Windows.Forms.Button b_Modifier;
         private System.Windows.Forms.Button b_Supprimer;
         private System.Windows.Forms.Button b_Rechercher;
+        private System.Windows.Forms.ComboBox c_Matiere;
+        private System.Windows.Forms.Label error;
     }
 }

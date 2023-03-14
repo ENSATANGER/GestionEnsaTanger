@@ -13,14 +13,15 @@ namespace GestionEnsaTanger
         {
             new MDI().ShowDialog();
 
-            /*Etudiant e1 = new Etudiant("AA", "Hachguer", "Mohamed", "GINF2", "GI2");
+            Eleve e1 = new Eleve("Hachguer", "Mohamed", "GINF2", "GI2");
             //e1.save();
-            Dictionary<string, string> Champs;
-            Champs = Connexion.getChamps_table("Eleve");
-            foreach (KeyValuePair<string, string> kvp in Champs)
-            {
-                Console.WriteLine(kvp.Key + " " + kvp.Value);
-            }*/
+            /*Dictionary<string, string> Champs = new Dictionary<string, string>();
+            Champs.Add("nom", "Hachguer");
+            Champs.Add("prenom", "Mohamed");
+            Champs.Add("niveau", "GINF2");
+            Champs.Add("code_Fil", "GI2");*/
+            
+            
         }
     }
 }

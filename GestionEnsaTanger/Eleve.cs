@@ -45,26 +45,6 @@ namespace GestionEnsaTanger
                 Code_Fil = value;
             }
         }
-        /*public string Code
-        {
-            get { return code; }
-        }
-        public string Nom
-        {
-            get { return nom; }
-        }
-        public string Prenom
-        {
-            get { return prenom; }
-        }
-        public string Niveau
-        {
-            get { return niveau; }
-        }
-        public string Code_Fil
-        {
-            get { return code_Fil; }
-        }*/
 
         public Boolean Create()
         {

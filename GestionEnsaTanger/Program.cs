@@ -12,16 +12,16 @@ namespace GestionEnsaTanger
     {
         static void Main(string[] args)
         {
-            /*new MDI().ShowDialog();*/
+            new MDI().ShowDialog();
 
-            /*IDataReader data = Connexion.Select("select * from eleve");
+            IDataReader data = Connexion.Select("select * from eleve");
             int i = 0;
             while (data.Read())
             {
-                Console.Write(data.GetName(i)+": "+data.GetValue(i)+ "; ");
+                Console.Write(data.GetName(i) + ": " + data.GetValue(i) + "; ");
                 i++;
-            }*/
-            Eleve eleve = new Eleve();
+            }
+            /*Eleve eleve = new Eleve();
             eleve.code = "m2";
             eleve.nom = "hachguer";
             eleve.prenom = "mohamed";
@@ -34,7 +34,7 @@ namespace GestionEnsaTanger
             else
             {
                 Console.WriteLine("error");
-            }
+            }*/
 
         }
     }

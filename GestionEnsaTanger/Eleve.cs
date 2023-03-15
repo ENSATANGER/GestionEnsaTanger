@@ -11,7 +11,7 @@ namespace GestionEnsaTanger
     class Eleve : DB.Model
     {
         /*private string code, nom, prenom, niveau, code_Fil;*/
-        private string Code, Nom, Prenom, Niveau, Code_Fil;
+        private string Code, Nom, Prenom, Niveau, Code_fil;
         public Eleve() { }
 
         public string code
@@ -37,12 +37,12 @@ namespace GestionEnsaTanger
                 Niveau = value;
             }
         }
-        public string code_Fil
+        public string code_fil
         {
-            get { return Code_Fil; }
+            get { return Code_fil; }
             set
             {
-                Code_Fil = value;
+                Code_fil = value;
             }
         }
 
@@ -52,7 +52,7 @@ namespace GestionEnsaTanger
             Nom = nom;
             Prenom = pernom;
             Niveau = niveau;
-            Code_Fil = code_Fil;
+            Code_fil = code_Fil;
             int i = save();
             if (i != -1 && i !=-2)
                 return true;
@@ -66,7 +66,7 @@ namespace GestionEnsaTanger
             Nom = nom;
             Prenom = pernom;
             Niveau = niveau;
-            Code_Fil = code_Fil;
+            Code_fil = code_Fil;
             int i = save();
             if (i != -1 && i != -2)
                 return true;
@@ -94,11 +94,11 @@ namespace GestionEnsaTanger
             Nom = eleve.Nom;
             Prenom = eleve.Prenom;
             Niveau = eleve.Niveau;
-            Code_Fil = eleve.Code_Fil;
+            Code_fil = eleve.Code_fil;
         }
         public override string ToString()
         {
-            return base.ToString()+" nom: "+Nom+" code: "+Code+" Filiere: "+niveau;
+            return base.ToString()+" nom: "+Nom+" code: "+Code+" Filiere : "+Code_fil;
         }
     }
 }

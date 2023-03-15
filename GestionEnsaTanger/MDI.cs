@@ -20,14 +20,23 @@ namespace GestionEnsaTanger
             formEleves.Show();
         }
 
+
+
         private void GestionEtudiants_Load(object sender, EventArgs e)
         {
 
         }
 
+        
+
         private void etudiantsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            formEleves.Show();
+            /*formEleves.Show();*/
+            GestionEleves newMDIChild = new GestionEleves(this);
+            // Set the Parent Form of the Child window.
+            //newMDIChild.MdiParent = this;
+            // Display the new form.
+            newMDIChild.Show();
         }
     }
 }

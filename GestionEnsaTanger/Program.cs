@@ -12,14 +12,15 @@ namespace GestionEnsaTanger
         static void Main(string[] args)
         {
             //new MDI().ShowDialog();
-            Eleve eleve = new Eleve("AAA");
+            Eleve eleve = new Eleve();
+            eleve.code = "AAA";
             Dictionary<string,object> map = new Dictionary<string,object>();
             map.Add("code", eleve.code);
             List<object> list = eleve.Select(map);
             foreach(object item in list)
             {
                 
-                Console.WriteLine((Eleve)item.code);
+                Console.WriteLine(item.ToString());
             }
             /*if (eleve.find() == null)
             {

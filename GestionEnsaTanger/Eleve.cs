@@ -98,7 +98,7 @@ namespace GestionEnsaTanger
         }
         public override string ToString()
         {
-            return base.ToString()+" nom: "+Nom+" code: "+Code;
+            return base.ToString()+" nom: "+Nom+" code: "+Code+" Filiere: "+niveau;
         }
     }
 }

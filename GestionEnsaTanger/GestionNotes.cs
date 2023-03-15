@@ -26,7 +26,8 @@ namespace GestionEnsaTanger
         private void GestionNotes_Load(object sender, EventArgs e)
         {
             t_CodeEleve.Text = GestionEleves.code_eleve;
-            Eleve eleve = new Eleve(GestionEleves.code_eleve);
+            Eleve eleve = new Eleve();
+            eleve.code = "AAA";
             if (eleve.find() == null)
             {
                 Console.WriteLine("AAA");

@@ -55,16 +55,19 @@ namespace GestionEnsaTanger
             this.Code_fil = code_fil;
         }
 
-        ///
-        ///
-        ///
+        public override string ToString()
+        {
+            return $"{Code} - {Designation} {Niveau} - {Semestre} - {Code_fil}";
+        }
+
         ///
         //works fine
         public void Create()
         {
             int i = save();
+            if (i == -1) MessageBox.Show("ERROR");
             if (i == -2) MessageBox.Show("EXCEPTION");
-            if(i==0) MessageBox.Show("Created Successfully");
+            if (i==0) MessageBox.Show("Created Successfully");
         }
 
         //
@@ -73,11 +76,12 @@ namespace GestionEnsaTanger
         {
             int i = save();
             if (i==0) MessageBox.Show("UPDATED SUCCESSFULLY");
+            if (i == -1) MessageBox.Show("ERROR");
             if (i == -2) MessageBox.Show("EXCEPTION");
         }
 
         //
-        //
+        //reads a list of modules
         public static List<Module> Read()
         {
             List<Module> modules = new List<Module>();
@@ -97,13 +101,14 @@ namespace GestionEnsaTanger
             return modules;
         }
 
-
+        //
+        //working fine, needs an id to delete if not it will raise error
         public void Delete()
         {
             int i = delete();
             if (i == 0) MessageBox.Show("Deleted Successfully"); 
-            if (i == -2) MessageBox.Show("Exception Successfully"); 
-            if (i == -1) MessageBox.Show("Error Successfully");
+            if (i == -2) MessageBox.Show("Exception"); 
+            if (i == -1) MessageBox.Show("Error");
         }
 
 

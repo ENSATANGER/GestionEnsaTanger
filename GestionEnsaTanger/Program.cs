@@ -12,9 +12,13 @@ namespace GestionEnsaTanger
         static void Main(string[] args)
         {
             /*new MDI().ShowDialog();*/
-
-            Module m = new Module("c6", "d2", "n2", "s1","c1");
-            m.id= 24;
+            /*Module module= new Module("cc","d1","n1","s1","c1");
+            module.Create();*/
+            Matiere m = new Matiere("code matiere", "designation m", 10, "cc")
+            {
+                id = 4,
+                Designation = "ddm"
+            };
             m.Delete();
             Console.ReadKey();  
         }

@@ -30,6 +30,10 @@
         {
             this.rechercher = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Code_matiere = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Designation = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Semestre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FiliereLabel = new System.Windows.Forms.Label();
             this.filiere = new System.Windows.Forms.ComboBox();
             this.etudiant = new System.Windows.Forms.ComboBox();
@@ -38,10 +42,6 @@
             this.NiveauLabel = new System.Windows.Forms.Label();
             this.MoyenneLabel = new System.Windows.Forms.Label();
             this.moyenne = new System.Windows.Forms.TextBox();
-            this.Code_matiere = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Designation = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Semestre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,6 +54,7 @@
             this.rechercher.TabIndex = 0;
             this.rechercher.Text = "Rechercher";
             this.rechercher.UseVisualStyleBackColor = false;
+            this.rechercher.Click += new System.EventHandler(this.rechercher_Click);
             // 
             // dataGridView1
             // 
@@ -68,6 +69,27 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(443, 150);
             this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // Code_matiere
+            // 
+            this.Code_matiere.HeaderText = "Code matiere";
+            this.Code_matiere.Name = "Code_matiere";
+            // 
+            // Designation
+            // 
+            this.Designation.HeaderText = "Designation";
+            this.Designation.Name = "Designation";
+            // 
+            // Semestre
+            // 
+            this.Semestre.HeaderText = "Semestre";
+            this.Semestre.Name = "Semestre";
+            // 
+            // Note
+            // 
+            this.Note.HeaderText = "Note";
+            this.Note.Name = "Note";
             // 
             // FiliereLabel
             // 
@@ -86,6 +108,7 @@
             this.filiere.Name = "filiere";
             this.filiere.Size = new System.Drawing.Size(121, 21);
             this.filiere.TabIndex = 3;
+            this.filiere.SelectedIndexChanged += new System.EventHandler(this.filiere_SelectedIndexChanged);
             // 
             // etudiant
             // 
@@ -94,6 +117,7 @@
             this.etudiant.Name = "etudiant";
             this.etudiant.Size = new System.Drawing.Size(121, 21);
             this.etudiant.TabIndex = 4;
+            this.etudiant.SelectedIndexChanged += new System.EventHandler(this.etudiant_SelectedIndexChanged);
             // 
             // niveau
             // 
@@ -102,6 +126,7 @@
             this.niveau.Name = "niveau";
             this.niveau.Size = new System.Drawing.Size(121, 21);
             this.niveau.TabIndex = 5;
+            this.niveau.SelectedIndexChanged += new System.EventHandler(this.niveau_SelectedIndexChanged);
             // 
             // EtudiantLabel
             // 
@@ -139,26 +164,7 @@
             this.moyenne.Name = "moyenne";
             this.moyenne.Size = new System.Drawing.Size(141, 20);
             this.moyenne.TabIndex = 9;
-            // 
-            // Code_matiere
-            // 
-            this.Code_matiere.HeaderText = "Code matiere";
-            this.Code_matiere.Name = "Code_matiere";
-            // 
-            // Designation
-            // 
-            this.Designation.HeaderText = "Designation";
-            this.Designation.Name = "Designation";
-            // 
-            // Semestre
-            // 
-            this.Semestre.HeaderText = "Semestre";
-            this.Semestre.Name = "Semestre";
-            // 
-            // Note
-            // 
-            this.Note.HeaderText = "Note";
-            this.Note.Name = "Note";
+            this.moyenne.TextChanged += new System.EventHandler(this.moyenne_TextChanged);
             // 
             // BilanAnnuel
             // 

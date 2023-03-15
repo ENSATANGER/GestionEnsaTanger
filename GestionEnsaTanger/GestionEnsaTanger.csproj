@@ -69,7 +69,6 @@
     <Compile Include="GestionNotes.Designer.cs">
       <DependentUpon>GestionNotes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Notes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MDI.cs">
@@ -86,9 +85,6 @@
     <EmbeddedResource Include="BilanAnnuel.resx">
       <DependentUpon>BilanAnnuel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GestionNotes.resx">
-      <DependentUpon>GestionNotes.cs</DependentUpon>
-    </EmbeddedResource>  
     <EmbeddedResource Include="GestionEleves.resx">
       <DependentUpon>GestionEleves.cs</DependentUpon>
     </EmbeddedResource>

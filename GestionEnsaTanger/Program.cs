@@ -11,17 +11,19 @@ namespace GestionEnsaTanger
     {
         static void Main(string[] args)
         {
-            //new MDI().ShowDialog();
-            Eleve eleve = new Eleve();
-            eleve.code = "AAA";
+            new MDI().ShowDialog();
+            /*Eleve eleve = new Eleve();
+            eleve.code = "BBB";
             Dictionary<string,object> map = new Dictionary<string,object>();
             map.Add("code", eleve.code);
             List<object> list = eleve.Select(map);
+            if (list.Count == 0)
+                Console.WriteLine("vide");
             foreach(object item in list)
             {
                 
                 Console.WriteLine(item.ToString());
-            }
+            }*/
             /*if (eleve.find() == null)
             {
                 Console.WriteLine("AAA");

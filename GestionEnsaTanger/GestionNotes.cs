@@ -27,8 +27,11 @@ namespace GestionEnsaTanger
         {
             t_CodeEleve.Text = GestionEleves.code_eleve;
             Eleve eleve = new Eleve();
-            eleve.code = "AAA";
-            if (eleve.find() == null)
+            eleve.code = GestionEleves.code_eleve;
+            Dictionary<string, object> map = new Dictionary<string, object>();
+            map.Add("code", eleve.code);
+            List<object> list = eleve.Select(map);
+            if (list.Count == 0)
             {
                 Console.WriteLine("AAA");
                 error.Text = "erreur! Aucun eleve ne correspond a ce code";

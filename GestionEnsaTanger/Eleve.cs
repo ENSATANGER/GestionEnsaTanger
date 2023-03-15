@@ -8,16 +8,10 @@ using DB;
 
 namespace GestionEnsaTanger
 {
-    class Eleve : DB.Model
+    class Eleve : Model
     {
         private string Code, Nom, Prenom, Niveau, Code_fil;
         public Eleve() { }
-
-        public int id
-        {
-            get { return base.id; }
-            set { base.id = value; }
-        }
 
         public string code
         {
@@ -65,32 +59,55 @@ namespace GestionEnsaTanger
         }
 
         // can't modify the code
-        public Boolean Modifier(string nom, string pernom, string niveau, string code_Fil)
+        public Boolean Modifier(string code, string nom, string pernom, string niveau, string code_Fil)
         {
-            Nom = nom;
-            Prenom = pernom;
-            Niveau = niveau;
-            Code_fil = code_Fil;
+            Eleve e = new Eleve
+            {
+                Code = code
+            };
+            List<object> eleve = Select(ObjectToDictionary<object>(e));
+            if(eleve.Count > 0)
+            {
+                id = ((Eleve)eleve[0]).id;
+                Code = code;
+                Nom = nom;
+                Prenom = pernom;
+                Niveau = niveau;
+                Code_fil = code_Fil;
+            }
             int i = save();
             if (i != -1 && i != -2)
                 return true;
             return false;
         }
-        public Boolean Supprimer()
+        public Boolean Supprimer(string code)
         {
-            if (delete() != 0)
+            Eleve e = new Eleve
+            {
+                Code = code
+            };
+            List<object> eleve = Select(ObjectToDictionary<object>(e));
+            if (eleve.Count > 0)
+            {
+                id = ((Eleve)eleve[0]).id;
+            }
+            int i = delete();
+            if (i != 0 && i != -2)
                 return true;
             return false;
         }
-        public void Rechercher()
+
+        // remplissage des attributes ce fait dans GestionEleve
+        public List<Eleve> Rechercher()
         {
-            /*Initialize(find());*/
+            List<Eleve> eleves = new List<Eleve>();
             Dictionary<string, object> dico = ObjectToDictionary<object>(this);
-            List<object> eleves = Select(dico);
-            foreach (var item in eleves)
+            List<object> data = Select(dico);
+            foreach (var item in data)
             {
-                Console.WriteLine(item.ToString());
+                eleves.Add((Eleve)item);
             }
+            return eleves;
         }
         private void Initialize(Eleve eleve)
         {

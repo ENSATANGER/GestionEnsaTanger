@@ -14,19 +14,10 @@ namespace GestionEnsaTanger
             /*new MDI().ShowDialog();*/
 
             Eleve eleve = new Eleve();
-            eleve.id = 25;
-            /*eleve.Rechercher();*/
-            /*Console.WriteLine(eleve.ToString());*/
-            if (eleve.Supprimer())
-            {
-                Console.WriteLine("added");
-            }
-            else
-            {
-                Console.WriteLine("error");
-            }
-            Console.ReadKey();  
-            new MDI().ShowDialog();
+            eleve.code_fil = "F1";
+            foreach (var item in eleve.Rechercher())
+                Console.WriteLine(item);
+
             /*Eleve eleve = new Eleve();
             eleve.code = "BBB";
             Dictionary<string,object> map = new Dictionary<string,object>();
@@ -48,7 +39,7 @@ namespace GestionEnsaTanger
             Notes n = new Notes("AAA", "GINF41", 14);
             n.Ajouter();*/
             //e1.save();
-
+            Console.ReadKey();
         }
     }
 }

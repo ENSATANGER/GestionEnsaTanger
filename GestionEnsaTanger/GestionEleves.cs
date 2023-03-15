@@ -30,5 +30,15 @@ namespace GestionEnsaTanger
             // Display the new form.
             newMDIChild.Show();
         }
+
+        private void buttonNouveau_Click(object sender, EventArgs e)
+        {
+            nom.Text = "";
+            prenom.Text = "";
+            code.Text = "";
+            code.Text = "";
+            filiere.Text = "";
+            niveau.Text = "";
+        }
     }
 }

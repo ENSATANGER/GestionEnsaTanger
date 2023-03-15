@@ -11,11 +11,11 @@ namespace GestionEnsaTanger
     {
         static void Main(string[] args)
         {
-            /*new MDI().ShowDialog();*/
+            new MDI().ShowDialog();
 
-            Eleve eleve = new Eleve();
+            /*Eleve eleve = new Eleve();
             eleve.id = 10;
-            eleve.Rechercher();
+            eleve.Rechercher();*/
             /*Console.WriteLine(eleve.ToString());*/
             /*if (eleve.Ajouter("m2", "hachguer","mohamed","3","F1"))
             {

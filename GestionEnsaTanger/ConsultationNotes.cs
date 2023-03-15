@@ -53,7 +53,7 @@ namespace GestionEnsaTanger
                 foreach (dynamic mat in Matieres)
                 {
                     Matiere Mat = mat as Matiere;
-                    MatiereBox.Items.Add(Mat.Designation);
+                    MatiereBox.Items.Add(Mat.designation);
                 }
             }
         }
@@ -87,8 +87,8 @@ namespace GestionEnsaTanger
                 List<dynamic> Matieres = Model.select<Matiere>(dict);
 
                 Matiere M = Matieres.Find(x => x.designation == MatiereBox.SelectedItem.ToString());
-                string req = "SELECT Eleve.code, Eleve.nom, Eleve.prenom, Note.notes FROM Notes where code_mat = " + M.Code +
-                    " JOIN Eleve ON Notes.code_eleve=Eleve.code where Notes.code_mat=" + M.Code + " and Eleve.niveau=" + Niveau;
+                string req = "SELECT Eleve.code, Eleve.nom, Eleve.prenom, Note.notes FROM Notes where code_mat = " + M.code +
+                    " JOIN Eleve ON Notes.code_eleve=Eleve.code where Notes.code_mat=" + M.code + " and Eleve.niveau=" + Niveau;
                 IDataReader rd = Connexion.Select(req);
                 DataTable dataTable = new DataTable();
 

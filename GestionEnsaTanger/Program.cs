@@ -13,18 +13,9 @@ namespace GestionEnsaTanger
         {
             /*new MDI().ShowDialog();*/
 
-            Module m = new Module("c5", "d2", "n2", "s1","c1");
-/*            Module.Create(m);
-*/            
-            /*List<Module> modules = Module.Read();
-                foreach (Module module in modules)
-                {
-                    Console.WriteLine(module.code);
-                }*/
-
-            Module.Update(m);
-/*            Module.Delete(m.code);
-*/
+            Module m = new Module("c6", "d2", "n2", "s1","c1");
+            m.id= 24;
+            m.Delete();
             Console.ReadKey();  
         }
     }

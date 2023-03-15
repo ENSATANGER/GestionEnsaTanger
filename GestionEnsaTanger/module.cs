@@ -59,21 +59,21 @@ namespace GestionEnsaTanger
         ///
         ///
         ///
-
-        public static void Create(Module module)
+        //works fine
+        public void Create()
         {
-            string req = $"INSERT INTO Module (Code, Designation, Niveau, Semestre, Code_fil) VALUES ('{module.Code}', '{module.Designation}','{module.Niveau}','{module.Semestre}','{module.Code_fil}')";
-            int i = Connexion.IUD(req);
-            if(i==1) MessageBox.Show("Created Successfully");
+            int i = save();
+            if (i == -2) MessageBox.Show("EXCEPTION");
+            if(i==0) MessageBox.Show("Created Successfully");
         }
 
         //
-        //
-        public static void Update(Module module)
+        //working fine, needs an id to update if not it will work just like create
+        public void Update()
         {
-            string req = $"UPDATE Module SET Code = '{module.Code}', Designation = '{module.Designation}', Niveau = '{module.Niveau}', Semestre = '{module.Semestre}', Code_fil = '{module.Code_fil}' WHERE Code = {module.Code}";
-            int i = Connexion.IUD(req);
-            if (i == 1) MessageBox.Show("Updated Successfully");
+            int i = save();
+            if (i==0) MessageBox.Show("UPDATED SUCCESSFULLY");
+            if (i == -2) MessageBox.Show("EXCEPTION");
         }
 
         //
@@ -98,11 +98,12 @@ namespace GestionEnsaTanger
         }
 
 
-        public static void Delete(string moduleCode)
+        public void Delete()
         {
-            string req = $"DELETE FROM Module WHERE Code = {moduleCode}";
-            int i = Connexion.IUD(req);
-            if (i == 1) MessageBox.Show("Deleted Successfully");
+            int i = delete();
+            if (i == 0) MessageBox.Show("Deleted Successfully"); 
+            if (i == -2) MessageBox.Show("Exception Successfully"); 
+            if (i == -1) MessageBox.Show("Error Successfully");
         }
 
 

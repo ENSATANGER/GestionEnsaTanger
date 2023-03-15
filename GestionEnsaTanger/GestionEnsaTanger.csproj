@@ -62,6 +62,8 @@
     <Compile Include="GestionNotes.Designer.cs">
       <DependentUpon>GestionNotes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Matiere.cs" />
+    <Compile Include="Module.cs" />
     <Compile Include="Notes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -78,7 +80,7 @@
   <ItemGroup>
     <EmbeddedResource Include="GestionNotes.resx">
       <DependentUpon>GestionNotes.cs</DependentUpon>
-    </EmbeddedResource>  
+    </EmbeddedResource>
     <EmbeddedResource Include="GestionEleves.resx">
       <DependentUpon>GestionEleves.cs</DependentUpon>
     </EmbeddedResource>

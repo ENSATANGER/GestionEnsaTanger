@@ -11,18 +11,22 @@ namespace GestionEnsaTanger
     {
         static void Main(string[] args)
         {
-            new MDI().ShowDialog();
+            /*new MDI().ShowDialog();*/
 
-            Module m = new Module("c1", "d1", "n1", "s1","f1");
-            m.Create();
-            m.show();
-            Console.WriteLine(m.code);
-            Console.ReadKey();
+            Module m = new Module("c5", "d1", "n1", "s1","c1");
+            Module.Create(m);
+            List<Module> modules = Module.Read();
+            foreach (Module module in modules)
+            {
+                Console.WriteLine(module.code);
+            }
+
+  
             /*Eleve eleve = new Eleve();
             eleve.id = 10;
-            eleve.Rechercher();*/
-            /*Console.WriteLine(eleve.ToString());*/
-            /*if (eleve.Ajouter("m2", "hachguer","mohamed","3","F1"))
+            eleve.Rechercher();
+            Console.WriteLine(eleve.ToString());
+            if (eleve.Ajouter("m2", "hachguer", "mohamed", "3", "c1"))
             {
                 Console.WriteLine("added");
             }
@@ -30,6 +34,7 @@ namespace GestionEnsaTanger
             {
                 Console.WriteLine("error");
             }*/
+            
             Console.ReadKey();  
         }
     }

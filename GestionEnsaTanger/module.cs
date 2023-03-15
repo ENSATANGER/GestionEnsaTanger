@@ -10,54 +10,88 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace GestionEnsaTanger
 {
     class Module : DB.Model
     {
-        public string code, designation, niveau, semestre,code_fil;
+        private string Code, Designation, Niveau, Semestre,Code_fil;
         
         public Module() { }
 
-        public void setcode(string code)
+        public string code
         {
-            this.code = code;
-           /* if (CheckCode(code))
-            {
-                this.code = code;
-                Console.WriteLine("done");
-            }
-            else Console.WriteLine("false");*/
+            get { return Code; }
+            set { Code = value; }
         }
+        public string designation
+        {
+            get { return Designation; }
+            set { Designation = value; }
+        }
+        public string niveau
+        {
+            get { return Niveau; }
+            set { Niveau = value; }
+        }
+        public string semestre
+        {
+            get { return Semestre; }
+            set { Semestre = value; }
+        }
+        public string code_fil
+        {
+            get { return Code_fil; }
+            set { Code_fil = value; }
+        }
+        
         public Module(string code, string designation, string niveau, string semestre, string code_fil)
         {
-            this.setcode(code);
-            this.designation = designation;
-            this.niveau = niveau;
-            this.semestre = semestre;
-            this.code_fil = code_fil;
+            this.Code=code;
+            this.Designation = designation;
+            this.Niveau = niveau;
+            this.Semestre = semestre;
+            this.Code_fil = code_fil;
         }
-        public Boolean Create()
-        {
-            if (save() != -1) {
-                Console.WriteLine("true");
-                return true;
 
+        ///
+        ///
+        ///
+        ///
+
+        public static void Create(Module module)
+        {
+            string req = $"INSERT INTO Module (Code, Designation, Niveau, Semestre, Code_fil) VALUES ('{module.Code}', '{module.Designation}','{module.Niveau}','{module.Semestre}','{module.Code_fil}')";
+            int i = Connexion.IUD(req);
+            if(i==1) MessageBox.Show("Created Successfully");
+        }
+
+        public static List<Module> Read()
+        {
+            List<Module> modules = new List<Module>();
+            string req = "SELECT * FROM Module";
+            IDataReader reader = Connexion.Select(req);
+            while (reader.Read())
+            {
+                Module module = new Module();
+                module.Code = reader.GetString(1);
+                module.Designation = reader.GetString(2);
+                module.Niveau = reader.GetString(3);
+                module.Semestre = reader.GetString(4);
+                module.Code_fil = reader.GetString(5);
+                modules.Add(module);
             }
-            return false;
+            reader.Close();
+            return modules;
         }
 
 
-        public void show()
-        {
-            if (find() != null)
-                Console.WriteLine("found");
-            else
-                Console.WriteLine("error");
-        }
 
-        //if code exists already in the database then the return is false
-        /* public bool CheckCode(string code)
+       
+
+        /*if code exists already in the database then the return is false
+         public bool CheckCode(string code)
          {
              using (var conn = new SqlConnection("Data Source=localhost;Initial Catalog=ENSA_TANGER;Integrated Security=True"))
              {

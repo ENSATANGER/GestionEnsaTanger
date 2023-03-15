@@ -15,11 +15,11 @@ namespace GestionEnsaTanger
             Eleve eleve = new Eleve("AAA");
             Dictionary<string,object> map = new Dictionary<string,object>();
             map.Add("code", eleve.code);
-           /* List<Eleve> list = Model.select(map);*/
-            foreach(dynamic item in list)
+            List<object> list = eleve.Select(map);
+            foreach(object item in list)
             {
-                Eleve el = (Eleve)item;
-                Console.WriteLine(item.code);
+                
+                Console.WriteLine((Eleve)item.code);
             }
             /*if (eleve.find() == null)
             {

@@ -1,6 +1,7 @@
 ﻿using DB;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -14,8 +15,11 @@ namespace GestionEnsaTanger
 {
     class Module : DB.Model
     {
-        private string code, designation, niveau, semestre,code_fil;
-
+        public string code, designation, niveau, semestre,code_fil;
+        public string moduleinfo()
+        {
+            return "module"+code + designation+ niveau + semestre;
+        }
         public Module() { }
 
         public void setcode(string code)
@@ -36,21 +40,36 @@ namespace GestionEnsaTanger
             this.semestre = semestre;
             this.code_fil = code_fil;
         }
+        public Boolean Create()
+        {
+            if (save() != -1)
+                return true;
+            return false;
+        }
+
+
+        public void show()
+        {
+            if (find() != null)
+                Console.WriteLine("found");
+            else
+                Console.WriteLine("error");
+        }
 
         //if code exists already in the database then the return is false
-       /* public bool CheckCode(string code)
-        {
-            using (var conn = new SqlConnection("Data Source=localhost;Initial Catalog=ENSA_TANGER;Integrated Security=True"))
-            {
-                conn.Open();
-                using (var cmd = new SqlCommand("SELECT COUNT(*) FROM module WHERE code = @code", conn))
-                {
-                    cmd.Parameters.AddWithValue("@code", code);
-                    int count = (int)cmd.ExecuteScalar();
-                    return count == 0;
-                }
-            }
-        }*/
+        /* public bool CheckCode(string code)
+         {
+             using (var conn = new SqlConnection("Data Source=localhost;Initial Catalog=ENSA_TANGER;Integrated Security=True"))
+             {
+                 conn.Open();
+                 using (var cmd = new SqlCommand("SELECT COUNT(*) FROM module WHERE code = @code", conn))
+                 {
+                     cmd.Parameters.AddWithValue("@code", code);
+                     int count = (int)cmd.ExecuteScalar();
+                     return count == 0;
+                 }
+             }
+         }*/
 
 
 

@@ -67,6 +67,17 @@ namespace GestionEnsaTanger
             if(i==1) MessageBox.Show("Created Successfully");
         }
 
+        //
+        //
+        public static void Update(Module module)
+        {
+            string req = $"UPDATE Module SET Code = '{module.Code}', Designation = '{module.Designation}', Niveau = '{module.Niveau}', Semestre = '{module.Semestre}', Code_fil = '{module.Code_fil}' WHERE Code = {module.Code}";
+            int i = Connexion.IUD(req);
+            if (i == 1) MessageBox.Show("Updated Successfully");
+        }
+
+        //
+        //
         public static List<Module> Read()
         {
             List<Module> modules = new List<Module>();
@@ -87,8 +98,13 @@ namespace GestionEnsaTanger
         }
 
 
+        public static void Delete(string moduleCode)
+        {
+            string req = $"DELETE FROM Module WHERE Code = {moduleCode}";
+            int i = Connexion.IUD(req);
+            if (i == 1) MessageBox.Show("Deleted Successfully");
+        }
 
-       
 
         /*if code exists already in the database then the return is false
          public bool CheckCode(string code)

@@ -10,7 +10,6 @@ namespace GestionEnsaTanger
 {
     class Eleve : DB.Model
     {
-        /*private string code, nom, prenom, niveau, code_Fil;*/
         private string Code, Nom, Prenom, Niveau, Code_fil;
         public Eleve() { }
 
@@ -59,10 +58,9 @@ namespace GestionEnsaTanger
             return false;
         }
 
-        public Boolean Modifier(string code, string nom, string pernom, string niveau, string code_Fil)
+        // can't modify the code
+        public Boolean Modifier(string nom, string pernom, string niveau, string code_Fil)
         {
-
-            Code = code;
             Nom = nom;
             Prenom = pernom;
             Niveau = niveau;

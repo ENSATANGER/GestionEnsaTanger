@@ -14,17 +14,17 @@ namespace GestionEnsaTanger
             /*new MDI().ShowDialog();*/
 
             Eleve eleve = new Eleve();
-            eleve.id = 10;
-            eleve.Rechercher();
+            eleve.id = 25;
+            /*eleve.Rechercher();*/
             /*Console.WriteLine(eleve.ToString());*/
-            /*if (eleve.Ajouter("m2", "hachguer","mohamed","3","F1"))
+            if (eleve.Supprimer())
             {
                 Console.WriteLine("added");
             }
             else
             {
                 Console.WriteLine("error");
-            }*/
+            }
             Console.ReadKey();  
         }
     }

@@ -12,6 +12,7 @@ namespace GestionEnsaTanger
 {
     public partial class GestionEleves : Form
     {
+        public static string code_eleve;
         public GestionEleves(MDI mdi)
         {
             InitializeComponent();
@@ -22,6 +23,7 @@ namespace GestionEnsaTanger
 
         private void buttonGestionNotes_Click(object sender, EventArgs e)
         {
+            code_eleve = code.Text;
             GestionNotes newMDIChild = new GestionNotes();
             // Set the Parent Form of the Child window.
             newMDIChild.MdiParent = this.MdiParent;

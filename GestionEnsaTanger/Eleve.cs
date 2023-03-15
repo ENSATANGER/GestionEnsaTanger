@@ -13,6 +13,12 @@ namespace GestionEnsaTanger
         private string Code, Nom, Prenom, Niveau, Code_fil;
         public Eleve() { }
 
+        public int id
+        {
+            get { return base.id; }
+            set { base.id = value; }
+        }
+
         public string code
         {
             get { return Code; }

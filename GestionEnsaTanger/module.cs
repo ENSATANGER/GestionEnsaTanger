@@ -16,10 +16,7 @@ namespace GestionEnsaTanger
     class Module : DB.Model
     {
         public string code, designation, niveau, semestre,code_fil;
-        public string moduleinfo()
-        {
-            return "module"+code + designation+ niveau + semestre;
-        }
+        
         public Module() { }
 
         public void setcode(string code)
@@ -42,8 +39,11 @@ namespace GestionEnsaTanger
         }
         public Boolean Create()
         {
-            if (save() != -1)
+            if (save() != -1) {
+                Console.WriteLine("true");
                 return true;
+
+            }
             return false;
         }
 

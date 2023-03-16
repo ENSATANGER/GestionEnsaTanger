@@ -19,51 +19,65 @@ namespace GestionEnsaTanger
         public ConsultationNotes()
         {
             InitializeComponent();
-            List<dynamic> L = loadFilieres();
+            loadFilieres();
+            FiliereBox.SelectedIndexChanged += FiliereBox_SelectedIndexChanged;
+        }
+
+        private void FiliereBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            loadNiveaux();
+            NiveauBox.SelectedIndexChanged += NiveauBox_SelectedIndexChanged;
+
+        }
+
+        private void loadFilieres()
+        {
+            List<dynamic> L = Filiere.all<Filiere>();
             foreach (Filiere item in L)
                 FiliereBox.Items.Add(item.code);
+        }
 
-            if( FiliereBox.Items.Contains("GINF"))
+        private void NiveauBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            loadMatieres();
+        }
+        private void loadNiveaux()
+        {
+            if (FiliereBox.SelectedItem != null)
             {
-                NiveauBox.Items.Add("GINF1");
-                NiveauBox.Items.Add("GINF2");
-                NiveauBox.Items.Add("GINF3");
-            }else if(FiliereBox.Items.Contains("GSTR"))
-            {
-                NiveauBox.Items.Add("GSTR1");
-                NiveauBox.Items.Add("GSTR2");
-                NiveauBox.Items.Add("GSTR3");
-            }
-            else if(FiliereBox.Items.Contains("GSTR"))
-            {
-                NiveauBox.Items.Add("GIL1");
-                NiveauBox.Items.Add("GIL2");
-                NiveauBox.Items.Add("GIL3");
-            }else
-            {
-                NiveauBox.Items.Add("AP1");
-                NiveauBox.Items.Add("AP2");
-            }
-            if(NiveauBox.SelectedItem!=null)
-            {
-                string Niveau = NiveauBox.SelectedItem.ToString();
-                Dictionary<string, object> dict = new Dictionary<string, object>();
-                dict.Add("Niveau", Niveau);
-                List<dynamic> Matieres = Model.select<Matiere>(dict);
-                foreach (dynamic mat in Matieres)
+                if (FiliereBox.SelectedItem.ToString() == "AP")
                 {
-                    Matiere Mat = mat as Matiere;
-                    MatiereBox.Items.Add(Mat.Designation);
+                    NiveauBox.Items.Add(FiliereBox.SelectedItem.ToString() + "1");
+                    NiveauBox.Items.Add(FiliereBox.SelectedItem.ToString() + "2");
+                }
+                else
+                {
+                    NiveauBox.Items.Add(FiliereBox.SelectedItem.ToString() + "1");
+                    NiveauBox.Items.Add(FiliereBox.SelectedItem.ToString() + "2");
+                    NiveauBox.Items.Add(FiliereBox.SelectedItem.ToString() + "3");
                 }
             }
         }
 
-        private List<dynamic> loadFilieres()
+        private void loadMatieres()
         {
-            List<dynamic> L = Filiere.all<Filiere>();
-            return L;
+            if (NiveauBox.SelectedItem != null)
+            {
+                string Niveau = NiveauBox.SelectedItem.ToString();
+                Dictionary<string, object> dict = new Dictionary<string, object>();
+                dict.Add("niveau", Niveau);
+                List<dynamic> Modules = Module.select<Module>(dict);
+                foreach (dynamic mod in Modules)
+                {
+                    Module module = (Module)mod;
+                    dict = new Dictionary<string, object>();
+                    dict.Add("code_module", module.code);
+                    List<dynamic> Matieres = Matiere.select<Matiere>(dict);
+                   foreach(dynamic mat in Matieres)
+                        MatiereBox.Items.Add(mat.designation);
+                }
+            }
         }
-
         private void ConsultationNotes_Load(object sender, EventArgs e)
         {
 
@@ -86,15 +100,13 @@ namespace GestionEnsaTanger
 
         private void Rechercher_Click(object sender, EventArgs e)
         {
-            if (NiveauBox.SelectedItem != null)
+            string Mat = MatiereBox.SelectedItem.ToString();
+            if ( Mat != null)
             {
-                Dictionary<string, object> dict = new Dictionary<string, object>();
+                string req = "SELECT e1.code, e1.nom, e1.prenom, n.note "+
+                    "FROM Notes n INNER JOIN Eleve e1 ON n.code_eleve = e1.code "+
+                    "WHERE n.code_mat = 'GINF111';";
 
-                List<dynamic> Matieres = Model.select<Matiere>(dict);
-
-                Matiere M = Matieres.Find(x => x.designation == MatiereBox.SelectedItem.ToString());
-                string req = "SELECT Eleve.code, Eleve.nom, Eleve.prenom, Note.notes FROM Notes where code_mat = " + M.Code +
-                    " JOIN Eleve ON Notes.code_eleve=Eleve.code where Notes.code_mat=" + M.Code + " and Eleve.niveau=" + NiveauLabel;
                 IDataReader rd = Connexion.Select(req);
                 DataTable dataTable = new DataTable();
 

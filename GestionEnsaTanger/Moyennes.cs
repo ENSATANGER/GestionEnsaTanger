@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GestionEnsaTanger
 {
-    internal class Moyenne
+    internal class Moyennes
     {
     }
 }

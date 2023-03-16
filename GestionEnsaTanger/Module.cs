@@ -7,34 +7,36 @@ using System.Threading.Tasks;
 
 namespace GestionEnsaTanger
 {
-    internal class Matiere : Model
+    internal class Module: Model
     {
-        private string Code, Designation, Code_module;
-        private float VH;
+        private string Code, Designation, Niveau, Semestre, Code_filiere;
 
         public string code
         {
             get { return Code; }
             set { Code = value; }
         }
-
         public string designation
         {
             get { return Designation; }
             set { Designation = value; }
         }
 
-        public float vh
+        public string niveau
         {
-            get { return VH; }
-            set { VH = value; }
+            get { return Niveau; }
+            set { Niveau = value; }
+        }
+        public string semestre
+        {
+            get { return Semestre; }
+            set { Semestre = value; }
         }
 
-        public string code_module
+        public string code_filiere
         {
-            get { return Code_module; }
-            set { Code_module = value; }
+            get { return Code_filiere; }
+            set { Code_filiere = value; }
         }
-
     }
 }

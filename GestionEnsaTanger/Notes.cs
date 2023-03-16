@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace GestionEnsaTanger
 {
-    internal class Note: Model
+    internal class Notes: Model
     {
-        public Note() { }
-        public static List<Note> MatNiv(Dictionary<string, object> dict)
+        public Notes() { }
+       /* public static List<Note> MatNiv(Dictionary<string, object> dict)
         {
             List<Note> list = new List<Note>();
 
             return list;
-        }
+        }*/
     }
 }

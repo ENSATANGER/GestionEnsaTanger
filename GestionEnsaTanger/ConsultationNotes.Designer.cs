@@ -36,12 +36,12 @@
             this.MatiereLabel = new System.Windows.Forms.Label();
             this.Rechercher = new System.Windows.Forms.Button();
             this.Notes_Eleves = new System.Windows.Forms.DataGridView();
-            this.Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Prénom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Moyenne_classe = new System.Windows.Forms.Label();
             this.Moyenne = new System.Windows.Forms.TextBox();
+            this.code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Prénom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.note = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.Notes_Eleves)).BeginInit();
             this.SuspendLayout();
             // 
@@ -112,10 +112,10 @@
             this.Notes_Eleves.AllowUserToOrderColumns = true;
             this.Notes_Eleves.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Notes_Eleves.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Code,
+            this.code,
             this.Nom,
             this.Prénom,
-            this.Note});
+            this.note});
             this.Notes_Eleves.Location = new System.Drawing.Point(27, 146);
             this.Notes_Eleves.Name = "Notes_Eleves";
             this.Notes_Eleves.ReadOnly = true;
@@ -124,14 +124,31 @@
             this.Notes_Eleves.Size = new System.Drawing.Size(682, 239);
             this.Notes_Eleves.TabIndex = 9;
             // 
-            // Code
+            // Moyenne_classe
             // 
-            this.Code.Frozen = true;
-            this.Code.HeaderText = "Code";
-            this.Code.MinimumWidth = 8;
-            this.Code.Name = "Code";
-            this.Code.ReadOnly = true;
-            this.Code.Width = 150;
+            this.Moyenne_classe.AutoSize = true;
+            this.Moyenne_classe.Location = new System.Drawing.Point(56, 409);
+            this.Moyenne_classe.Name = "Moyenne_classe";
+            this.Moyenne_classe.Size = new System.Drawing.Size(161, 20);
+            this.Moyenne_classe.TabIndex = 6;
+            this.Moyenne_classe.Text = "Moyenne de la classe";
+            // 
+            // Moyenne
+            // 
+            this.Moyenne.Location = new System.Drawing.Point(233, 403);
+            this.Moyenne.Name = "Moyenne";
+            this.Moyenne.ReadOnly = true;
+            this.Moyenne.Size = new System.Drawing.Size(243, 26);
+            this.Moyenne.TabIndex = 10;
+            // 
+            // code
+            // 
+            this.code.Frozen = true;
+            this.code.HeaderText = "Code";
+            this.code.MinimumWidth = 8;
+            this.code.Name = "code";
+            this.code.ReadOnly = true;
+            this.code.Width = 150;
             // 
             // Nom
             // 
@@ -151,31 +168,14 @@
             this.Prénom.ReadOnly = true;
             this.Prénom.Width = 150;
             // 
-            // Note
+            // note
             // 
-            this.Note.Frozen = true;
-            this.Note.HeaderText = "Note";
-            this.Note.MinimumWidth = 8;
-            this.Note.Name = "Note";
-            this.Note.ReadOnly = true;
-            this.Note.Width = 120;
-            // 
-            // Moyenne_classe
-            // 
-            this.Moyenne_classe.AutoSize = true;
-            this.Moyenne_classe.Location = new System.Drawing.Point(56, 409);
-            this.Moyenne_classe.Name = "Moyenne_classe";
-            this.Moyenne_classe.Size = new System.Drawing.Size(161, 20);
-            this.Moyenne_classe.TabIndex = 6;
-            this.Moyenne_classe.Text = "Moyenne de la classe";
-            // 
-            // Moyenne
-            // 
-            this.Moyenne.Location = new System.Drawing.Point(233, 403);
-            this.Moyenne.Name = "Moyenne";
-            this.Moyenne.ReadOnly = true;
-            this.Moyenne.Size = new System.Drawing.Size(243, 26);
-            this.Moyenne.TabIndex = 10;
+            this.note.Frozen = true;
+            this.note.HeaderText = "Note";
+            this.note.MinimumWidth = 8;
+            this.note.Name = "note";
+            this.note.ReadOnly = true;
+            this.note.Width = 120;
             // 
             // ConsultationNotes
             // 
@@ -213,9 +213,9 @@
         private System.Windows.Forms.DataGridView Notes_Eleves;
         private System.Windows.Forms.Label Moyenne_classe;
         private System.Windows.Forms.TextBox Moyenne;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Code;
+        private System.Windows.Forms.DataGridViewTextBoxColumn code;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nom;
         private System.Windows.Forms.DataGridViewTextBoxColumn Prénom;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Note;
+        private System.Windows.Forms.DataGridViewTextBoxColumn note;
     }
 }

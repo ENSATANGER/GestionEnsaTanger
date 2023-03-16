@@ -117,6 +117,7 @@
             this.b_Supprimer.TabIndex = 9;
             this.b_Supprimer.Text = "Supprimer";
             this.b_Supprimer.UseVisualStyleBackColor = true;
+            this.b_Supprimer.Click += new System.EventHandler(this.b_Supprimer_Click);
             // 
             // b_Rechercher
             // 
@@ -126,6 +127,7 @@
             this.b_Rechercher.TabIndex = 10;
             this.b_Rechercher.Text = "Rechercher";
             this.b_Rechercher.UseVisualStyleBackColor = true;
+            this.b_Rechercher.Click += new System.EventHandler(this.b_Rechercher_Click);
             // 
             // c_Matiere
             // 

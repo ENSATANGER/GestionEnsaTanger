@@ -19,9 +19,9 @@ namespace GestionEnsaTanger
         public ConsultationNotes()
         {
             InitializeComponent();
-            FiliereBox.Items.Add("GINF");
-            FiliereBox.Items.Add("GSTR");
-            FiliereBox.Items.Add("GIL");
+            List<dynamic> L = loadFilieres();
+            foreach (Filiere item in L)
+                FiliereBox.Items.Add(item.code);
 
             if( FiliereBox.Items.Contains("GINF"))
             {
@@ -53,9 +53,15 @@ namespace GestionEnsaTanger
                 foreach (dynamic mat in Matieres)
                 {
                     Matiere Mat = mat as Matiere;
-                    MatiereBox.Items.Add(Mat.designation);
+                    MatiereBox.Items.Add(Mat.Designation);
                 }
             }
+        }
+
+        private List<dynamic> loadFilieres()
+        {
+            List<dynamic> L = Filiere.all<Filiere>();
+            return L;
         }
 
         private void ConsultationNotes_Load(object sender, EventArgs e)
@@ -87,8 +93,8 @@ namespace GestionEnsaTanger
                 List<dynamic> Matieres = Model.select<Matiere>(dict);
 
                 Matiere M = Matieres.Find(x => x.designation == MatiereBox.SelectedItem.ToString());
-                string req = "SELECT Eleve.code, Eleve.nom, Eleve.prenom, Note.notes FROM Notes where code_mat = " + M.code +
-                    " JOIN Eleve ON Notes.code_eleve=Eleve.code where Notes.code_mat=" + M.code + " and Eleve.niveau=" + Niveau;
+                string req = "SELECT Eleve.code, Eleve.nom, Eleve.prenom, Note.notes FROM Notes where code_mat = " + M.Code +
+                    " JOIN Eleve ON Notes.code_eleve=Eleve.code where Notes.code_mat=" + M.Code + " and Eleve.niveau=" + NiveauLabel;
                 IDataReader rd = Connexion.Select(req);
                 DataTable dataTable = new DataTable();
 

@@ -72,8 +72,23 @@ namespace GestionEnsaTanger
 
         //
         //working fine, needs an id to update if not it will work just like create
-        public void Update()
+        public void Update(string code, string designation, string niveau, string semestre, string code_fil)
         {
+
+                Module m = new Module
+                {
+                    Code = code
+                };
+                List<object> module = Select(ObjectToDictionary<object>(m));
+                if (module.Count > 0)
+                {
+                    id = ((Module)module[0]).id;
+                    Code = code;
+                    Designation = designation;
+                    Niveau = niveau;
+                    Code_fil = code_fil;
+                }
+
             int i = save();
             if (i==0) MessageBox.Show("UPDATED SUCCESSFULLY");
             if (i == -1) MessageBox.Show("ERROR");
@@ -103,12 +118,23 @@ namespace GestionEnsaTanger
 
         //
         //working fine, needs an id to delete if not it will raise error
-        public void Delete()
+        public void Delete(string code)
         {
+
+            Module m = new Module
+            {
+                Code = code
+            };
+            List<object> module = Select(ObjectToDictionary<object>(m));
+            if (module.Count > 0)
+            {
+                id = ((Module)module[0]).id;
+            }
+
             int i = delete();
-            if (i == 0) MessageBox.Show("Deleted Successfully"); 
-            if (i == -2) MessageBox.Show("Exception"); 
-            if (i == -1) MessageBox.Show("Error");
+            if (i != 0 && i != -1) MessageBox.Show("DELETED  Successfully");
+            if (i == 0) MessageBox.Show("No Line Deleted");
+            if (i == -1) MessageBox.Show("Exception");
         }
 
 

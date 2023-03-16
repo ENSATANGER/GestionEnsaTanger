@@ -27,9 +27,12 @@ namespace GestionEnsaTanger
             return $"{Code} - {Designation} ({VH}h) - {CodeModule}";
         }
 
+        //working fine
         public void Create()
         {
+            Console.WriteLine("test");
             int i = save();
+            Console.WriteLine(i);
             if (i == -2) MessageBox.Show("EXCEPTION");
             if (i == -1) MessageBox.Show("ERROR");
             if (i == 0) MessageBox.Show("Created Successfully");
@@ -42,6 +45,8 @@ namespace GestionEnsaTanger
             if (i == -2) MessageBox.Show("EXCEPTION");
         }
 
+
+        //working fine
         public void Delete()
         {
             int i = delete();

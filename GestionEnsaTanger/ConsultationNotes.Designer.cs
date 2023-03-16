@@ -40,7 +40,7 @@
             this.Moyenne = new System.Windows.Forms.TextBox();
             this.code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Prénom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Prenom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.note = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.Notes_Eleves)).BeginInit();
             this.SuspendLayout();
@@ -114,7 +114,7 @@
             this.Notes_Eleves.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.code,
             this.Nom,
-            this.Prénom,
+            this.Prenom,
             this.note});
             this.Notes_Eleves.Location = new System.Drawing.Point(27, 146);
             this.Notes_Eleves.Name = "Notes_Eleves";
@@ -143,6 +143,7 @@
             // 
             // code
             // 
+            this.code.DataPropertyName = "string";
             this.code.Frozen = true;
             this.code.HeaderText = "Code";
             this.code.MinimumWidth = 8;
@@ -152,6 +153,7 @@
             // 
             // Nom
             // 
+            this.Nom.DataPropertyName = "string";
             this.Nom.Frozen = true;
             this.Nom.HeaderText = "Nom";
             this.Nom.MinimumWidth = 8;
@@ -159,23 +161,25 @@
             this.Nom.ReadOnly = true;
             this.Nom.Width = 150;
             // 
-            // Prénom
+            // Prenom
             // 
-            this.Prénom.Frozen = true;
-            this.Prénom.HeaderText = "Prénom";
-            this.Prénom.MinimumWidth = 8;
-            this.Prénom.Name = "Prénom";
-            this.Prénom.ReadOnly = true;
-            this.Prénom.Width = 150;
+            this.Prenom.DataPropertyName = "string";
+            this.Prenom.Frozen = true;
+            this.Prenom.HeaderText = "Prénom";
+            this.Prenom.MinimumWidth = 8;
+            this.Prenom.Name = "Prenom";
+            this.Prenom.ReadOnly = true;
+            this.Prenom.Width = 150;
             // 
             // note
             // 
+            this.note.DataPropertyName = "decimal";
             this.note.Frozen = true;
             this.note.HeaderText = "Note";
             this.note.MinimumWidth = 8;
             this.note.Name = "note";
             this.note.ReadOnly = true;
-            this.note.Width = 120;
+            this.note.Width = 150;
             // 
             // ConsultationNotes
             // 
@@ -215,7 +219,7 @@
         private System.Windows.Forms.TextBox Moyenne;
         private System.Windows.Forms.DataGridViewTextBoxColumn code;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nom;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Prénom;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Prenom;
         private System.Windows.Forms.DataGridViewTextBoxColumn note;
     }
 }

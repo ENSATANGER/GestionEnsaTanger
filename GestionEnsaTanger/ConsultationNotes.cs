@@ -73,7 +73,7 @@ namespace GestionEnsaTanger
                     dict = new Dictionary<string, object>();
                     dict.Add("code_module", module.code);
                     List<dynamic> Matieres = Matiere.select<Matiere>(dict);
-                   foreach(dynamic mat in Matieres)
+                    foreach (dynamic mat in Matieres)
                         MatiereBox.Items.Add(mat.designation);
                 }
             }
@@ -85,7 +85,7 @@ namespace GestionEnsaTanger
 
         private void label2_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -101,20 +101,16 @@ namespace GestionEnsaTanger
         private void Rechercher_Click(object sender, EventArgs e)
         {
             string Mat = MatiereBox.SelectedItem.ToString();
-            if ( Mat != null)
+            if (Mat != null)
             {
-                string req = "SELECT e1.code, e1.nom, e1.prenom, n.note "+
-                    "FROM Notes n INNER JOIN Eleve e1 ON n.code_eleve = e1.code "+
+                string req = "SELECT e1.code, e1.nom, e1.prenom, n.note " +
+                    "FROM Notes n INNER JOIN Eleve e1 ON n.code_eleve = e1.code " +
                     "WHERE n.code_mat = 'GINF111';";
 
                 IDataReader rd = Connexion.Select(req);
-                DataTable dataTable = new DataTable();
-
-                // load the data from the SqlDataReader into the DataTable
-                dataTable.Load(rd);
-
-                // set the DataTable as the data source of the DataGridView
-                Notes_Eleves.DataSource = dataTable;
+                DataTable dt = new DataTable();
+                dt.Load(rd);
+                Notes_Eleves.DataSource = dt;
             }
         }
     }

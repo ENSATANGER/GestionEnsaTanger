@@ -43,5 +43,10 @@ namespace GestionEnsaTanger
         {
 
         }
+
+        private void filiere_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace GestionEnsaTanger
 {
@@ -20,26 +21,20 @@ namespace GestionEnsaTanger
 
         private void filiere_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Clear any existing items in the ComboBox
-            filiere.Items.Clear();
-            Filiere fil = new Filiere();
-            // Retrieve all Filiere objects from the database
-            List<dynamic> filieres = fil.All();
-
-            // Add the code of each Filiere object to the ComboBox
-            foreach (Filiere f in filieres)
-            {
-                filiere.Items.Add(f.code);
-            }
-
-            // Clear any existing items in the ComboBox
-            filiere.Items.Clear();
-            List<dynamic> l = Model.All();
+            
         }
 
         private void niveau_SelectedIndexChanged(object sender, EventArgs e)
         {
+            string[] array = { "GINF", "GSEA", "GSTR", "GIL", "G3EI" };
+            filiere.Items.Clear(); // Clear existing items in filiere combobox
 
+            if (niveau.SelectedItem != null && niveau.SelectedItem.ToString() != "AP1" && niveau.SelectedItem.ToString() != "AP2")
+            {
+                // Add filiere items if niveau is not ap1 or ap2
+                filiere.Items.AddRange(array);
+                // add more items as needed
+            }
         }
 
         private void etudiant_SelectedIndexChanged(object sender, EventArgs e)
@@ -59,7 +54,13 @@ namespace GestionEnsaTanger
 
         private void moyenne_TextChanged(object sender, EventArgs e)
         {
-
+            
         }
+
+        private void BilanAnnuel_Load_1(object sender, EventArgs e)
+        {
+            
+        }
+
     }
 }

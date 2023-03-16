@@ -168,6 +168,7 @@
             this.filiere.Name = "filiere";
             this.filiere.Size = new System.Drawing.Size(162, 21);
             this.filiere.TabIndex = 28;
+            this.filiere.SelectedIndexChanged += new System.EventHandler(this.filiere_SelectedIndexChanged);
             // 
             // ElevesTable
             // 

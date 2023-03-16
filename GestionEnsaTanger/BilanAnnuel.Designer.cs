@@ -103,11 +103,14 @@
             // 
             // filiere
             // 
+            this.filiere.DisplayMember = "A";
             this.filiere.FormattingEnabled = true;
             this.filiere.Location = new System.Drawing.Point(103, 27);
             this.filiere.Name = "filiere";
             this.filiere.Size = new System.Drawing.Size(121, 21);
             this.filiere.TabIndex = 3;
+            this.filiere.Text = "filiere";
+            this.filiere.ValueMember = "A";
             this.filiere.SelectedIndexChanged += new System.EventHandler(this.filiere_SelectedIndexChanged);
             // 
             // etudiant
@@ -122,6 +125,12 @@
             // niveau
             // 
             this.niveau.FormattingEnabled = true;
+            this.niveau.Items.AddRange(new object[] {
+            "AP1",
+            "AP2",
+            "CI1",
+            "CI2",
+            "CI3"});
             this.niveau.Location = new System.Drawing.Point(353, 27);
             this.niveau.Name = "niveau";
             this.niveau.Size = new System.Drawing.Size(121, 21);
@@ -184,6 +193,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "BilanAnnuel";
             this.Text = "BilanAnnuel";
+            this.Load += new System.EventHandler(this.BilanAnnuel_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -195,7 +205,6 @@
         private System.Windows.Forms.Button rechercher;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label FiliereLabel;
-        private System.Windows.Forms.ComboBox filiere;
         private System.Windows.Forms.ComboBox etudiant;
         private System.Windows.Forms.ComboBox niveau;
         private System.Windows.Forms.Label EtudiantLabel;
@@ -206,5 +215,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Designation;
         private System.Windows.Forms.DataGridViewTextBoxColumn Semestre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Note;
+        public System.Windows.Forms.ComboBox filiere;
     }
 }

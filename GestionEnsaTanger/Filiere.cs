@@ -9,12 +9,16 @@ namespace GestionEnsaTanger
 {
     internal class Filiere : Model
     {
-        string Code;
-        string designation;
+        private string Code, Designation;
 
         public string code {
             get { return Code; } 
             set { Code = value; } 
+        }
+        public string designation
+        {
+            get { return Designation; }
+            set { Designation = value; }
         }
 
         public Filiere() { }

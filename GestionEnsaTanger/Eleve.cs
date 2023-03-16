@@ -45,11 +45,11 @@ namespace GestionEnsaTanger
             }
         }
 
-        public Boolean Ajouter(string code, string nom, string pernom, string niveau, string code_Fil)
+        public Boolean Ajouter(string code, string nom, string prenom, string niveau, string code_Fil)
         {
             Code = code;
             Nom = nom;
-            Prenom = pernom;
+            Prenom = prenom;
             Niveau = niveau;
             Code_fil = code_Fil;
             int i = save();
@@ -59,7 +59,7 @@ namespace GestionEnsaTanger
         }
 
         // can't modify the code
-        public Boolean Modifier(string code, string nom, string pernom, string niveau, string code_Fil)
+        public Boolean Modifier(string code, string nom, string prenom, string niveau, string code_Fil)
         {
             Eleve e = new Eleve
             {
@@ -71,7 +71,7 @@ namespace GestionEnsaTanger
                 id = ((Eleve)eleve[0]).id;
                 Code = code;
                 Nom = nom;
-                Prenom = pernom;
+                Prenom = prenom;
                 Niveau = niveau;
                 Code_fil = code_Fil;
             }
@@ -92,7 +92,7 @@ namespace GestionEnsaTanger
                 id = ((Eleve)eleve[0]).id;
             }
             int i = delete();
-            if (i != 0 && i != -2)
+            if (i != 0 && i != -1)
                 return true;
             return false;
         }

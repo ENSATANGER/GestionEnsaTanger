@@ -18,6 +18,16 @@ namespace GestionEnsaTanger
             /*foreach (var item in Eleve.all<Eleve>())
                 Console.WriteLine(item);*/
 
+            Eleve e = new Eleve();
+            e.Ajouter("c1","n1","p1","n1","F1");
+
+            List<Eleve> list = e.Rechercher();
+            foreach (Eleve eleve in list)
+            {
+                Console.WriteLine(eleve.id);
+            }
+
+
             Console.ReadKey();
         }
     }

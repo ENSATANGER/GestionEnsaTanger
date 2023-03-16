@@ -42,6 +42,11 @@
             this.codeLabel = new System.Windows.Forms.Label();
             this.filiere = new System.Windows.Forms.ComboBox();
             this.ElevesTable = new System.Windows.Forms.DataGridView();
+            this.ElevesID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ElevesNom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ElevesPrenom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ElevesGroupe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TableCode_Fil = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonNouveau = new System.Windows.Forms.Button();
             this.niveau = new System.Windows.Forms.ComboBox();
             this.niveauLabel = new System.Windows.Forms.Label();
@@ -51,11 +56,6 @@
             this.checkBoxPrenom = new System.Windows.Forms.CheckBox();
             this.checkBoxNom = new System.Windows.Forms.CheckBox();
             this.message = new System.Windows.Forms.Label();
-            this.ElevesID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ElevesNom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ElevesPrenom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ElevesGroupe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TableCode_Fil = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ElevesTable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,6 +86,7 @@
             this.buttonSupprimer.TabIndex = 24;
             this.buttonSupprimer.Text = "Supprimer";
             this.buttonSupprimer.UseVisualStyleBackColor = true;
+            this.buttonSupprimer.Click += new System.EventHandler(this.buttonSupprimer_Click);
             // 
             // buttonModifier
             // 
@@ -95,6 +96,7 @@
             this.buttonModifier.TabIndex = 23;
             this.buttonModifier.Text = "Modifier";
             this.buttonModifier.UseVisualStyleBackColor = true;
+            this.buttonModifier.Click += new System.EventHandler(this.buttonModifier_Click);
             // 
             // buttonAjouter
             // 
@@ -184,7 +186,46 @@
             this.ElevesTable.Name = "ElevesTable";
             this.ElevesTable.Size = new System.Drawing.Size(594, 168);
             this.ElevesTable.TabIndex = 27;
-            this.ElevesTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ElevesTable_CellContentClick);
+            this.ElevesTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ElevesTable_CellClick);
+            // 
+            // ElevesID
+            // 
+            this.ElevesID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ElevesID.DataPropertyName = "TableCode";
+            this.ElevesID.HeaderText = "CodeElev";
+            this.ElevesID.Name = "ElevesID";
+            this.ElevesID.ReadOnly = true;
+            // 
+            // ElevesNom
+            // 
+            this.ElevesNom.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ElevesNom.DataPropertyName = "TableNom";
+            this.ElevesNom.HeaderText = "Nom";
+            this.ElevesNom.Name = "ElevesNom";
+            this.ElevesNom.ReadOnly = true;
+            // 
+            // ElevesPrenom
+            // 
+            this.ElevesPrenom.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ElevesPrenom.DataPropertyName = "TablePrenom";
+            this.ElevesPrenom.HeaderText = "Prenom";
+            this.ElevesPrenom.Name = "ElevesPrenom";
+            this.ElevesPrenom.ReadOnly = true;
+            // 
+            // ElevesGroupe
+            // 
+            this.ElevesGroupe.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ElevesGroupe.DataPropertyName = "TableNiveau";
+            this.ElevesGroupe.HeaderText = "Niveau";
+            this.ElevesGroupe.Name = "ElevesGroupe";
+            this.ElevesGroupe.ReadOnly = true;
+            // 
+            // TableCode_Fil
+            // 
+            this.TableCode_Fil.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TableCode_Fil.HeaderText = "code_Fil";
+            this.TableCode_Fil.Name = "TableCode_Fil";
+            this.TableCode_Fil.ReadOnly = true;
             // 
             // buttonNouveau
             // 
@@ -265,40 +306,6 @@
             this.message.Name = "message";
             this.message.Size = new System.Drawing.Size(0, 13);
             this.message.TabIndex = 37;
-            // 
-            // ElevesID
-            // 
-            this.ElevesID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ElevesID.DataPropertyName = "TableCode";
-            this.ElevesID.HeaderText = "CodeElev";
-            this.ElevesID.Name = "ElevesID";
-            // 
-            // ElevesNom
-            // 
-            this.ElevesNom.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ElevesNom.DataPropertyName = "TableNom";
-            this.ElevesNom.HeaderText = "Nom";
-            this.ElevesNom.Name = "ElevesNom";
-            // 
-            // ElevesPrenom
-            // 
-            this.ElevesPrenom.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ElevesPrenom.DataPropertyName = "TablePrenom";
-            this.ElevesPrenom.HeaderText = "Prenom";
-            this.ElevesPrenom.Name = "ElevesPrenom";
-            // 
-            // ElevesGroupe
-            // 
-            this.ElevesGroupe.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ElevesGroupe.DataPropertyName = "TableNiveau";
-            this.ElevesGroupe.HeaderText = "Niveau";
-            this.ElevesGroupe.Name = "ElevesGroupe";
-            // 
-            // TableCode_Fil
-            // 
-            this.TableCode_Fil.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TableCode_Fil.HeaderText = "code_Fil";
-            this.TableCode_Fil.Name = "TableCode_Fil";
             // 
             // GestionEleves
             // 

@@ -74,16 +74,66 @@ namespace GestionEnsaTanger
                 {
                     message.Text = "succès l'élève est bien inserer";
                     Initializer();
-                    ListEleves();
+                    ElevesTable.Refresh();
                 }
                 else
                     message.Text = "erreur! code déja utilisé";
             }
         }
 
-        private void ElevesTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void ElevesTable_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            // Get the DataGridViewRow object of the clicked row
+            DataGridViewRow row = ElevesTable.Rows[e.RowIndex];
 
+            // Access the data in the row using the column names or indexes
+            code.Text = row.Cells[0].Value.ToString();
+            nom.Text = row.Cells[1].Value.ToString();
+            prenom.Text = row.Cells[2].Value.ToString();
+            filiere.Text = row.Cells[3].Value.ToString();
+            niveau.Text = row.Cells[4].Value.ToString();
+        }
+
+        private void buttonModifier_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(code.Text) || string.IsNullOrWhiteSpace(prenom.Text) || string.IsNullOrWhiteSpace(nom.Text) || string.IsNullOrWhiteSpace(filiere.Text) || string.IsNullOrWhiteSpace(niveau.Text))
+            {
+                MessageBox.Show("Error!! Inserer tous les champs");
+            }
+            else
+            {
+                if ((new Eleve()).Modifier(code.Text, prenom.Text, nom.Text, niveau.Text, filiere.Text))
+                {
+                    message.Text = "succès l'élève est bien modifié";
+                    Initializer();
+                    ElevesTable.Rows.Clear();
+                    ListEleves();
+                }
+                else
+                    message.Text = "erreur! vous pouvez pas changer le code";
+            }
+        }
+
+        private void buttonSupprimer_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(code.Text) )
+                MessageBox.Show("Error!! Inserer le code ");
+            else
+            {
+                DialogResult result = MessageBox.Show("vous voulez supprimer l'eleve "+code.Text+" ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    if ((new Eleve()).Supprimer(code.Text))
+                    {
+                        message.Text = "succès l'élève est bien supprimé";
+                        Initializer(); 
+                        ElevesTable.Rows.Clear();
+                        ListEleves();
+                    }
+                    else
+                        message.Text = "erreur! le code n'existe pas";
+                }
+            }
         }
     }
 }

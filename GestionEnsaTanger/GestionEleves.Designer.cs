@@ -42,11 +42,6 @@
             this.codeLabel = new System.Windows.Forms.Label();
             this.filiere = new System.Windows.Forms.ComboBox();
             this.ElevesTable = new System.Windows.Forms.DataGridView();
-            this.ElevesID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ElevesNom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ElevesPrenom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ElevesGroupe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TableCode_Fil = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonNouveau = new System.Windows.Forms.Button();
             this.niveau = new System.Windows.Forms.ComboBox();
             this.niveauLabel = new System.Windows.Forms.Label();
@@ -55,12 +50,18 @@
             this.checkBoxFiliere = new System.Windows.Forms.CheckBox();
             this.checkBoxPrenom = new System.Windows.Forms.CheckBox();
             this.checkBoxNom = new System.Windows.Forms.CheckBox();
+            this.message = new System.Windows.Forms.Label();
+            this.ElevesID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ElevesNom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ElevesPrenom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ElevesGroupe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TableCode_Fil = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ElevesTable)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonGestionNotes
             // 
-            this.buttonGestionNotes.Location = new System.Drawing.Point(492, 195);
+            this.buttonGestionNotes.Location = new System.Drawing.Point(506, 185);
             this.buttonGestionNotes.Name = "buttonGestionNotes";
             this.buttonGestionNotes.Size = new System.Drawing.Size(141, 21);
             this.buttonGestionNotes.TabIndex = 26;
@@ -70,7 +71,7 @@
             // 
             // buttonRechercher
             // 
-            this.buttonRechercher.Location = new System.Drawing.Point(492, 168);
+            this.buttonRechercher.Location = new System.Drawing.Point(506, 158);
             this.buttonRechercher.Name = "buttonRechercher";
             this.buttonRechercher.Size = new System.Drawing.Size(141, 21);
             this.buttonRechercher.TabIndex = 25;
@@ -79,7 +80,7 @@
             // 
             // buttonSupprimer
             // 
-            this.buttonSupprimer.Location = new System.Drawing.Point(492, 139);
+            this.buttonSupprimer.Location = new System.Drawing.Point(506, 129);
             this.buttonSupprimer.Name = "buttonSupprimer";
             this.buttonSupprimer.Size = new System.Drawing.Size(141, 23);
             this.buttonSupprimer.TabIndex = 24;
@@ -88,7 +89,7 @@
             // 
             // buttonModifier
             // 
-            this.buttonModifier.Location = new System.Drawing.Point(492, 110);
+            this.buttonModifier.Location = new System.Drawing.Point(506, 100);
             this.buttonModifier.Name = "buttonModifier";
             this.buttonModifier.Size = new System.Drawing.Size(141, 23);
             this.buttonModifier.TabIndex = 23;
@@ -97,30 +98,31 @@
             // 
             // buttonAjouter
             // 
-            this.buttonAjouter.Location = new System.Drawing.Point(492, 79);
+            this.buttonAjouter.Location = new System.Drawing.Point(506, 69);
             this.buttonAjouter.Name = "buttonAjouter";
             this.buttonAjouter.Size = new System.Drawing.Size(141, 25);
             this.buttonAjouter.TabIndex = 22;
             this.buttonAjouter.Text = "Ajouter";
             this.buttonAjouter.UseVisualStyleBackColor = true;
+            this.buttonAjouter.Click += new System.EventHandler(this.buttonAjouter_Click);
             // 
             // nom
             // 
-            this.nom.Location = new System.Drawing.Point(272, 90);
+            this.nom.Location = new System.Drawing.Point(286, 80);
             this.nom.Name = "nom";
             this.nom.Size = new System.Drawing.Size(162, 20);
             this.nom.TabIndex = 21;
             // 
             // prenom
             // 
-            this.prenom.Location = new System.Drawing.Point(272, 119);
+            this.prenom.Location = new System.Drawing.Point(286, 109);
             this.prenom.Name = "prenom";
             this.prenom.Size = new System.Drawing.Size(162, 20);
             this.prenom.TabIndex = 20;
             // 
             // code
             // 
-            this.code.Location = new System.Drawing.Point(272, 57);
+            this.code.Location = new System.Drawing.Point(286, 47);
             this.code.Name = "code";
             this.code.Size = new System.Drawing.Size(162, 20);
             this.code.TabIndex = 18;
@@ -128,7 +130,7 @@
             // filiereLabel
             // 
             this.filiereLabel.AutoSize = true;
-            this.filiereLabel.Location = new System.Drawing.Point(175, 153);
+            this.filiereLabel.Location = new System.Drawing.Point(189, 143);
             this.filiereLabel.Name = "filiereLabel";
             this.filiereLabel.Size = new System.Drawing.Size(34, 13);
             this.filiereLabel.TabIndex = 17;
@@ -137,7 +139,7 @@
             // prenomLabel
             // 
             this.prenomLabel.AutoSize = true;
-            this.prenomLabel.Location = new System.Drawing.Point(175, 122);
+            this.prenomLabel.Location = new System.Drawing.Point(189, 112);
             this.prenomLabel.Name = "prenomLabel";
             this.prenomLabel.Size = new System.Drawing.Size(54, 13);
             this.prenomLabel.TabIndex = 16;
@@ -146,7 +148,7 @@
             // nomLabel
             // 
             this.nomLabel.AutoSize = true;
-            this.nomLabel.Location = new System.Drawing.Point(175, 93);
+            this.nomLabel.Location = new System.Drawing.Point(189, 83);
             this.nomLabel.Name = "nomLabel";
             this.nomLabel.Size = new System.Drawing.Size(32, 13);
             this.nomLabel.TabIndex = 15;
@@ -155,7 +157,7 @@
             // codeLabel
             // 
             this.codeLabel.AutoSize = true;
-            this.codeLabel.Location = new System.Drawing.Point(175, 60);
+            this.codeLabel.Location = new System.Drawing.Point(189, 50);
             this.codeLabel.Name = "codeLabel";
             this.codeLabel.Size = new System.Drawing.Size(32, 13);
             this.codeLabel.TabIndex = 14;
@@ -164,7 +166,7 @@
             // filiere
             // 
             this.filiere.FormattingEnabled = true;
-            this.filiere.Location = new System.Drawing.Point(272, 150);
+            this.filiere.Location = new System.Drawing.Point(286, 140);
             this.filiere.Name = "filiere";
             this.filiere.Size = new System.Drawing.Size(162, 21);
             this.filiere.TabIndex = 28;
@@ -178,43 +180,15 @@
             this.ElevesPrenom,
             this.ElevesGroupe,
             this.TableCode_Fil});
-            this.ElevesTable.Location = new System.Drawing.Point(141, 240);
+            this.ElevesTable.Location = new System.Drawing.Point(136, 261);
             this.ElevesTable.Name = "ElevesTable";
-            this.ElevesTable.Size = new System.Drawing.Size(543, 150);
+            this.ElevesTable.Size = new System.Drawing.Size(594, 168);
             this.ElevesTable.TabIndex = 27;
-            // 
-            // ElevesID
-            // 
-            this.ElevesID.DataPropertyName = "TableCode";
-            this.ElevesID.HeaderText = "CodeElev";
-            this.ElevesID.Name = "ElevesID";
-            // 
-            // ElevesNom
-            // 
-            this.ElevesNom.DataPropertyName = "TableNom";
-            this.ElevesNom.HeaderText = "Nom";
-            this.ElevesNom.Name = "ElevesNom";
-            // 
-            // ElevesPrenom
-            // 
-            this.ElevesPrenom.DataPropertyName = "TablePrenom";
-            this.ElevesPrenom.HeaderText = "Prenom";
-            this.ElevesPrenom.Name = "ElevesPrenom";
-            // 
-            // ElevesGroupe
-            // 
-            this.ElevesGroupe.DataPropertyName = "TableNiveau";
-            this.ElevesGroupe.HeaderText = "Niveau";
-            this.ElevesGroupe.Name = "ElevesGroupe";
-            // 
-            // TableCode_Fil
-            // 
-            this.TableCode_Fil.HeaderText = "code_Fil";
-            this.TableCode_Fil.Name = "TableCode_Fil";
+            this.ElevesTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ElevesTable_CellContentClick);
             // 
             // buttonNouveau
             // 
-            this.buttonNouveau.Location = new System.Drawing.Point(492, 50);
+            this.buttonNouveau.Location = new System.Drawing.Point(506, 40);
             this.buttonNouveau.Name = "buttonNouveau";
             this.buttonNouveau.Size = new System.Drawing.Size(141, 23);
             this.buttonNouveau.TabIndex = 29;
@@ -225,7 +199,7 @@
             // niveau
             // 
             this.niveau.FormattingEnabled = true;
-            this.niveau.Location = new System.Drawing.Point(272, 185);
+            this.niveau.Location = new System.Drawing.Point(286, 175);
             this.niveau.Name = "niveau";
             this.niveau.Size = new System.Drawing.Size(162, 21);
             this.niveau.TabIndex = 31;
@@ -233,7 +207,7 @@
             // niveauLabel
             // 
             this.niveauLabel.AutoSize = true;
-            this.niveauLabel.Location = new System.Drawing.Point(175, 188);
+            this.niveauLabel.Location = new System.Drawing.Point(189, 178);
             this.niveauLabel.Name = "niveauLabel";
             this.niveauLabel.Size = new System.Drawing.Size(41, 13);
             this.niveauLabel.TabIndex = 30;
@@ -242,7 +216,7 @@
             // checkBoxCode
             // 
             this.checkBoxCode.AutoSize = true;
-            this.checkBoxCode.Location = new System.Drawing.Point(440, 60);
+            this.checkBoxCode.Location = new System.Drawing.Point(454, 50);
             this.checkBoxCode.Name = "checkBoxCode";
             this.checkBoxCode.Size = new System.Drawing.Size(15, 14);
             this.checkBoxCode.TabIndex = 32;
@@ -251,7 +225,7 @@
             // checkBoxNiveau
             // 
             this.checkBoxNiveau.AutoSize = true;
-            this.checkBoxNiveau.Location = new System.Drawing.Point(440, 187);
+            this.checkBoxNiveau.Location = new System.Drawing.Point(454, 177);
             this.checkBoxNiveau.Name = "checkBoxNiveau";
             this.checkBoxNiveau.Size = new System.Drawing.Size(15, 14);
             this.checkBoxNiveau.TabIndex = 33;
@@ -260,7 +234,7 @@
             // checkBoxFiliere
             // 
             this.checkBoxFiliere.AutoSize = true;
-            this.checkBoxFiliere.Location = new System.Drawing.Point(440, 153);
+            this.checkBoxFiliere.Location = new System.Drawing.Point(454, 143);
             this.checkBoxFiliere.Name = "checkBoxFiliere";
             this.checkBoxFiliere.Size = new System.Drawing.Size(15, 14);
             this.checkBoxFiliere.TabIndex = 34;
@@ -269,7 +243,7 @@
             // checkBoxPrenom
             // 
             this.checkBoxPrenom.AutoSize = true;
-            this.checkBoxPrenom.Location = new System.Drawing.Point(440, 122);
+            this.checkBoxPrenom.Location = new System.Drawing.Point(454, 112);
             this.checkBoxPrenom.Name = "checkBoxPrenom";
             this.checkBoxPrenom.Size = new System.Drawing.Size(15, 14);
             this.checkBoxPrenom.TabIndex = 35;
@@ -278,18 +252,61 @@
             // checkBoxNom
             // 
             this.checkBoxNom.AutoSize = true;
-            this.checkBoxNom.Location = new System.Drawing.Point(440, 93);
+            this.checkBoxNom.Location = new System.Drawing.Point(454, 83);
             this.checkBoxNom.Name = "checkBoxNom";
             this.checkBoxNom.Size = new System.Drawing.Size(15, 14);
             this.checkBoxNom.TabIndex = 36;
             this.checkBoxNom.UseVisualStyleBackColor = true;
             // 
+            // message
+            // 
+            this.message.AutoSize = true;
+            this.message.Location = new System.Drawing.Point(354, 227);
+            this.message.Name = "message";
+            this.message.Size = new System.Drawing.Size(0, 13);
+            this.message.TabIndex = 37;
+            // 
+            // ElevesID
+            // 
+            this.ElevesID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ElevesID.DataPropertyName = "TableCode";
+            this.ElevesID.HeaderText = "CodeElev";
+            this.ElevesID.Name = "ElevesID";
+            // 
+            // ElevesNom
+            // 
+            this.ElevesNom.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ElevesNom.DataPropertyName = "TableNom";
+            this.ElevesNom.HeaderText = "Nom";
+            this.ElevesNom.Name = "ElevesNom";
+            // 
+            // ElevesPrenom
+            // 
+            this.ElevesPrenom.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ElevesPrenom.DataPropertyName = "TablePrenom";
+            this.ElevesPrenom.HeaderText = "Prenom";
+            this.ElevesPrenom.Name = "ElevesPrenom";
+            // 
+            // ElevesGroupe
+            // 
+            this.ElevesGroupe.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ElevesGroupe.DataPropertyName = "TableNiveau";
+            this.ElevesGroupe.HeaderText = "Niveau";
+            this.ElevesGroupe.Name = "ElevesGroupe";
+            // 
+            // TableCode_Fil
+            // 
+            this.TableCode_Fil.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TableCode_Fil.HeaderText = "code_Fil";
+            this.TableCode_Fil.Name = "TableCode_Fil";
+            // 
             // GestionEleves
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(807, 448);
+            this.ClientSize = new System.Drawing.Size(917, 499);
             this.ControlBox = false;
+            this.Controls.Add(this.message);
             this.Controls.Add(this.checkBoxNom);
             this.Controls.Add(this.checkBoxPrenom);
             this.Controls.Add(this.checkBoxFiliere);
@@ -345,6 +362,7 @@
         private System.Windows.Forms.CheckBox checkBoxFiliere;
         private System.Windows.Forms.CheckBox checkBoxPrenom;
         private System.Windows.Forms.CheckBox checkBoxNom;
+        private System.Windows.Forms.Label message;
         private System.Windows.Forms.DataGridViewTextBoxColumn ElevesID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ElevesNom;
         private System.Windows.Forms.DataGridViewTextBoxColumn ElevesPrenom;

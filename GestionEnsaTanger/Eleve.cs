@@ -45,11 +45,11 @@ namespace GestionEnsaTanger
             }
         }
 
-        public Boolean Ajouter(string code, string nom, string pernom, string niveau, string code_Fil)
+        public Boolean Ajouter(string code, string nom, string prenom, string niveau, string code_Fil)
         {
             Code = code;
             Nom = nom;
-            Prenom = pernom;
+            Prenom = prenom;
             Niveau = niveau;
             Code_fil = code_Fil;
             int i = save();
@@ -59,7 +59,7 @@ namespace GestionEnsaTanger
         }
 
         // can't modify the code
-        public Boolean Modifier(string code, string nom, string pernom, string niveau, string code_Fil)
+        public Boolean Modifier(string code, string nom, string prenom, string niveau, string code_Fil)
         {
             Eleve e = new Eleve
             {
@@ -71,7 +71,7 @@ namespace GestionEnsaTanger
                 id = ((Eleve)eleve[0]).id;
                 Code = code;
                 Nom = nom;
-                Prenom = pernom;
+                Prenom = prenom;
                 Niveau = niveau;
                 Code_fil = code_Fil;
             }
@@ -92,15 +92,15 @@ namespace GestionEnsaTanger
                 id = ((Eleve)eleve[0]).id;
             }
             int i = delete();
-            if (i != 0 && i != -2)
+            if (i != 0 && i != -1)
                 return true;
             return false;
         }
 
         // remplissage des attributes ce fait dans GestionEleve
-        public List<Eleve> Rechercher()
+        public List<object> Rechercher()
         {
-            List<Eleve> eleves = new List<Eleve>();
+            List<object> eleves = new List<object>();
             Dictionary<string, object> dico = ObjectToDictionary<object>(this);
             List<object> data = Select(dico);
             foreach (var item in data)
@@ -119,7 +119,7 @@ namespace GestionEnsaTanger
         }
         public override string ToString()
         {
-            return base.ToString()+" nom: "+Nom+" code: "+Code+" Filiere : "+Code_fil;
+            return base.ToString()+" nom: "+Nom+" prenom: " +Prenom+" code: " +Code+" Filiere : "+Code_fil+ " Niveau : " + Niveau;
         }
     }
 }

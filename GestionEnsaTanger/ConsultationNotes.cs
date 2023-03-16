@@ -107,10 +107,13 @@ namespace GestionEnsaTanger
                     "FROM Notes n INNER JOIN Eleve e1 ON n.code_eleve = e1.code " +
                     "WHERE n.code_mat = 'GINF111';";
 
-                IDataReader rd = Connexion.Select(req);
-                DataTable dt = new DataTable();
-                dt.Load(rd);
-                Notes_Eleves.DataSource = dt;
+                IDataReader reader = Connexion.Select(req);
+                while (reader.Read())
+                {
+                    for (int i = 0; i < reader.FieldCount; i++)
+                         reader.GetValue(i);
+                }
+                reader.Close();
             }
         }
     }

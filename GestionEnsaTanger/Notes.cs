@@ -11,14 +11,10 @@ namespace GestionEnsaTanger
     {
         private string Code_eleve;
         private string Code_mat;
-        private float Note;
+        private Double Note;
 
-        public Notes(string ce,string cm, float n)
-        {
-            Code_eleve = ce;
-            Code_mat = cm;
-            Note = n;
-        }
+        public Notes() { }
+        
 
         public string code_eleve
         {
@@ -32,7 +28,7 @@ namespace GestionEnsaTanger
             set { Code_mat = value; }
         }
 
-        public float note
+        public Double note
         {
             get { return Note; }
             set { Note = value; }

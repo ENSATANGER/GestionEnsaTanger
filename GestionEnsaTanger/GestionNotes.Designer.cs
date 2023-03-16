@@ -32,7 +32,6 @@
             this.l_matiere = new System.Windows.Forms.Label();
             this.l_Note = new System.Windows.Forms.Label();
             this.t_CodeEleve = new System.Windows.Forms.TextBox();
-            this.t_Note = new System.Windows.Forms.TextBox();
             this.b_Nouveau = new System.Windows.Forms.Button();
             this.b_Ajouter = new System.Windows.Forms.Button();
             this.b_Modifier = new System.Windows.Forms.Button();
@@ -40,6 +39,9 @@
             this.b_Rechercher = new System.Windows.Forms.Button();
             this.c_Matiere = new System.Windows.Forms.ComboBox();
             this.error = new System.Windows.Forms.Label();
+            this.t_Note = new System.Windows.Forms.TextBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.succes = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // l_CodeEleve
@@ -77,13 +79,6 @@
             this.t_CodeEleve.Size = new System.Drawing.Size(121, 20);
             this.t_CodeEleve.TabIndex = 3;
             // 
-            // t_Note
-            // 
-            this.t_Note.Location = new System.Drawing.Point(187, 135);
-            this.t_Note.Name = "t_Note";
-            this.t_Note.Size = new System.Drawing.Size(121, 20);
-            this.t_Note.TabIndex = 4;
-            // 
             // b_Nouveau
             // 
             this.b_Nouveau.Location = new System.Drawing.Point(442, 47);
@@ -92,6 +87,7 @@
             this.b_Nouveau.TabIndex = 6;
             this.b_Nouveau.Text = "Nouveau";
             this.b_Nouveau.UseVisualStyleBackColor = true;
+            this.b_Nouveau.Click += new System.EventHandler(this.b_Nouveau_Click);
             // 
             // b_Ajouter
             // 
@@ -111,6 +107,7 @@
             this.b_Modifier.TabIndex = 8;
             this.b_Modifier.Text = "Modifier";
             this.b_Modifier.UseVisualStyleBackColor = true;
+            this.b_Modifier.Click += new System.EventHandler(this.b_Modifier_Click);
             // 
             // b_Supprimer
             // 
@@ -147,6 +144,22 @@
             this.error.Size = new System.Drawing.Size(0, 13);
             this.error.TabIndex = 12;
             // 
+            // t_Note
+            // 
+            this.t_Note.Location = new System.Drawing.Point(187, 135);
+            this.t_Note.Name = "t_Note";
+            this.t_Note.Size = new System.Drawing.Size(121, 20);
+            this.t_Note.TabIndex = 4;
+            // 
+            // succes
+            // 
+            this.succes.AutoSize = true;
+            this.succes.ForeColor = System.Drawing.Color.Green;
+            this.succes.Location = new System.Drawing.Point(93, 313);
+            this.succes.Name = "succes";
+            this.succes.Size = new System.Drawing.Size(0, 13);
+            this.succes.TabIndex = 13;
+            // 
             // GestionNotes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -154,6 +167,7 @@
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
+            this.Controls.Add(this.succes);
             this.Controls.Add(this.error);
             this.Controls.Add(this.c_Matiere);
             this.Controls.Add(this.b_Rechercher);
@@ -181,7 +195,6 @@
         private System.Windows.Forms.Label l_matiere;
         private System.Windows.Forms.Label l_Note;
         private System.Windows.Forms.TextBox t_CodeEleve;
-        private System.Windows.Forms.TextBox t_Note;
         private System.Windows.Forms.Button b_Nouveau;
         private System.Windows.Forms.Button b_Ajouter;
         private System.Windows.Forms.Button b_Modifier;
@@ -189,5 +202,8 @@
         private System.Windows.Forms.Button b_Rechercher;
         private System.Windows.Forms.ComboBox c_Matiere;
         private System.Windows.Forms.Label error;
+        private System.Windows.Forms.TextBox t_Note;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Label succes;
     }
 }

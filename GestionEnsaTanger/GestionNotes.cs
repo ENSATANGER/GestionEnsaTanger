@@ -3,15 +3,22 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DB;
 
 namespace GestionEnsaTanger
 {
     public partial class GestionNotes : Form
     {
+        private static Eleve eleve = new Eleve();
+        private static Module m = new Module();
+        private static Matiere matiere = new Matiere();
+        private static List<object> listM;
+        private static List<object> list;
         public GestionNotes()
         {
             InitializeComponent();
@@ -19,19 +26,89 @@ namespace GestionEnsaTanger
 
         private void b_Ajouter_Click(object sender, EventArgs e)
         {
-            //Notes note = new Notes(t_CodeEleve.Text, t_Matiere.Text, (float)Double.Parse(t_Note.Text));
-            //note.save();
+            if (list.Count != 0)
+            {
+
+                Dictionary<string, object> map = new Dictionary<string, object>();
+                Notes n = new Notes();
+                n.code_eleve = eleve.code;
+                foreach (object obj in listM)
+                {
+                    matiere = (Matiere)obj;
+                    if (matiere.designation == c_Matiere.SelectedItem.ToString())
+                    {
+                        n.code_mat = matiere.code;
+                    }
+
+                }
+                map.Add("code_eleve", n.code_eleve);
+                map.Add("code_mat", n.code_mat);
+                List<object> l = n.Select(map);
+                if (l.Count == 0)
+                {
+                    DB.Connexion.Connect();
+                    Connexion.Cmd.Connection = Connexion.Con;
+                    Connexion.Cmd.CommandText = "Ajouter";
+                    Connexion.Cmd.CommandType = CommandType.StoredProcedure;
+                    var code_eleve = Connexion.Cmd.CreateParameter();
+                    code_eleve.ParameterName = "@code_eleve";
+                    code_eleve.Value = eleve.code;
+                    Connexion.Cmd.Parameters.Add(code_eleve);
+                    var code_mat = Connexion.Cmd.CreateParameter();
+                    code_mat.ParameterName = "@code_mat";
+                    foreach (object obj in listM)
+                    {
+                        matiere = (Matiere)obj;
+                        if (matiere.designation == c_Matiere.SelectedItem.ToString())
+                        {
+                            code_mat.Value = matiere.code;
+                            Connexion.Cmd.Parameters.Add(code_mat);
+                        }
+
+                    }
+                    var note = Connexion.Cmd.CreateParameter();
+                    note.ParameterName = "@note";
+                    if (float.Parse(t_Note.Text.ToString(), CultureInfo.InvariantCulture.NumberFormat) <= 20 && float.Parse(t_Note.Text.ToString(), CultureInfo.InvariantCulture.NumberFormat) >= 0)
+                    {
+                        note.Value = float.Parse(t_Note.Text.ToString(), CultureInfo.InvariantCulture.NumberFormat);
+                        Connexion.Cmd.Parameters.Add(note);
+                        //succes.Text = Connexion.Cmd.CommandText.ToString();
+                        if (Connexion.Cmd.ExecuteNonQuery() == 1)
+                        {
+                            succes.Text = "Note Ajouter!";
+                            error.Text = string.Empty;
+                            Connexion.Con.Close();
+                        }
+                    }
+
+                    else
+                    {
+                        error.Text = "Note invalide!";
+                        succes.Text = string.Empty;
+                        Connexion.Con.Close();
+                    }
+                }
+                else
+                {
+                    error.Text = "Note existante!";
+                    succes.Text = string.Empty;
+                    Connexion.Con.Close();
+                }
+
+            }
+            else
+                error.Text = "Aucun etudiant ne correspond a ce code!";
         }
 
         private void GestionNotes_Load(object sender, EventArgs e)
         {
 
             t_CodeEleve.Text = GestionEleves.code_eleve;
-            Eleve eleve = new Eleve();
+
             eleve.code = GestionEleves.code_eleve;
             Dictionary<string, object> map = new Dictionary<string, object>();
             map.Add("code", eleve.code);
-            List<object> list = eleve.Select(map);
+            list = eleve.Select(map);
             if (list.Count == 0)
             {
                 error.Text = "erreur! Aucun eleve ne correspond a ce code";
@@ -42,15 +119,15 @@ namespace GestionEnsaTanger
                 map.Clear();
                 map.Add("code_fil", eleve.code_fil);
                 map.Add("niveau", eleve.niveau);
-                Module m = new Module();
-                List<object> list2 = m.Select(map);
-                m = (Module)list2.First();
+
+                listM = m.Select(map);
+                m = (Module)listM.First();
                 map.Clear();
                 map.Add("code_module", m.code);
-                Matiere matiere = new Matiere();
-                list2.Clear();
-                list2 = matiere.Select(map);
-                foreach (object obj in list2)
+
+                listM.Clear();
+                listM = matiere.Select(map);
+                foreach (object obj in listM)
                 {
                     matiere = (Matiere)obj;
                     c_Matiere.Items.Add(matiere.designation);
@@ -60,6 +137,87 @@ namespace GestionEnsaTanger
 
         }
 
-        
+        private void b_Nouveau_Click(object sender, EventArgs e)
+        {
+            t_Note.Text = string.Empty;
+            c_Matiere.Text = string.Empty;
+        }
+
+        private void b_Modifier_Click(object sender, EventArgs e)
+        {
+            if (list.Count != 0)
+            {
+
+                Dictionary<string, object> map = new Dictionary<string, object>();
+                Notes n = new Notes();
+                n.code_eleve = eleve.code;
+                foreach (object obj in listM)
+                {
+                    matiere = (Matiere)obj;
+                    if (matiere.designation == c_Matiere.SelectedItem.ToString())
+                    {
+                        n.code_mat = matiere.code;
+                    }
+
+                }
+                map.Add("code_eleve", n.code_eleve);
+                map.Add("code_mat", n.code_mat);
+                List<object> l = n.Select(map);
+                if (l.Count == 1)
+                {
+                    DB.Connexion.Connect();
+                    Connexion.Cmd.Connection = Connexion.Con;
+                    Connexion.Cmd.CommandText = "Modifier";
+                    Connexion.Cmd.CommandType = CommandType.StoredProcedure;
+                    var code_eleve = Connexion.Cmd.CreateParameter();
+                    code_eleve.ParameterName = "@code_eleve";
+                    code_eleve.Value = eleve.code;
+                    Connexion.Cmd.Parameters.Add(code_eleve);
+                    var code_mat = Connexion.Cmd.CreateParameter();
+                    code_mat.ParameterName = "@code_mat";
+                    foreach (object obj in listM)
+                    {
+                        matiere = (Matiere)obj;
+                        if (matiere.designation == c_Matiere.SelectedItem.ToString())
+                        {
+                            code_mat.Value = matiere.code;
+                            Connexion.Cmd.Parameters.Add(code_mat);
+                        }
+
+                    }
+                    var note = Connexion.Cmd.CreateParameter();
+                    note.ParameterName = "@note";
+                    if (float.Parse(t_Note.Text.ToString(), CultureInfo.InvariantCulture.NumberFormat) <= 20 && float.Parse(t_Note.Text.ToString(), CultureInfo.InvariantCulture.NumberFormat) >= 0)
+                    {
+                        note.Value = float.Parse(t_Note.Text.ToString(), CultureInfo.InvariantCulture.NumberFormat);
+                        Connexion.Cmd.Parameters.Add(note);
+                        //succes.Text = Connexion.Cmd.CommandText.ToString();
+                        if (Connexion.Cmd.ExecuteNonQuery() == 1)
+                        {
+                            succes.Text = "Note Modifier!";
+                            error.Text = string.Empty;
+                            Connexion.Con.Close();
+                        }
+                    }
+
+                    else
+                    {
+                        error.Text = "Note invalide!";
+                        succes.Text = string.Empty;
+                        Connexion.Con.Close();
+                    }
+                }
+                else
+                {
+                    error.Text = "Note inexistante!";
+                    succes.Text = string.Empty;
+                    Connexion.Con.Close();
+                }
+
+            }
+            else
+                error.Text = "Aucun etudiant ne correspond a ce code!";
+        }
     }
+    
 }

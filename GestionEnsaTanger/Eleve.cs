@@ -98,9 +98,9 @@ namespace GestionEnsaTanger
         }
 
         // remplissage des attributes ce fait dans GestionEleve
-        public List<Eleve> Rechercher()
+        public List<object> Rechercher()
         {
-            List<Eleve> eleves = new List<Eleve>();
+            List<object> eleves = new List<object>();
             Dictionary<string, object> dico = ObjectToDictionary<object>(this);
             List<object> data = Select(dico);
             foreach (var item in data)
@@ -119,7 +119,7 @@ namespace GestionEnsaTanger
         }
         public override string ToString()
         {
-            return base.ToString()+" nom: "+Nom+" code: "+Code+" Filiere : "+Code_fil;
+            return base.ToString()+" nom: "+Nom+" prenom: " +Prenom+" code: " +Code+" Filiere : "+Code_fil+ " Niveau : " + Niveau;
         }
     }
 }

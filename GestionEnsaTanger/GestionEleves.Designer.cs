@@ -77,6 +77,7 @@
             this.buttonRechercher.TabIndex = 25;
             this.buttonRechercher.Text = "Rechercher";
             this.buttonRechercher.UseVisualStyleBackColor = true;
+            this.buttonRechercher.Click += new System.EventHandler(this.buttonRechercher_Click);
             // 
             // buttonSupprimer
             // 
@@ -167,11 +168,13 @@
             // 
             // filiere
             // 
+            this.filiere.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.filiere.FormattingEnabled = true;
             this.filiere.Location = new System.Drawing.Point(286, 140);
             this.filiere.Name = "filiere";
             this.filiere.Size = new System.Drawing.Size(162, 21);
             this.filiere.TabIndex = 28;
+            this.filiere.SelectedIndexChanged += new System.EventHandler(this.filiere_SelectedIndexChanged);
             // 
             // ElevesTable
             // 
@@ -239,6 +242,7 @@
             // 
             // niveau
             // 
+            this.niveau.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.niveau.FormattingEnabled = true;
             this.niveau.Location = new System.Drawing.Point(286, 175);
             this.niveau.Name = "niveau";

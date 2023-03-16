@@ -9,8 +9,9 @@ namespace GestionEnsaTanger
 {
     class Matiere : DB.Model
     {
-        private string Code, Designation, Code_module;
-        private float vh;
+        private string Code, Designation;
+        private double vh;
+        private string Code_module;
 
         public string code
         {
@@ -22,7 +23,7 @@ namespace GestionEnsaTanger
             get { return Designation; }
             set { Designation = value; }
         }
-        public float VH
+        public double VH
         {
             get { return vh; }
             set { vh = value; }
@@ -52,12 +53,21 @@ namespace GestionEnsaTanger
         //working fine
         public void Create()
         {
-            Console.WriteLine("test");
             int i = save();
-            Console.WriteLine(i);
             if (i == -2) MessageBox.Show("EXCEPTION");
             if (i == -1) MessageBox.Show("ERROR");
             if (i == 0) MessageBox.Show("Created Successfully");
+        }
+        public List<Matiere> Read()
+        {
+            List<Matiere> matieres = new List<Matiere>();
+            Dictionary<string, object> dict = ObjectToDictionary<object>(this);
+            List<object> data = Select(dict);
+            foreach (var item in data)
+            {
+                matieres.Add((Matiere)item);
+            }
+            return matieres;
         }
         public void Update(string code, string designation, float vH, string codeModule)
         {
@@ -80,6 +90,7 @@ namespace GestionEnsaTanger
             if (i == -1) MessageBox.Show("ERROR");
             if (i == -2) MessageBox.Show("EXCEPTION");
         }
+
         public void Delete(string code)
         {
 
@@ -87,6 +98,7 @@ namespace GestionEnsaTanger
             {
                 Code = code
             };
+
             List<object> matiere = Select(ObjectToDictionary<object>(m));
             if (matiere.Count > 0)
             {

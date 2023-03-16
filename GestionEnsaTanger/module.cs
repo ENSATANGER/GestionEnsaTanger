@@ -97,22 +97,15 @@ namespace GestionEnsaTanger
 
         //
         //reads a list of modules
-        public static List<Module> Read()
+        public List<Module> Read()
         {
             List<Module> modules = new List<Module>();
-            string req = "SELECT * FROM Module";
-            IDataReader reader = Connexion.Select(req);
-            while (reader.Read())
+            Dictionary<string, object> dict =  ObjectToDictionary<object>(this);
+            List<object> data = Select(dict);
+            foreach(var item in data)
             {
-                Module module = new Module();
-                module.Code = reader.GetString(1);
-                module.Designation = reader.GetString(2);
-                module.Niveau = reader.GetString(3);
-                module.Semestre = reader.GetString(4);
-                module.Code_fil = reader.GetString(5);
-                modules.Add(module);
+                modules.Add((Module)item);
             }
-            reader.Close();
             return modules;
         }
 

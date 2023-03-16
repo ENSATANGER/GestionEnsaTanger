@@ -15,32 +15,39 @@ namespace GestionEnsaTanger
         
         public string code
         {
-            get { return code; }
-            set { code = value; }
+            get { return Code; }
+            set { Code = value; }
         }
 
         public string designation
         {
-            get { return designation; }
-            set { designation = value; }
+            get { return Designation; }
+            set { Designation = value; }
         }
 
         public string niveau
         {
-            get { return niveau; }
-            set { niveau = value; }
+            get { return Niveau; }
+            set { Niveau = value; }
         }
 
         public string semestre
         {
-            get { return semestre;}
-            set { semestre = value; }
+            get { return Semestre;}
+            set { Semestre = value; }
         }
 
         public string code_fil
         {
-            get { return code_fil; }
-            set { code_fil = value; }
+            get { return Code_fil; }
+            set { Code_fil = value; }
+        }
+
+        public override string ToString()
+        {
+            return base.ToString() + "code: " + code + " code_fil: " + code_fil;
         }
     }
+
+    
 }

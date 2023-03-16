@@ -38,5 +38,10 @@ namespace GestionEnsaTanger
             filiere.Text = "";
             niveau.Text = "";
         }
+
+        private void GestionEleves_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

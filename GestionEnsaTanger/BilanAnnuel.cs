@@ -19,6 +19,17 @@ namespace GestionEnsaTanger
 
         private void filiere_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Clear any existing items in the ComboBox
+            filiere.Items.Clear();
+            Filiere fil = new Filiere();
+            // Retrieve all Filiere objects from the database
+            List<dynamic> filieres = fil.All();
+
+            // Add the code of each Filiere object to the ComboBox
+            foreach (Filiere f in filieres)
+            {
+                filiere.Items.Add(f.code);
+            }
 
         }
 

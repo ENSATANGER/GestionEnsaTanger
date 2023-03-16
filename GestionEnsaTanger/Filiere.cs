@@ -7,22 +7,27 @@ using DB;
 
 namespace GestionEnsaTanger
 {
-    
-        public class Filiere : Model
-        {
-            string code;
-            string designation;
-            public Filiere(string code, string designation)
-            {
-                id = 0;
-                this.code = code;
-                this.designation = designation;
-            }
+    internal class Filiere : Model
+    {
+        string Code;
+        string designation;
 
-            public override string ToString()
-            {
-                return "ID: " + id + " Code: " + code + " Designation: " + designation;
-            }
+        public string code {
+            get { return Code; } 
+            set { Code = value; } 
+        }
+
+        public Filiere() { }
+        public Filiere(string code, string designation)
+        {
+            id = 0;
+            this.code = code;
+            this.designation = designation;
+        }
+
+        public override string ToString()
+        {
+            return "ID: " + id + " Code: " + code + " Designation: " + designation;
         }
     }
-
+}

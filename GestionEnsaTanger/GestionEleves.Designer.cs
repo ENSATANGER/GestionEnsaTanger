@@ -316,6 +316,7 @@
             this.MaximizeBox = false;
             this.Name = "GestionEleves";
             this.Text = "GestionEleves";
+            this.Load += new System.EventHandler(this.GestionEleves_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ElevesTable)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

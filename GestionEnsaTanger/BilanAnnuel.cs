@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DB;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -31,6 +32,9 @@ namespace GestionEnsaTanger
                 filiere.Items.Add(f.code);
             }
 
+            // Clear any existing items in the ComboBox
+            filiere.Items.Clear();
+            List<dynamic> l = Model.All();
         }
 
         private void niveau_SelectedIndexChanged(object sender, EventArgs e)

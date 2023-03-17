@@ -36,17 +36,18 @@
             this.MatiereLabel = new System.Windows.Forms.Label();
             this.Rechercher = new System.Windows.Forms.Button();
             this.Notes_Eleves = new System.Windows.Forms.DataGridView();
-            this.Moyenne_classe = new System.Windows.Forms.Label();
-            this.Moyenne = new System.Windows.Forms.TextBox();
             this.code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Prenom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.note = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Moyenne_classe = new System.Windows.Forms.Label();
+            this.Moyenne = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.Notes_Eleves)).BeginInit();
             this.SuspendLayout();
             // 
             // FiliereBox
             // 
+            this.FiliereBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.FiliereBox.FormattingEnabled = true;
             this.FiliereBox.Location = new System.Drawing.Point(130, 38);
             this.FiliereBox.Name = "FiliereBox";
@@ -56,6 +57,7 @@
             // 
             // NiveauBox
             // 
+            this.NiveauBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.NiveauBox.FormattingEnabled = true;
             this.NiveauBox.Location = new System.Drawing.Point(557, 38);
             this.NiveauBox.Name = "NiveauBox";
@@ -65,6 +67,7 @@
             // 
             // MatiereBox
             // 
+            this.MatiereBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.MatiereBox.FormattingEnabled = true;
             this.MatiereBox.Location = new System.Drawing.Point(130, 87);
             this.MatiereBox.Name = "MatiereBox";
@@ -126,24 +129,6 @@
             this.Notes_Eleves.Size = new System.Drawing.Size(682, 239);
             this.Notes_Eleves.TabIndex = 9;
             // 
-            // Moyenne_classe
-            // 
-            this.Moyenne_classe.AutoSize = true;
-            this.Moyenne_classe.Location = new System.Drawing.Point(56, 409);
-            this.Moyenne_classe.Name = "Moyenne_classe";
-            this.Moyenne_classe.Size = new System.Drawing.Size(161, 20);
-            this.Moyenne_classe.TabIndex = 6;
-            this.Moyenne_classe.Text = "Moyenne de la classe";
-            // 
-            // Moyenne
-            // 
-            this.Moyenne.Location = new System.Drawing.Point(233, 403);
-            this.Moyenne.Name = "Moyenne";
-            this.Moyenne.ReadOnly = true;
-            this.Moyenne.Size = new System.Drawing.Size(243, 26);
-            this.Moyenne.TabIndex = 10;
-            this.Moyenne.TextChanged += new System.EventHandler(this.Moyenne_TextChanged);
-            // 
             // code
             // 
             this.code.DataPropertyName = "string";
@@ -183,6 +168,24 @@
             this.note.Name = "note";
             this.note.ReadOnly = true;
             this.note.Width = 120;
+            // 
+            // Moyenne_classe
+            // 
+            this.Moyenne_classe.AutoSize = true;
+            this.Moyenne_classe.Location = new System.Drawing.Point(56, 409);
+            this.Moyenne_classe.Name = "Moyenne_classe";
+            this.Moyenne_classe.Size = new System.Drawing.Size(161, 20);
+            this.Moyenne_classe.TabIndex = 6;
+            this.Moyenne_classe.Text = "Moyenne de la classe";
+            // 
+            // Moyenne
+            // 
+            this.Moyenne.Location = new System.Drawing.Point(233, 403);
+            this.Moyenne.Name = "Moyenne";
+            this.Moyenne.ReadOnly = true;
+            this.Moyenne.Size = new System.Drawing.Size(243, 26);
+            this.Moyenne.TabIndex = 10;
+            this.Moyenne.TextChanged += new System.EventHandler(this.Moyenne_TextChanged);
             // 
             // ConsultationNotes
             // 

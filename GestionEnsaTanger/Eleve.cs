@@ -8,16 +8,15 @@ using DB;
 
 namespace GestionEnsaTanger
 {
-    class Eleve : DB.Model
+    class Eleve : Model
     {
-        /*private string code, nom, prenom, niveau, code_Fil;*/
-        private string Code, Nom, Prenom, Niveau, Code_Fil;
+        private string Code, Nom, Prenom, Niveau, Code_fil;
         public Eleve() { }
 
         public string code
         {
             get { return Code; }
-            set {Code = value;}
+            set { Code = value; }
         }
         public string nom
         {
@@ -37,56 +36,78 @@ namespace GestionEnsaTanger
                 Niveau = value;
             }
         }
-        public string code_Fil
+        public string code_fil
         {
-            get { return Code_Fil; }
+            get { return Code_fil; }
             set
             {
-                Code_Fil = value;
+                Code_fil = value;
             }
         }
 
-        public Boolean Ajouter(string code, string nom, string pernom, string niveau, string code_Fil)
+        public Boolean Ajouter(string code, string nom, string prenom, string niveau, string code_Fil)
         {
             Code = code;
             Nom = nom;
-            Prenom = pernom;
+            Prenom = prenom;
             Niveau = niveau;
-            Code_Fil = code_Fil;
-            int i = save();
-            if (i != -1 && i !=-2)
-                return true;
-            return false;
-        }
-
-        public Boolean Modifier(string code, string nom, string pernom, string niveau, string code_Fil)
-        {
-
-            Code = code;
-            Nom = nom;
-            Prenom = pernom;
-            Niveau = niveau;
-            Code_Fil = code_Fil;
+            Code_fil = code_Fil;
             int i = save();
             if (i != -1 && i != -2)
                 return true;
             return false;
         }
-        public Boolean Supprimer()
+
+        // can't modify the code
+        public Boolean Modifier(string code, string nom, string prenom, string niveau, string code_Fil)
         {
-            if (delete() != 0)
+            Eleve e = new Eleve
+            {
+                Code = code
+            };
+            List<object> eleve = Select(ObjectToDictionary<object>(e));
+            if (eleve.Count > 0)
+            {
+                id = ((Eleve)eleve[0]).id;
+                Code = code;
+                Nom = nom;
+                Prenom = prenom;
+                Niveau = niveau;
+                Code_fil = code_Fil;
+            }
+            int i = save();
+            if (i != -1 && i != -2)
                 return true;
             return false;
         }
-        public void Rechercher()
+        public Boolean Supprimer(string code)
         {
-            /*Initialize(find());*/
-            Dictionary<string, object> dico = ObjectToDictionary<object>(this);
-            List<object> eleves = Select(dico);
-            foreach (var item in eleves)
+            Eleve e = new Eleve
             {
-                Console.WriteLine(item.ToString());
+                Code = code
+            };
+            List<object> eleve = Select(ObjectToDictionary<object>(e));
+            if (eleve.Count > 0)
+            {
+                id = ((Eleve)eleve[0]).id;
             }
+            int i = delete();
+            if (i != 0 && i != -1)
+                return true;
+            return false;
+        }
+
+        // remplissage des attributes ce fait dans GestionEleve
+        public List<object> Rechercher()
+        {
+            List<object> eleves = new List<object>();
+            Dictionary<string, object> dico = ObjectToDictionary<object>(this);
+            List<object> data = Select(dico);
+            foreach (var item in data)
+            {
+                eleves.Add((Eleve)item);
+            }
+            return eleves;
         }
         private void Initialize(Eleve eleve)
         {
@@ -94,11 +115,11 @@ namespace GestionEnsaTanger
             Nom = eleve.Nom;
             Prenom = eleve.Prenom;
             Niveau = eleve.Niveau;
-            Code_Fil = eleve.Code_Fil;
+            Code_fil = eleve.Code_fil;
         }
         public override string ToString()
         {
-            return base.ToString()+" nom: "+Nom+" code: "+Code;
+            return base.ToString() + " nom: " + Nom + " prenom: " + Prenom + " code: " + Code + " Filiere : " + Code_fil + " Niveau : " + Niveau;
         }
     }
 }

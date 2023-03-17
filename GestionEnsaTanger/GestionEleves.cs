@@ -31,6 +31,7 @@ namespace GestionEnsaTanger
             code.Text = "";
             message.Text = "";
             ListFilieres();
+            RemplireElevesTable(ListEleves());
         }
         private void Niveau()
         {
@@ -109,9 +110,9 @@ namespace GestionEnsaTanger
             {
                 if ((new Eleve()).Ajouter(code.Text, prenom.Text, nom.Text, niveau.Text, filiere.Text))
                 {
-                    message.Text = "succès l'élève est bien inserer";
                     Initializer();
-                    ElevesTable.Refresh();
+                    message.Text = "succès l'élève "+code.Text+" est bien inserer";
+                    RemplireElevesTable(ListEleves());
                 }
                 else
                     message.Text = "erreur! code déja utilisé";
@@ -139,10 +140,10 @@ namespace GestionEnsaTanger
             }
             else
             {
-                if ((new Eleve()).Modifier(code.Text, prenom.Text, nom.Text, niveau.Text, filiere.Text))
+                if ((new Eleve()).Modifier(code.Text, nom.Text, prenom.Text, niveau.Text, filiere.Text))
                 {
-                    message.Text = "succès l'élève est bien modifié";
                     Initializer();
+                    message.Text = "succès l'élève "+code.Text+" est bien modifié";
                     RemplireElevesTable(ListEleves());
                 }
                 else
@@ -161,8 +162,8 @@ namespace GestionEnsaTanger
                 {
                     if ((new Eleve()).Supprimer(code.Text))
                     {
-                        message.Text = "succès l'élève est bien supprimé";
                         Initializer();
+                        message.Text = "succès l'élève "+code.Text+" est bien supprimé";
                         RemplireElevesTable(ListEleves());
                     }
                     else

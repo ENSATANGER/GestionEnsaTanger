@@ -4,14 +4,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DB;
 
 namespace GestionEnsaTanger
 {
     internal class Matiere : Model
     {
-        private string Code, Designation, Code_module;
-        private float VH;
+        string Code, Designation, Code_module;
+        Double vh;
 
+        public Matiere() { }
+        
         public string code
         {
             get { return Code; }
@@ -24,16 +27,21 @@ namespace GestionEnsaTanger
             set { Designation = value; }
         }
 
-        public float vh
-        {
-            get { return VH; }
-            set { VH = value; }
-        }
-
         public string code_module
         {
             get { return Code_module; }
             set { Code_module = value; }
+        }
+
+        public Double VH
+        {
+            get { return vh; }
+            set{ vh = value; }
+        }
+
+        public override string ToString()
+        {
+            return base.ToString() + "code: " + code;
         }
 
     }

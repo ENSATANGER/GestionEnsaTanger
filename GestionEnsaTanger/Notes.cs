@@ -1,20 +1,42 @@
-﻿using DB;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DB;
 
 namespace GestionEnsaTanger
 {
-    internal class Notes: Model
+    internal class Notes : Model
     {
-        public Notes() { }
-       /* public static List<Note> MatNiv(Dictionary<string, object> dict)
-        {
-            List<Note> list = new List<Note>();
+        private string Code_eleve;
+        private string Code_mat;
+        private Double Note;
 
-            return list;
-        }*/
+        public Notes() { }
+        
+
+        public string code_eleve
+        {
+            get { return Code_eleve; }
+            set { Code_eleve = value; }
+        }
+
+        public string code_mat
+        {
+            get { return Code_mat; }
+            set { Code_mat = value; }
+        }
+
+        public Double note
+        {
+            get { return Note; }
+            set { Note = value; }
+        }
+
+        public void Ajouter()
+        {
+             save();
+        }
     }
 }

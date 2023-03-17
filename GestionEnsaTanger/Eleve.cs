@@ -97,13 +97,28 @@ namespace GestionEnsaTanger
                 Notes n = new Notes();
                 n.code_eleve = ((Eleve)eleve[0]).code;
 
+                Moyennes m = new Moyennes();
+                m.code_eleve = ((Eleve)eleve[0]).code;
+
                 List<object> notes = n.Select(n.ObjectToDictionary<object>(n));
                 if (notes.Count > 0)
+                {
                     foreach(Notes note in notes)
                     {
                         note.id = ((Notes)notes[0]).id;
                         note.delete();
                     }
+                }
+
+                List<object> moyennes = m.Select(m.ObjectToDictionary<object>(m));
+                if (moyennes.Count > 0)
+                {
+                    foreach (Moyennes moy in moyennes)
+                    {
+                        moy.id = ((Notes)notes[0]).id;
+                        moy.delete();
+                    }
+                }
             }
             int i = delete();
             if (i != 0 && i != -1)

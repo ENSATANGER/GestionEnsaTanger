@@ -73,7 +73,7 @@
     <Compile Include="Notes.cs" />
     <Compile Include="Eleve.cs" />
     <Compile Include="Filiere.cs" />
-    <Compile Include="Moyenne.cs" />
+    <Compile Include="Moyennes.cs" />
     <Compile Include="Note.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

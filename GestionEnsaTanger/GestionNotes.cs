@@ -19,6 +19,7 @@ namespace GestionEnsaTanger
         private static Matiere matiere = new Matiere();
         private static List<object> listM;
         private static List<object> list;
+        private static List<object> listMatiere = new List<object>();
         public GestionNotes()
         {
             InitializeComponent();
@@ -32,7 +33,7 @@ namespace GestionEnsaTanger
                 Dictionary<string, object> map = new Dictionary<string, object>();
                 Notes n = new Notes();
                 n.code_eleve = eleve.code;
-                foreach (object obj in listM)
+                foreach (object obj in listMatiere)
                 {
                     matiere = (Matiere)obj;
                     if (matiere.designation == c_Matiere.SelectedItem.ToString())
@@ -56,7 +57,7 @@ namespace GestionEnsaTanger
                     Connexion.Cmd.Parameters.Add(code_eleve);
                     var code_mat = Connexion.Cmd.CreateParameter();
                     code_mat.ParameterName = "@code_mat";
-                    foreach (object obj in listM)
+                    foreach (object obj in listMatiere)
                     {
                         matiere = (Matiere)obj;
                         if (matiere.designation == c_Matiere.SelectedItem.ToString())
@@ -105,7 +106,7 @@ namespace GestionEnsaTanger
 
         private void RemplirListMatiere()
         {
-            foreach (object obj in listM)
+            foreach (object obj in listMatiere)
             {
                 matiere = (Matiere)obj;
                 c_Matiere.Items.Add(matiere.designation);
@@ -131,15 +132,22 @@ namespace GestionEnsaTanger
                 map.Clear();
                 map.Add("code_fil", eleve.code_fil);
                 map.Add("niveau", eleve.niveau);
-
                 listM = m.Select(map);
-                m = (Module)listM.First();
-                map.Clear();
-                map.Add("code_module", m.code);
-
-                listM.Clear();
-                listM = matiere.Select(map);
-                RemplirListMatiere();
+                List<object> listMat;
+                foreach (var item in listM)
+                {
+                    Module m = (Module)item;
+                    map.Clear();
+                    map.Add("code_module", m.code);
+                    listMat =  matiere.Select(map);
+                    foreach(dynamic mat in listMat)
+                    {
+                        matiere = (Matiere)mat;
+                        listMatiere.Add(matiere);
+                        c_Matiere.Items.Add(mat.designation);
+                    }
+                }
+                //RemplirListMatiere();
             }
 
 
@@ -162,7 +170,7 @@ namespace GestionEnsaTanger
                 Dictionary<string, object> map = new Dictionary<string, object>();
                 Notes n = new Notes();
                 n.code_eleve = eleve.code;
-                foreach (object obj in listM)
+                foreach (object obj in listMatiere)
                 {
                     matiere = (Matiere)obj;
                     if (matiere.designation == c_Matiere.SelectedItem.ToString())
@@ -186,7 +194,7 @@ namespace GestionEnsaTanger
                     Connexion.Cmd.Parameters.Add(code_eleve);
                     var code_mat = Connexion.Cmd.CreateParameter();
                     code_mat.ParameterName = "@code_mat";
-                    foreach (object obj in listM)
+                    foreach (object obj in listMatiere)
                     {
                         matiere = (Matiere)obj;
                         if (matiere.designation == c_Matiere.SelectedItem.ToString())
@@ -240,7 +248,7 @@ namespace GestionEnsaTanger
                 Dictionary<string, object> map = new Dictionary<string, object>();
                 Notes n = new Notes();
                 n.code_eleve = eleve.code;
-                foreach (object obj in listM)
+                foreach (object obj in listMatiere)
                 {
                     matiere = (Matiere)obj;
                     if (matiere.designation == c_Matiere.SelectedItem.ToString())
@@ -267,7 +275,7 @@ namespace GestionEnsaTanger
                         Connexion.Cmd.Parameters.Add(code_eleve);
                         var code_mat = Connexion.Cmd.CreateParameter();
                         code_mat.ParameterName = "@code_mat";
-                        foreach (object obj in listM)
+                        foreach (object obj in listMatiere)
                         {
                             matiere = (Matiere)obj;
                             if (matiere.designation == c_Matiere.SelectedItem.ToString())
@@ -308,7 +316,7 @@ namespace GestionEnsaTanger
                 Dictionary<string, object> map = new Dictionary<string, object>();
                 Notes n = new Notes();
                 n.code_eleve = eleve.code;
-                foreach (object obj in listM)
+                foreach (object obj in listMatiere)
                 {
                     matiere = (Matiere)obj;
                     if (matiere.designation == c_Matiere.SelectedItem.ToString())

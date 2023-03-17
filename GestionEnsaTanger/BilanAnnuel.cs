@@ -27,11 +27,15 @@ namespace GestionEnsaTanger
         private void filiere_SelectedIndexChanged(object sender, EventArgs e)
         {
             Niveau();
+            etudiant.SelectedIndex= -1;
+            dataGridView1.Rows.Clear();
         }
 
         private void niveau_SelectedIndexChanged(object sender, EventArgs e)
         {
             elevlist();
+            dataGridView1.Rows.Clear();
+
         }
 
         private void etudiant_SelectedIndexChanged(object sender, EventArgs e)
@@ -44,6 +48,7 @@ namespace GestionEnsaTanger
             try { 
             string codeEleve = etudiant.SelectedItem.ToString(); 
             FillDataGridView(codeEleve);
+            calcMoy();
             }
             catch{MessageBox.Show("ESSAYER DE CHOISIR UN ETUDIANT"); }
         }
@@ -93,6 +98,7 @@ namespace GestionEnsaTanger
         }
         private void fillist()
         {
+            filiere.Refresh();
             filiere.Text = "filiere";
             Filiere fil = new Filiere();
             List<dynamic> filList = fil.All();
@@ -123,11 +129,28 @@ namespace GestionEnsaTanger
 
         private void calcMoy()
         {
-/*            Moyenne m = new Moyenne();
-*/            
-        }
+            double sum = 0;
+            int count = 0;
+            if (dataGridView1.Rows.Count == 12)
+            {
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                    if (!row.IsNewRow && row.Cells["note"].Value != null)
+                    {
+                        double note = Convert.ToDouble(row.Cells["note"].Value);
+                        sum += note;
+                        count++;
+                    }
+                }
+                double moy = count == 0 ? 0 : sum / count;
+                moyenne.Text = moy.ToString();
+            }
+            else MessageBox.Show("PLEASE CHECK IF ALL NOTES ARE ENTERED TO DISPLAY MOYENNE");
 
-        private void FillDataGridView(string codeEleve)
+
+    }
+
+    private void FillDataGridView(string codeEleve)
         {
             using (SqlConnection connection = new SqlConnection("Data Source=localhost;Initial Catalog=ENSA_TANGER;Integrated Security=True"))
             {

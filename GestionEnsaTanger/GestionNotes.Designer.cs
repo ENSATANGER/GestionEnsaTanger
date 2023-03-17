@@ -131,6 +131,7 @@
             // 
             // c_Matiere
             // 
+            this.c_Matiere.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.c_Matiere.FormattingEnabled = true;
             this.c_Matiere.Location = new System.Drawing.Point(187, 94);
             this.c_Matiere.Name = "c_Matiere";

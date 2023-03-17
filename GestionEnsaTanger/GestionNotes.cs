@@ -77,6 +77,8 @@ namespace GestionEnsaTanger
                         {
                             succes.Text = "Note Ajouter!";
                             error.Text = string.Empty;
+                            c_Matiere.Items.Clear();
+                            t_Note.Text = string.Empty;
                             Connexion.Con.Close();
                         }
                     }
@@ -140,7 +142,7 @@ namespace GestionEnsaTanger
         private void b_Nouveau_Click(object sender, EventArgs e)
         {
             t_Note.Text = string.Empty;
-            c_Matiere.Text = string.Empty;
+            c_Matiere.Items.Clear();
             error.Text = string.Empty;
             succes.Text = string.Empty;
         }
@@ -198,6 +200,8 @@ namespace GestionEnsaTanger
                         {
                             succes.Text = "Note Modifier!";
                             error.Text = string.Empty;
+                            c_Matiere.Items.Clear();
+                            t_Note.Text = string.Empty;
                             Connexion.Con.Close();
                         }
                     }
@@ -225,7 +229,6 @@ namespace GestionEnsaTanger
         {
             if (list.Count != 0)
             {
-
                 Dictionary<string, object> map = new Dictionary<string, object>();
                 Notes n = new Notes();
                 n.code_eleve = eleve.code;
@@ -241,44 +244,52 @@ namespace GestionEnsaTanger
                 map.Add("code_eleve", n.code_eleve);
                 map.Add("code_mat", n.code_mat);
                 List<object> l = n.Select(map);
-                if (l.Count == 1)
+                DialogResult result = MessageBox.Show("vous voulez supprimer la note " + t_Note.Text + " ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
                 {
-                    DB.Connexion.Connect();
-                    Connexion.Cmd.Connection = Connexion.Con;
-                    Connexion.Cmd.CommandText = "Supprimer";
-                    Connexion.Cmd.CommandType = CommandType.StoredProcedure;
-                    var code_eleve = Connexion.Cmd.CreateParameter();
-                    code_eleve.ParameterName = "@code_eleve";
-                    code_eleve.Value = eleve.code;
-                    Connexion.Cmd.Parameters.Add(code_eleve);
-                    var code_mat = Connexion.Cmd.CreateParameter();
-                    code_mat.ParameterName = "@code_mat";
-                    foreach (object obj in listM)
+                    if (l.Count == 1)
                     {
-                        matiere = (Matiere)obj;
-                        if (matiere.designation == c_Matiere.SelectedItem.ToString())
+                        DB.Connexion.Connect();
+                        Connexion.Cmd.Connection = Connexion.Con;
+                        Connexion.Cmd.CommandText = "Supprimer";
+                        Connexion.Cmd.CommandType = CommandType.StoredProcedure;
+                        var code_eleve = Connexion.Cmd.CreateParameter();
+                        code_eleve.ParameterName = "@code_eleve";
+                        code_eleve.Value = eleve.code;
+                        Connexion.Cmd.Parameters.Add(code_eleve);
+                        var code_mat = Connexion.Cmd.CreateParameter();
+                        code_mat.ParameterName = "@code_mat";
+                        foreach (object obj in listM)
                         {
-                            code_mat.Value = matiere.code;
-                            Connexion.Cmd.Parameters.Add(code_mat);
+                            matiere = (Matiere)obj;
+                            if (matiere.designation == c_Matiere.SelectedItem.ToString())
+                            {
+                                code_mat.Value = matiere.code;
+                                Connexion.Cmd.Parameters.Add(code_mat);
+                            }
+
+                        }
+                        if (Connexion.Cmd.ExecuteNonQuery() == 1)
+                        {
+                            succes.Text = "Note Supprimer!";
+                            error.Text = string.Empty;
+                            c_Matiere.Items.Clear();
+                            t_Note.Text = string.Empty;
+                            Connexion.Con.Close();
                         }
 
                     }
-                    if (Connexion.Cmd.ExecuteNonQuery() == 1)
-                    {
-                        succes.Text = "Note Supprimer!";
-                        error.Text = string.Empty;
-                        Connexion.Con.Close();
-                    }
-
                 }
+
                 else
                 {
                     succes.Text = string.Empty;
                     error.Text = "Aucune note a supprimer!";
                 }
-            }
+                }
 
-        }
+            }
+         
 
         private void b_Rechercher_Click(object sender, EventArgs e)
         {

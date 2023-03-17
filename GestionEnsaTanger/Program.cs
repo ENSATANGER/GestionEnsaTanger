@@ -12,7 +12,9 @@ namespace GestionEnsaTanger
         static void Main(string[] args)
         {
             new MDI().ShowDialog();
-
+            /*Eleve eleve = new Eleve();
+            eleve.code = "F1524";
+            eleve.RemplireXML(eleve);*/
             Console.ReadKey();
         }
     }

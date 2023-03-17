@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Xml.Linq;
 using DB;
 
 namespace GestionEnsaTanger
@@ -90,11 +93,51 @@ namespace GestionEnsaTanger
             if (eleve.Count > 0)
             {
                 id = ((Eleve)eleve[0]).id;
+
+                Notes n = new Notes();
+                n.code_eleve = ((Eleve)eleve[0]).code;
+
+                List<object> notes = n.Select(n.ObjectToDictionary<object>(n));
+                if (notes.Count > 0)
+                    foreach(Notes note in notes)
+                    {
+                        note.id = ((Notes)notes[0]).id;
+                        note.delete();
+                    }
             }
             int i = delete();
             if (i != 0 && i != -1)
                 return true;
             return false;
+        }
+        public void RemplireXML(Eleve eleve)
+        {
+            XDocument XEleve = XDocument.Load("../../xml_files/Eleves.xml");
+            XElement RootEleve = XEleve.Root;
+
+            XElement E = new XElement("Eleve");
+            E.SetAttributeValue("id", eleve.id);
+            E.SetAttributeValue("code", eleve.code);
+            E.Add(new XElement("nom", eleve.Nom));
+            E.Add(new XElement("prenom", eleve.Prenom));
+            E.Add(new XElement("niveau", eleve.Niveau));
+            E.Add(new XElement("code_fil", eleve.Code_fil));
+            RootEleve.Add(E);
+            XEleve.Save("../../xml_files/Eleves.xml");
+
+            /*XDocument XNotes = XDocument.Load("../../xml_files/Notes.xml");
+            XElement RootNotes = XNotes.Root;
+
+            foreach(Notes item in notes)
+            {
+                XElement N = new XElement("Note");
+                N.SetAttributeValue("id", item.id);
+                N.SetAttributeValue("code_eleve", item.code_eleve);
+                N.SetAttributeValue("code_mat", item.code_mat);
+                N.Add(new XElement("note", item.note));
+                RootEleve.Add(N);
+            }*/
+
         }
 
         // remplissage des attributes ce fait dans GestionEleve

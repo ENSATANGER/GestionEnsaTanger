@@ -31,9 +31,9 @@
             this.FiliereBox = new System.Windows.Forms.ComboBox();
             this.NiveauBox = new System.Windows.Forms.ComboBox();
             this.MatiereBox = new System.Windows.Forms.ComboBox();
-            this.FiliereLabel = new System.Windows.Forms.Label();
-            this.NiveauLabel = new System.Windows.Forms.Label();
-            this.MatiereLabel = new System.Windows.Forms.Label();
+            this.Filiere = new System.Windows.Forms.Label();
+            this.Niveau = new System.Windows.Forms.Label();
+            this.Matière = new System.Windows.Forms.Label();
             this.Rechercher = new System.Windows.Forms.Button();
             this.Notes_Eleves = new System.Windows.Forms.DataGridView();
             this.Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,33 +69,33 @@
             this.MatiereBox.Size = new System.Drawing.Size(152, 28);
             this.MatiereBox.TabIndex = 2;
             // 
-            // FiliereLabel
+            // Filiere
             // 
-            this.FiliereLabel.AutoSize = true;
-            this.FiliereLabel.Location = new System.Drawing.Point(23, 38);
-            this.FiliereLabel.Name = "FiliereLabel";
-            this.FiliereLabel.Size = new System.Drawing.Size(51, 20);
-            this.FiliereLabel.TabIndex = 3;
-            this.FiliereLabel.Text = "Filière";
+            this.Filiere.AutoSize = true;
+            this.Filiere.Location = new System.Drawing.Point(23, 38);
+            this.Filiere.Name = "Filiere";
+            this.Filiere.Size = new System.Drawing.Size(51, 20);
+            this.Filiere.TabIndex = 3;
+            this.Filiere.Text = "Filière";
             // 
-            // NiveauLabel
+            // Niveau
             // 
-            this.NiveauLabel.AutoSize = true;
-            this.NiveauLabel.Location = new System.Drawing.Point(437, 41);
-            this.NiveauLabel.Name = "NiveauLabel";
-            this.NiveauLabel.Size = new System.Drawing.Size(57, 20);
-            this.NiveauLabel.TabIndex = 4;
-            this.NiveauLabel.Text = "Niveau";
-            this.NiveauLabel.Click += new System.EventHandler(this.label2_Click);
+            this.Niveau.AutoSize = true;
+            this.Niveau.Location = new System.Drawing.Point(437, 41);
+            this.Niveau.Name = "Niveau";
+            this.Niveau.Size = new System.Drawing.Size(57, 20);
+            this.Niveau.TabIndex = 4;
+            this.Niveau.Text = "Niveau";
+            this.Niveau.Click += new System.EventHandler(this.label2_Click);
             // 
-            // MatiereLabel
+            // Matière
             // 
-            this.MatiereLabel.AutoSize = true;
-            this.MatiereLabel.Location = new System.Drawing.Point(23, 90);
-            this.MatiereLabel.Name = "MatiereLabel";
-            this.MatiereLabel.Size = new System.Drawing.Size(62, 20);
-            this.MatiereLabel.TabIndex = 5;
-            this.MatiereLabel.Text = "Matière";
+            this.Matière.AutoSize = true;
+            this.Matière.Location = new System.Drawing.Point(23, 90);
+            this.Matière.Name = "Matière";
+            this.Matière.Size = new System.Drawing.Size(62, 20);
+            this.Matière.TabIndex = 5;
+            this.Matière.Text = "Matiere";
             // 
             // Rechercher
             // 
@@ -186,9 +186,9 @@
             this.Controls.Add(this.Notes_Eleves);
             this.Controls.Add(this.Rechercher);
             this.Controls.Add(this.Moyenne_classe);
-            this.Controls.Add(this.MatiereLabel);
-            this.Controls.Add(this.NiveauLabel);
-            this.Controls.Add(this.FiliereLabel);
+            this.Controls.Add(this.Matière);
+            this.Controls.Add(this.Niveau);
+            this.Controls.Add(this.Filiere);
             this.Controls.Add(this.MatiereBox);
             this.Controls.Add(this.NiveauBox);
             this.Controls.Add(this.FiliereBox);
@@ -206,9 +206,9 @@
         private System.Windows.Forms.ComboBox FiliereBox;
         private System.Windows.Forms.ComboBox NiveauBox;
         private System.Windows.Forms.ComboBox MatiereBox;
-        private System.Windows.Forms.Label FiliereLabel;
-        private System.Windows.Forms.Label NiveauLabel;
-        private System.Windows.Forms.Label MatiereLabel;
+        private System.Windows.Forms.Label Filiere;
+        private System.Windows.Forms.Label Niveau;
+        private System.Windows.Forms.Label Matière;
         private System.Windows.Forms.Button Rechercher;
         private System.Windows.Forms.DataGridView Notes_Eleves;
         private System.Windows.Forms.Label Moyenne_classe;

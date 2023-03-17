@@ -19,9 +19,9 @@ namespace GestionEnsaTanger
         public ConsultationNotes()
         {
             InitializeComponent();
-            List<dynamic> L = loadFilieres();
-            foreach (Filiere item in L)
-                FiliereBox.Items.Add(item.code);
+            FiliereBox.Items.Add("GINF");
+            FiliereBox.Items.Add("GSTR");
+            FiliereBox.Items.Add("GIL");
 
             if( FiliereBox.Items.Contains("GINF"))
             {
@@ -58,12 +58,6 @@ namespace GestionEnsaTanger
             }
         }
 
-        private List<dynamic> loadFilieres()
-        {
-            List<dynamic> L = Filiere.all<Filiere>();
-            return L;
-        }
-
         private void ConsultationNotes_Load(object sender, EventArgs e)
         {
 
@@ -94,7 +88,7 @@ namespace GestionEnsaTanger
 
                 Matiere M = Matieres.Find(x => x.designation == MatiereBox.SelectedItem.ToString());
                 string req = "SELECT Eleve.code, Eleve.nom, Eleve.prenom, Note.notes FROM Notes where code_mat = " + M.code +
-                    " JOIN Eleve ON Notes.code_eleve=Eleve.code where Notes.code_mat=" + M.code + " and Eleve.niveau=" + NiveauLabel;
+                    " JOIN Eleve ON Notes.code_eleve=Eleve.code where Notes.code_mat=" + M.code + " and Eleve.niveau=" + Niveau;
                 IDataReader rd = Connexion.Select(req);
                 DataTable dataTable = new DataTable();
 

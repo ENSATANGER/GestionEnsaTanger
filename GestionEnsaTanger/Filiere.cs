@@ -9,18 +9,30 @@ namespace GestionEnsaTanger
 {
     internal class Filiere : Model
     {
-        string code;
-        string designation;
+        private string Code;
+        private string Designation;
+
+        public Filiere() { }
         public Filiere(string code, string designation)
         {
-            id = 0;
-            this.code = code;
-            this.designation = designation;
+            this.Code = code;
+            this.Designation = designation;
+        }
+
+        public string code
+        {
+            get { return Code; }
+            set { Code = value; }
+        }
+        public string designation
+        {
+            get { return Designation; }
+            set { Designation = value; }
         }
 
         public override string ToString()
         {
-            return "ID: " + id + " Code: " + code + " Designation: " + designation;
+            return "ID: " + id + " Code: " + Code + " Designation: " + Designation;
         }
     }
 }

@@ -145,7 +145,7 @@ namespace GestionEnsaTanger
                 double moy = count == 0 ? 0 : sum / count;
                 moyenne.Text = moy.ToString();
             }
-            else MessageBox.Show("PLEASE CHECK IF ALL NOTES ARE ENTERED TO DISPLAY MOYENNE");
+            else MessageBox.Show("VEUILLEZ VÉRIFIER SI TOUTES LES NOTES SONT SAISIES POUR AFFICHER LA MOYENNE");
 
 
     }

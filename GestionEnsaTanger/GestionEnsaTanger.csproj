@@ -83,6 +83,8 @@
     <Compile Include="Notes.cs" />
     <Compile Include="Eleve.cs" />
     <Compile Include="Filiere.cs" />
+    <Compile Include="Moyennes.cs" />
+    <Compile Include="Note.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MDI.cs">
@@ -114,6 +116,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="StockedP.sql" />
+    <Folder Include="XML_FILES\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

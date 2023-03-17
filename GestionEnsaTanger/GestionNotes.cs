@@ -74,7 +74,7 @@ namespace GestionEnsaTanger
                         note.Value = float.Parse(t_Note.Text.ToString(), CultureInfo.InvariantCulture.NumberFormat);
                         Connexion.Cmd.Parameters.Add(note);
                         //succes.Text = Connexion.Cmd.CommandText.ToString();
-                        if (Connexion.Cmd.ExecuteNonQuery() == 1)
+                        if (Connexion.Cmd.ExecuteNonQuery() != 0)
                         {
                             succes.Text = "Note Ajouter!";
                             error.Text = string.Empty;

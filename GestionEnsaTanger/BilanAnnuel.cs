@@ -26,14 +26,20 @@ namespace GestionEnsaTanger
 
         private void niveau_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string[] array = { "GINF", "GSEA", "GSTR", "GIL", "G3EI" };
             filiere.Items.Clear(); // Clear existing items in filiere combobox
 
             if (niveau.SelectedItem != null && niveau.SelectedItem.ToString() != "AP1" && niveau.SelectedItem.ToString() != "AP2")
             {
-                // Add filiere items if niveau is not ap1 or ap2
-                filiere.Items.AddRange(array);
-                // add more items as needed
+                Filiere fil = new Filiere();
+                List<dynamic> filList = fil.All();
+                System.Object[] itemObjects = new System.Object[filList.Count];
+                int i = 0;
+                foreach (Filiere frow in filList)
+                {
+                    itemObjects[i] = frow.code;
+                    i++;
+                }
+                filiere.Items.AddRange(itemObjects);
             }
         }
 

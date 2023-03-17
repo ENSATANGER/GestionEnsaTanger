@@ -50,8 +50,11 @@ namespace GestionEnsaTanger
 
         private void rechercher_Click(object sender, EventArgs e)
         {
-            
-        }
+            // Get the selected student from the etudiant combobox
+            string selectedStudent = etudiant.SelectedItem.ToString();
+
+            //still working on it
+            }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -86,8 +89,8 @@ namespace GestionEnsaTanger
             etudiant.Items.Clear();
             Eleve el = new Eleve();
             List<dynamic> elevelist = el.All();
-            elevelist = elevelist.Where(e => e.niveau == niveau.Text && e.filiere == filiere.Text).ToList();
-            System.Object[] itemObjects2 = new System.Object[elevelist.Count];
+/*            elevelist = elevelist.Where(e => e.niveau == niveau.Text && e.filiere == filiere.Text).ToList();
+*/            System.Object[] itemObjects2 = new System.Object[elevelist.Count];
             int j = 0;
             foreach (Eleve e1 in elevelist)
             {

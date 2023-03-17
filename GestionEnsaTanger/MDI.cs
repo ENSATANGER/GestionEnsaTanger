@@ -38,5 +38,15 @@ namespace GestionEnsaTanger
             // Display the new form.
             newMDIChild.Show();
         }
+
+        private void gestionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void notesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new ConsultationNotes().ShowDialog();
+        }
     }
 }

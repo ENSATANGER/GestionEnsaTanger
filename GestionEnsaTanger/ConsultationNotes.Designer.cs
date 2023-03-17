@@ -52,6 +52,7 @@
             this.FiliereBox.Name = "FiliereBox";
             this.FiliereBox.Size = new System.Drawing.Size(152, 28);
             this.FiliereBox.TabIndex = 0;
+            this.FiliereBox.SelectedIndexChanged += new System.EventHandler(this.FiliereBox_SelectedIndexChanged_1);
             // 
             // NiveauBox
             // 
@@ -60,6 +61,7 @@
             this.NiveauBox.Name = "NiveauBox";
             this.NiveauBox.Size = new System.Drawing.Size(152, 28);
             this.NiveauBox.TabIndex = 1;
+            this.NiveauBox.SelectedIndexChanged += new System.EventHandler(this.NiveauBox_SelectedIndexChanged_1);
             // 
             // MatiereBox
             // 
@@ -140,6 +142,7 @@
             this.Moyenne.ReadOnly = true;
             this.Moyenne.Size = new System.Drawing.Size(243, 26);
             this.Moyenne.TabIndex = 10;
+            this.Moyenne.TextChanged += new System.EventHandler(this.Moyenne_TextChanged);
             // 
             // code
             // 
@@ -149,7 +152,7 @@
             this.code.MinimumWidth = 8;
             this.code.Name = "code";
             this.code.ReadOnly = true;
-            this.code.Width = 150;
+            this.code.Width = 120;
             // 
             // Nom
             // 
@@ -159,7 +162,7 @@
             this.Nom.MinimumWidth = 8;
             this.Nom.Name = "Nom";
             this.Nom.ReadOnly = true;
-            this.Nom.Width = 150;
+            this.Nom.Width = 120;
             // 
             // Prenom
             // 
@@ -169,7 +172,7 @@
             this.Prenom.MinimumWidth = 8;
             this.Prenom.Name = "Prenom";
             this.Prenom.ReadOnly = true;
-            this.Prenom.Width = 150;
+            this.Prenom.Width = 120;
             // 
             // note
             // 
@@ -179,7 +182,7 @@
             this.note.MinimumWidth = 8;
             this.note.Name = "note";
             this.note.ReadOnly = true;
-            this.note.Width = 150;
+            this.note.Width = 120;
             // 
             // ConsultationNotes
             // 

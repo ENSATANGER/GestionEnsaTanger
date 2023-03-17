@@ -105,7 +105,7 @@ namespace GestionEnsaTanger
                 {
                     foreach(Notes note in notes)
                     {
-                        note.id = ((Notes)notes[0]).id;
+                        note.id = note.id;
                         note.delete();
                     }
                 }
@@ -115,7 +115,7 @@ namespace GestionEnsaTanger
                 {
                     foreach (Moyennes moy in moyennes)
                     {
-                        moy.id = ((Notes)notes[0]).id;
+                        moy.id = moy.id;
                         moy.delete();
                     }
                 }

@@ -15,7 +15,6 @@ namespace GestionEnsaTanger
 
         public Notes() { }
         
-
         public string code_eleve
         {
             get { return Code_eleve; }

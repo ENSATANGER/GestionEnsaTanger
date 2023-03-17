@@ -83,8 +83,6 @@
     <Compile Include="Notes.cs" />
     <Compile Include="Eleve.cs" />
     <Compile Include="Filiere.cs" />
-    <Compile Include="Moyenne.cs" />
-    <Compile Include="Note.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MDI.cs">
@@ -113,6 +111,9 @@
     <EmbeddedResource Include="MDI.resx">
       <DependentUpon>MDI.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="StockedP.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

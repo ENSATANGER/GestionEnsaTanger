@@ -114,6 +114,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="StockedP.sql" />
+    <Folder Include="XML_FILES\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

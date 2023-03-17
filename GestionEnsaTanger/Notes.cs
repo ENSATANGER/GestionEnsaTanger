@@ -11,7 +11,7 @@ namespace GestionEnsaTanger
     {
         private string Code_eleve;
         private string Code_mat;
-        private Double Note;
+        private Double? Note = null;
 
         public Notes() { }
         
@@ -27,7 +27,7 @@ namespace GestionEnsaTanger
             set { Code_mat = value; }
         }
 
-        public Double note
+        public Double? note
         {
             get { return Note; }
             set { Note = value; }

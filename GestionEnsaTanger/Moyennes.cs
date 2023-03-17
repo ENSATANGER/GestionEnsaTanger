@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace GestionEnsaTanger
 {
-    internal class Moyennes
+    class Moyenne
     {
+        private string Code_eleve, Code_fil, niveau;
+        private Double? moyenne = null; 
     }
 }

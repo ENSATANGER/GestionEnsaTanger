@@ -108,6 +108,7 @@ namespace GestionEnsaTanger
 
         private void RemplirListMatiere()
         {
+            c_Matiere.Items.Clear();
             foreach (object obj in listMatiere)
             {
                 matiere = (Matiere)obj;

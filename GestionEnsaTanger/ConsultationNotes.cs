@@ -114,38 +114,40 @@ namespace GestionEnsaTanger
 
         private void Rechercher_Click(object sender, EventArgs e)
         {
-            string Mat = MatiereBox.SelectedItem.ToString();
+            if (MatiereBox.SelectedItem != null)
+            {
+                string Mat = MatiereBox.SelectedItem.ToString();
             Dictionary<string, object> dic = new Dictionary<string, object>();
             dic.Add("designation", Mat);
-            
-            if (Mat != null)
-            {
-                List<dynamic> L = Matiere.select<Matiere>(dic);
-                string req = "SELECT e1.code, e1.nom, e1.prenom, n.note " +
-                    "FROM Notes n INNER JOIN Eleve e1 ON n.code_eleve = e1.code " +
-                    "WHERE n.code_mat = '"+L[0].code+"'";
 
-                IDataReader reader = Connexion.Select(req);
-
-                Notes_Eleves.Rows.Clear();
-
-                while (reader.Read())
+                if (Mat != null)
                 {
-                    var row = new DataGridViewRow();
-                    row.CreateCells(Notes_Eleves);
-                    for (int i = 0; i < reader.FieldCount; i++)
-                        row.Cells[i].Value= reader.GetValue(i);
-                    Notes_Eleves.Rows.Add(row);
-                }
-                reader.Close();
-                req = "SELECT AVG(n.note) as moyenne FROM Notes n INNER JOIN " +
-                    "Eleve e1 ON n.code_eleve = e1.code WHERE n.code_mat = '" + L[0].code + "'";
-                reader = Connexion.Select(req);
-                reader.Read();
-                double moyenne = reader.GetDouble(0);
-                Moyenne.Text = moyenne.ToString();
-                reader.Close();
+                    List<dynamic> L = Matiere.select<Matiere>(dic);
+                    string req = "SELECT e1.code, e1.nom, e1.prenom, n.note " +
+                        "FROM Notes n INNER JOIN Eleve e1 ON n.code_eleve = e1.code " +
+                        "WHERE n.code_mat = '" + L[0].code + "'";
 
+                    IDataReader reader = Connexion.Select(req);
+
+                    Notes_Eleves.Rows.Clear();
+
+                    while (reader.Read())
+                    {
+                        var row = new DataGridViewRow();
+                        row.CreateCells(Notes_Eleves);
+                        for (int i = 0; i < reader.FieldCount; i++)
+                            row.Cells[i].Value = reader.GetValue(i);
+                        Notes_Eleves.Rows.Add(row);
+                    }
+                    reader.Close();
+                    req = "SELECT AVG(n.note) as moyenne FROM Notes n INNER JOIN " +
+                        "Eleve e1 ON n.code_eleve = e1.code WHERE n.code_mat = '" + L[0].code + "'";
+                    reader = Connexion.Select(req);
+                    reader.Read();
+                    double moyenne = reader.GetDouble(0);
+                    Moyenne.Text = moyenne.ToString();
+                    reader.Close();
+                }
             }
         }
 

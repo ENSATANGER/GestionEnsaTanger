@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Text;
 using System.Linq;
@@ -18,29 +19,19 @@ namespace GestionEnsaTanger
         public BilanAnnuel()
         {
             InitializeComponent();
+            ListFilieres();
+
         }
 
 
         private void filiere_SelectedIndexChanged(object sender, EventArgs e)
         {
-            elevlist();
+            Niveau();
         }
 
         private void niveau_SelectedIndexChanged(object sender, EventArgs e)
         {
-            filiere.Items.Clear(); // Clear existing items in filiere combobox
-
-            if (niveau.SelectedItem != null && niveau.SelectedItem.ToString() != "AP1" && niveau.SelectedItem.ToString() != "AP2")
-            {
-                fillist();
-            }
-            else
-            {
-                filiere.Items.Clear();
-                filiere.Text= "باقي صغير";
-            }
             elevlist();
-            
         }
 
         private void etudiant_SelectedIndexChanged(object sender, EventArgs e)
@@ -50,11 +41,12 @@ namespace GestionEnsaTanger
 
         private void rechercher_Click(object sender, EventArgs e)
         {
-            // Get the selected student from the etudiant combobox
-            string selectedStudent = etudiant.SelectedItem.ToString();
-
-            //still working on it
+            try { 
+            string codeEleve = etudiant.SelectedItem.ToString(); 
+            FillDataGridView(codeEleve);
             }
+            catch{MessageBox.Show("ESSAYER DE CHOISIR UN ETUDIANT"); }
+        }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -70,6 +62,35 @@ namespace GestionEnsaTanger
         {
             
         }
+        private void Niveau()
+        {
+            niveau.Items.Clear();
+
+            if (filiere.Text == "AP")
+            {
+                niveau.Items.Add(filiere.Text + "1");
+                niveau.Items.Add(filiere.Text + "2");
+            }
+            if (filiere.Text == "GINF" || filiere.Text == "GSTR" || filiere.Text == "GIL" || filiere.Text == "GSEA" || filiere.Text == "G3EI")
+            {
+                niveau.Items.Add(filiere.Text + "1");
+                niveau.Items.Add(filiere.Text + "2");
+                niveau.Items.Add(filiere.Text + "3");
+            }
+        }
+        private void ListFilieres()
+        {
+            List<string> filieres = new List<string>();
+
+            List<object> fil = Filiere.all<Filiere>();
+            foreach (object item in fil)
+                filieres.Add(((Filiere)item).code);
+
+            filiere.Items.Clear();
+            foreach (string item in filieres)
+                filiere.Items.Add(item);
+            Niveau();
+        }
         private void fillist()
         {
             filiere.Text = "filiere";
@@ -84,20 +105,74 @@ namespace GestionEnsaTanger
             }
             filiere.Items.AddRange(itemObjects);
         }
+
         private void elevlist()
         {
             etudiant.Items.Clear();
-            Eleve el = new Eleve();
-            List<dynamic> elevelist = el.All();
-/*            elevelist = elevelist.Where(e => e.niveau == niveau.Text && e.filiere == filiere.Text).ToList();
-*/            System.Object[] itemObjects2 = new System.Object[elevelist.Count];
-            int j = 0;
-            foreach (Eleve e1 in elevelist)
+            Eleve eleve = new Eleve();
+            eleve.niveau = niveau.SelectedItem.ToString();
+            eleve.code_fil = filiere.SelectedItem.ToString();
+            List<Object> eleves = eleve.Rechercher();
+            
+            foreach (Eleve e1 in eleves)
             {
-                itemObjects2[j] = e1.nom;
-                j++;
+                etudiant.Items.Add(e1.code);
+                
             }
-            etudiant.Items.AddRange(itemObjects2);
         }
+
+        private void calcMoy()
+        {
+            Moyenne m = new Moyenne();
+            
+        }
+
+        private void FillDataGridView(string codeEleve)
+        {
+            using (SqlConnection connection = new SqlConnection("Data Source=localhost;Initial Catalog=ENSA_TANGER;Integrated Security=True"))
+            {
+                connection.Open();
+
+                // create a command to select notes for the specified code_eleve
+                using (SqlCommand command = new SqlCommand("SELECT * FROM Notes WHERE code_eleve = @codeEleve", connection))
+                {
+                    command.Parameters.AddWithValue("@codeEleve", codeEleve);
+
+                    // create a data adapter to fill a data set with the results
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                    {
+                        DataSet ds = new DataSet();
+                        adapter.Fill(ds);
+
+                        // loop through each note and retrieve the corresponding matiere and semestre
+                        foreach (DataRow row in ds.Tables[0].Rows)
+                        {
+                            string codeMat = row["code_mat"].ToString();
+                            double note = double.Parse(row["note"].ToString());
+
+                            // create a command to select the designation of the matiere
+                            using (SqlCommand command2 = new SqlCommand("SELECT designation FROM Matiere WHERE code = @codeMat", connection))
+                            {
+                                command2.Parameters.AddWithValue("@codeMat", codeMat);
+                                string designation = command2.ExecuteScalar().ToString();
+
+                                // create a command to select the semestre of the matiere
+                                using (SqlCommand command3 = new SqlCommand("SELECT semestre FROM Module WHERE code_fil IN (SELECT code_fil FROM Eleve WHERE code = @codeEleve)", connection))
+                                {
+                                    command3.Parameters.AddWithValue("@codeEleve", codeEleve);
+                                    string semestre = command3.ExecuteScalar().ToString();
+
+                                    // add a row to the DataGridView with the retrieved values
+                                    dataGridView1.Rows.Add(codeMat, designation, semestre, note);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
+
     }
 }

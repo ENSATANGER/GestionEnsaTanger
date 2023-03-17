@@ -104,17 +104,18 @@
             // filiere
             // 
             this.filiere.DisplayMember = "A";
+            this.filiere.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.filiere.FormattingEnabled = true;
             this.filiere.Location = new System.Drawing.Point(103, 27);
             this.filiere.Name = "filiere";
             this.filiere.Size = new System.Drawing.Size(121, 21);
             this.filiere.TabIndex = 3;
-            this.filiere.Text = "filiere";
             this.filiere.ValueMember = "A";
             this.filiere.SelectedIndexChanged += new System.EventHandler(this.filiere_SelectedIndexChanged);
             // 
             // etudiant
             // 
+            this.etudiant.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.etudiant.FormattingEnabled = true;
             this.etudiant.Location = new System.Drawing.Point(103, 109);
             this.etudiant.Name = "etudiant";
@@ -124,13 +125,8 @@
             // 
             // niveau
             // 
+            this.niveau.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.niveau.FormattingEnabled = true;
-            this.niveau.Items.AddRange(new object[] {
-            "AP1",
-            "AP2",
-            "CI1",
-            "CI2",
-            "CI3"});
             this.niveau.Location = new System.Drawing.Point(353, 27);
             this.niveau.Name = "niveau";
             this.niveau.Size = new System.Drawing.Size(121, 21);
@@ -171,6 +167,7 @@
             // 
             this.moyenne.Location = new System.Drawing.Point(157, 340);
             this.moyenne.Name = "moyenne";
+            this.moyenne.ReadOnly = true;
             this.moyenne.Size = new System.Drawing.Size(141, 20);
             this.moyenne.TabIndex = 9;
             this.moyenne.TextChanged += new System.EventHandler(this.moyenne_TextChanged);

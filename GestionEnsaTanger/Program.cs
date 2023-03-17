@@ -14,15 +14,8 @@ namespace GestionEnsaTanger
     {
         static void Main(string[] args)
         {
-            /* new MDI().ShowDialog();*/
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-
-            // Create a new instance of your form
-            BilanAnnuel form = new BilanAnnuel();
-
-            // Run the form
-            Application.Run(form);
+            new MDI().ShowDialog();
+            
 
 
             Console.ReadKey();  

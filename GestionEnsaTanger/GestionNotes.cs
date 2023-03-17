@@ -285,7 +285,7 @@ namespace GestionEnsaTanger
                             }
 
                         }
-                        if (Connexion.Cmd.ExecuteNonQuery() == 1)
+                        if (Connexion.Cmd.ExecuteNonQuery() != 0)
                         {
                             succes.Text = "Note Supprimer!";
                             error.Text = string.Empty;

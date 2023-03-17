@@ -89,6 +89,7 @@ namespace GestionEnsaTanger
                     {
                         error.Text = "Note invalide!";
                         succes.Text = string.Empty;
+                        RemplirListMatiere();
                         Connexion.Con.Close();
                     }
                 }
@@ -96,6 +97,7 @@ namespace GestionEnsaTanger
                 {
                     error.Text = "Note existante!";
                     succes.Text = string.Empty;
+                    RemplirListMatiere();
                     Connexion.Con.Close();
                 }
 
@@ -226,6 +228,7 @@ namespace GestionEnsaTanger
                     {
                         error.Text = "Note invalide!";
                         succes.Text = string.Empty;
+                        RemplirListMatiere();
                         Connexion.Con.Close();
                     }
                 }
@@ -233,6 +236,7 @@ namespace GestionEnsaTanger
                 {
                     error.Text = "Note inexistante!";
                     succes.Text = string.Empty;
+                    RemplirListMatiere();
                     Connexion.Con.Close();
                 }
 
@@ -302,6 +306,7 @@ namespace GestionEnsaTanger
                 {
                     succes.Text = string.Empty;
                     error.Text = "Aucune note a supprimer!";
+                    RemplirListMatiere();
                 }
                 }
 
@@ -337,6 +342,7 @@ namespace GestionEnsaTanger
                 {
                     error.Text = "Aucune Note trouve!";
                     succes.Text = string.Empty;
+                    RemplirListMatiere();
                 }
             }
         }

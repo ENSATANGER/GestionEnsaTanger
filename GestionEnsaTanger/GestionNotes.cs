@@ -79,6 +79,7 @@ namespace GestionEnsaTanger
                             error.Text = string.Empty;
                             c_Matiere.Items.Clear();
                             t_Note.Text = string.Empty;
+                            RemplirListMatiere();
                             Connexion.Con.Close();
                         }
                     }
@@ -100,6 +101,15 @@ namespace GestionEnsaTanger
             }
             else
                 error.Text = "Aucun etudiant ne correspond a ce code!";
+        }
+
+        private void RemplirListMatiere()
+        {
+            foreach (object obj in listM)
+            {
+                matiere = (Matiere)obj;
+                c_Matiere.Items.Add(matiere.designation);
+            }
         }
 
         private void GestionNotes_Load(object sender, EventArgs e)
@@ -129,11 +139,7 @@ namespace GestionEnsaTanger
 
                 listM.Clear();
                 listM = matiere.Select(map);
-                foreach (object obj in listM)
-                {
-                    matiere = (Matiere)obj;
-                    c_Matiere.Items.Add(matiere.designation);
-                }
+                RemplirListMatiere();
             }
 
 
@@ -145,6 +151,7 @@ namespace GestionEnsaTanger
             c_Matiere.Items.Clear();
             error.Text = string.Empty;
             succes.Text = string.Empty;
+            RemplirListMatiere();
         }
 
         private void b_Modifier_Click(object sender, EventArgs e)
@@ -202,6 +209,7 @@ namespace GestionEnsaTanger
                             error.Text = string.Empty;
                             c_Matiere.Items.Clear();
                             t_Note.Text = string.Empty;
+                            RemplirListMatiere();
                             Connexion.Con.Close();
                         }
                     }
@@ -275,6 +283,7 @@ namespace GestionEnsaTanger
                             error.Text = string.Empty;
                             c_Matiere.Items.Clear();
                             t_Note.Text = string.Empty;
+                            RemplirListMatiere();
                             Connexion.Con.Close();
                         }
 

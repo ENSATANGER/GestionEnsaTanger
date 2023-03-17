@@ -123,8 +123,8 @@ namespace GestionEnsaTanger
 
         private void calcMoy()
         {
-            Moyenne m = new Moyenne();
-            
+/*            Moyenne m = new Moyenne();
+*/            
         }
 
         private void FillDataGridView(string codeEleve)

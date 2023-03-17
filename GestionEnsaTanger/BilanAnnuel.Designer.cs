@@ -95,7 +95,7 @@
             // 
             this.FiliereLabel.AutoSize = true;
             this.FiliereLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FiliereLabel.Location = new System.Drawing.Point(16, 27);
+            this.FiliereLabel.Location = new System.Drawing.Point(17, 63);
             this.FiliereLabel.Name = "FiliereLabel";
             this.FiliereLabel.Size = new System.Drawing.Size(41, 13);
             this.FiliereLabel.TabIndex = 2;
@@ -106,7 +106,7 @@
             this.filiere.DisplayMember = "A";
             this.filiere.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.filiere.FormattingEnabled = true;
-            this.filiere.Location = new System.Drawing.Point(103, 27);
+            this.filiere.Location = new System.Drawing.Point(103, 63);
             this.filiere.Name = "filiere";
             this.filiere.Size = new System.Drawing.Size(121, 21);
             this.filiere.TabIndex = 3;
@@ -127,7 +127,7 @@
             // 
             this.niveau.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.niveau.FormattingEnabled = true;
-            this.niveau.Location = new System.Drawing.Point(353, 27);
+            this.niveau.Location = new System.Drawing.Point(353, 63);
             this.niveau.Name = "niveau";
             this.niveau.Size = new System.Drawing.Size(121, 21);
             this.niveau.TabIndex = 5;
@@ -147,7 +147,7 @@
             // 
             this.NiveauLabel.AutoSize = true;
             this.NiveauLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NiveauLabel.Location = new System.Drawing.Point(257, 27);
+            this.NiveauLabel.Location = new System.Drawing.Point(257, 63);
             this.NiveauLabel.Name = "NiveauLabel";
             this.NiveauLabel.Size = new System.Drawing.Size(47, 13);
             this.NiveauLabel.TabIndex = 7;
@@ -177,6 +177,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(506, 396);
+            this.ControlBox = false;
             this.Controls.Add(this.moyenne);
             this.Controls.Add(this.MoyenneLabel);
             this.Controls.Add(this.NiveauLabel);

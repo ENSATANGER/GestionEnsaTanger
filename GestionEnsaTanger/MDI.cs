@@ -48,5 +48,15 @@ namespace GestionEnsaTanger
         {
             new ConsultationNotes().ShowDialog();
         }
+
+        private void bilanToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.ActiveMdiChild.Visible = false;
+            BilanAnnuel childForm = new BilanAnnuel();
+            this.IsMdiContainer = true;
+            childForm.WindowState = FormWindowState.Maximized;
+            childForm.MdiParent = this; 
+            childForm.Show();
+        }
     }
 }

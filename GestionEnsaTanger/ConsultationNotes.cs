@@ -19,32 +19,34 @@ namespace GestionEnsaTanger
         public ConsultationNotes()
         {
             InitializeComponent();
-            FiliereBox.Items.Add("GINF");
-            FiliereBox.Items.Add("GSTR");
-            FiliereBox.Items.Add("GIL");
+            List<dynamic> L = loadFilieres();
+            foreach (Filiere item in L)
+                FiliereBox.Items.Add(item.code);
 
-            if( FiliereBox.Items.Contains("GINF"))
+            if (FiliereBox.Items.Contains("GINF"))
             {
                 NiveauBox.Items.Add("GINF1");
                 NiveauBox.Items.Add("GINF2");
                 NiveauBox.Items.Add("GINF3");
-            }else if(FiliereBox.Items.Contains("GSTR"))
+            }
+            else if (FiliereBox.Items.Contains("GSTR"))
             {
                 NiveauBox.Items.Add("GSTR1");
                 NiveauBox.Items.Add("GSTR2");
                 NiveauBox.Items.Add("GSTR3");
             }
-            else if(FiliereBox.Items.Contains("GSTR"))
+            else if (FiliereBox.Items.Contains("GSTR"))
             {
                 NiveauBox.Items.Add("GIL1");
                 NiveauBox.Items.Add("GIL2");
                 NiveauBox.Items.Add("GIL3");
-            }else
+            }
+            else
             {
                 NiveauBox.Items.Add("AP1");
                 NiveauBox.Items.Add("AP2");
             }
-            if(NiveauBox.SelectedItem!=null)
+            if (NiveauBox.SelectedItem != null)
             {
                 string Niveau = NiveauBox.SelectedItem.ToString();
                 Dictionary<string, object> dict = new Dictionary<string, object>();
@@ -58,6 +60,12 @@ namespace GestionEnsaTanger
             }
         }
 
+        private List<dynamic> loadFilieres()
+        {
+            List<dynamic> L = Filiere.all<Filiere>();
+            return L;
+        }
+
         private void ConsultationNotes_Load(object sender, EventArgs e)
         {
 
@@ -65,7 +73,7 @@ namespace GestionEnsaTanger
 
         private void label2_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -88,7 +96,7 @@ namespace GestionEnsaTanger
 
                 Matiere M = Matieres.Find(x => x.designation == MatiereBox.SelectedItem.ToString());
                 string req = "SELECT Eleve.code, Eleve.nom, Eleve.prenom, Note.notes FROM Notes where code_mat = " + M.code +
-                    " JOIN Eleve ON Notes.code_eleve=Eleve.code where Notes.code_mat=" + M.code + " and Eleve.niveau=" + Niveau;
+                    " JOIN Eleve ON Notes.code_eleve=Eleve.code where Notes.code_mat=" + M.code + " and Eleve.niveau=" + NiveauLabel;
                 IDataReader rd = Connexion.Select(req);
                 DataTable dataTable = new DataTable();
 

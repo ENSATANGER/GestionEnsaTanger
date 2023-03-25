@@ -129,26 +129,16 @@ namespace GestionEnsaTanger
 
         private void calcMoy()
         {
-            double sum = 0;
-            int count = 0;
-            if (dataGridView1.Rows.Count == 12)
+            Moyennes m = new Moyennes();
+            m.niveau = niveau.SelectedItem.ToString();
+            m.code_eleve = etudiant.SelectedItem.ToString();
+            m.code_fil = filiere.SelectedItem.ToString();
+            List<object> moyennes = m.Select(m.ObjectToDictionary<object>(m));
+            if (moyennes.Count > 0)
             {
-                foreach (DataGridViewRow row in dataGridView1.Rows)
-                {
-                    if (!row.IsNewRow && row.Cells["note"].Value != null)
-                    {
-                        double note = Convert.ToDouble(row.Cells["note"].Value);
-                        sum += note;
-                        count++;
-                    }
-                }
-                double moy = count == 0 ? 0 : sum / count;
-                moyenne.Text = moy.ToString();
+                moyenne.Text = ""+((Moyennes)moyennes[0]).moyenne;
             }
-            else MessageBox.Show("VEUILLEZ VÉRIFIER SI TOUTES LES NOTES SONT SAISIES POUR AFFICHER LA MOYENNE");
-
-
-    }
+        }
 
     private void FillDataGridView(string codeEleve)
         {

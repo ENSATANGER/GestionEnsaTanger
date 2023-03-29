@@ -101,6 +101,11 @@ namespace GestionEnsaTanger
                 m.code_eleve = ((Eleve)eleve[0]).code;
 
                 List<object> notes = n.Select(n.ObjectToDictionary<object>(n));
+                List<object> moyennes = m.Select(m.ObjectToDictionary<object>(m));
+
+                //Remplissage du xml d'abord
+                RemplireXML((Eleve)eleve[0],notes, moyennes);
+
                 if (notes.Count > 0)
                 {
                     foreach(Notes note in notes)
@@ -110,7 +115,6 @@ namespace GestionEnsaTanger
                     }
                 }
 
-                List<object> moyennes = m.Select(m.ObjectToDictionary<object>(m));
                 if (moyennes.Count > 0)
                 {
                     foreach (Moyennes moy in moyennes)
@@ -125,20 +129,68 @@ namespace GestionEnsaTanger
                 return true;
             return false;
         }
-        public void RemplireXML(Eleve eleve)
+        public void RemplireXML(Eleve eleve,List<object> notes, List<object> moyennes)
         {
-            XDocument XEleve = XDocument.Load("../../xml_files/Eleves.xml");
-            XElement RootEleve = XEleve.Root;
+            XDocument XENSATANER = XDocument.Load("../../xml_files/ENSA_TANGER.xml");
+
+            // Recherche de filiere <=> eleve.Code_fil
+            XElement XRoot = XENSATANER.Root;
+            var XFiliere = XRoot.Elements("Filiere");
+
+            var reqFiliere = (from fr in XFiliere
+                              where fr.Attribute("code").Value == eleve.Code_fil
+                              select fr).FirstOrDefault();
+
+            // Recherche de niveau <=> eleve.niveau
+            var XNiveau = reqFiliere.Elements("Niveau");
+            var reqNiveau = (from nv in XNiveau
+                             where nv.Attribute("code").Value == eleve.Niveau
+                             select nv).FirstOrDefault();
 
             XElement E = new XElement("Eleve");
             E.SetAttributeValue("id", eleve.id);
             E.SetAttributeValue("code", eleve.code);
-            E.Add(new XElement("nom", eleve.Nom));
-            E.Add(new XElement("prenom", eleve.Prenom));
-            E.Add(new XElement("niveau", eleve.Niveau));
-            E.Add(new XElement("code_fil", eleve.Code_fil));
-            RootEleve.Add(E);
-            XEleve.Save("../../xml_files/Eleves.xml");
+            E.SetAttributeValue("nom", eleve.nom);
+            E.SetAttributeValue("prenom", eleve.prenom);
+            E.SetAttributeValue("niveau", eleve.niveau);
+            E.SetAttributeValue("code_fil", eleve.code_fil);
+
+            if (notes.Count > 0)
+            {
+                XElement XNotes = new XElement("Notes");
+
+                foreach (Notes note in notes)
+                {
+                    XNotes.Add(
+                        new XElement("Note",
+                        new XElement("note", note.note),
+                        new XAttribute("id", note.id),
+                        new XAttribute("code_mat", note.code_mat),
+                        new XAttribute("code_eleve", note.code_eleve)
+                        ));
+                }
+
+                E.Add(XNotes);
+                if (moyennes.Count > 0)
+                {
+                    foreach (Moyennes moy in moyennes)
+                    {
+                        E.Add(
+                            new XElement("Moyenne",
+                            new XElement("niveau", moy.niveau),
+                            new XElement("moyenne", moy.moyenne),
+                            new XAttribute("id", moy.id),
+                            new XAttribute("code_eleve", moy.code_eleve),
+                            new XAttribute("code_fil", moy.code_fil)
+                            ));
+                    }
+                }
+            }
+            
+
+            reqNiveau.Add(E);
+
+            XENSATANER.Save("../../xml_files/ENSA_TANGER.xml");
 
             /*XDocument XNotes = XDocument.Load("../../xml_files/Notes.xml");
             XElement RootNotes = XNotes.Root;

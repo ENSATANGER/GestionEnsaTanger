@@ -18,9 +18,11 @@
                                                                 <xs:element name="Note" minOccurs="0" maxOccurs="unbounded">
                                                                     <xs:complexType>
                                                                         <xs:sequence>
-                                                                        <xs:element name="code_mat"></xs:element>
                                                                             <xs:element name="note"></xs:element>
                                                                         </xs:sequence>
+                                                                        <xs:attribute name="id" type="xs:string"/>
+                                                                        <xs:attribute name="code_mat" type="xs:string"/>
+                                                                        <xs:attribute name="code_eleve" type="xs:string"/>
                                                                     </xs:complexType>
                                                                 </xs:element>
                                                             </xs:sequence>
@@ -32,12 +34,18 @@
                                                                 <xs:element name="niveau"></xs:element>
                                                                 <xs:element name="moyenne"></xs:element>
                                                             </xs:sequence>
+                                                            <xs:attribute name="id" type="xs:string"/>
+                                                            <xs:attribute name="code_eleve" type="xs:string"/>
+                                                            <xs:attribute name="code_fil" type="xs:string"/>
                                                         </xs:complexType>
                                                     </xs:element>
                                                 </xs:sequence>
+                                                <xs:attribute name="id" type="xs:string"/>
                                                 <xs:attribute name="code" type="xs:string"/>
                                                 <xs:attribute name="nom" type="xs:string"/>
                                                 <xs:attribute name="prenom" type="xs:string"/>
+                                                <xs:attribute name="niveau" type="xs:string"/>
+                                                <xs:attribute name="code_fil" type="xs:string"/>
                                             </xs:complexType>
                                         </xs:element>
                                     </xs:sequence>

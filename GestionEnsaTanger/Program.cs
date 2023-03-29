@@ -15,7 +15,7 @@ namespace GestionEnsaTanger
         static void Main(string[] args)
         {
             new MDI().ShowDialog();
-            
+
             Console.ReadKey();  
         }
     }

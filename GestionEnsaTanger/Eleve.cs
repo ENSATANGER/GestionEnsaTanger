@@ -155,6 +155,12 @@ namespace GestionEnsaTanger
             E.SetAttributeValue("niveau", eleve.niveau);
             E.SetAttributeValue("code_fil", eleve.code_fil);
 
+            // set date and time
+            E.Add(new XElement("DateSuppression",
+                new XAttribute("date", DateTime.Now.ToString("D")),
+                new XAttribute("heure",DateTime.Now.ToString("T"))
+                ));
+
             if (notes.Count > 0)
             {
                 XElement XNotes = new XElement("Notes");
@@ -186,25 +192,10 @@ namespace GestionEnsaTanger
                     }
                 }
             }
-            
 
             reqNiveau.Add(E);
 
             XENSATANER.Save("../../xml_files/ENSA_TANGER.xml");
-
-            /*XDocument XNotes = XDocument.Load("../../xml_files/Notes.xml");
-            XElement RootNotes = XNotes.Root;
-
-            foreach(Notes item in notes)
-            {
-                XElement N = new XElement("Note");
-                N.SetAttributeValue("id", item.id);
-                N.SetAttributeValue("code_eleve", item.code_eleve);
-                N.SetAttributeValue("code_mat", item.code_mat);
-                N.Add(new XElement("note", item.note));
-                RootEleve.Add(N);
-            }*/
-
         }
 
         // remplissage des attributes ce fait dans GestionEleve

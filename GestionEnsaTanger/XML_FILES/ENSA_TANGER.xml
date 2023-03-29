@@ -5,30 +5,12 @@
     <Niveau code="AP2"></Niveau>
   </Filiere>
   <Filiere code="GINF">
-    <Niveau code="GINF1">
-      <Eleve id="41" code="LF54111" nom="ERGHOUT" prenom="Mouad" niveau="GINF1" code_fil="GINF" />
-      <Eleve id="42" code="LF55111" nom="BOULOUQAT" prenom="Jawad" niveau="GINF1" code_fil="GINF">
-        <Notes>
-          <Note id="8" code_mat="GINF111" code_eleve="LF55111">
-            <note>20</note>
-          </Note>
-          <Note id="9" code_mat="GINF112" code_eleve="LF55111">
-            <note>12</note>
-          </Note>
-          <Note id="10" code_mat="GINF121" code_eleve="LF55111">
-            <note>10</note>
-          </Note>
-          <Note id="11" code_mat="GINF122" code_eleve="LF55111">
-            <note>5</note>
-          </Note>
-        </Notes>
-        <Moyenne id="2" code_eleve="LF55111" code_fil="GINF">
-          <niveau>GINF1</niveau>
-          <moyenne>11.75</moyenne>
-        </Moyenne>
+    <Niveau code="GINF1"></Niveau>
+    <Niveau code="GINF2">
+      <Eleve id="43" code="LF56111" nom="Mohamed" prenom="HACHGUER" niveau="GINF2" code_fil="GINF">
+        <DateSuppression date="mercredi 29 mars 2023" heure="10:28:15" />
       </Eleve>
     </Niveau>
-    <Niveau code="GINF2"></Niveau>
     <Niveau code="GINF3"></Niveau>
   </Filiere>
   <Filiere code="GIL">
@@ -37,9 +19,7 @@
     <Niveau code="GIL3"></Niveau>
   </Filiere>
   <Filiere code="GSTR">
-    <Niveau code="GSTR1">
-      <Eleve id="46" code="LF59111" nom="CHEB" prenom="Laarbi" niveau="GSTR1" code_fil="GSTR" />
-    </Niveau>
+    <Niveau code="GSTR1"></Niveau>
     <Niveau code="GSTR2"></Niveau>
     <Niveau code="GSTR3"></Niveau>
   </Filiere>

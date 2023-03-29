@@ -6,11 +6,7 @@
   </Filiere>
   <Filiere code="GINF">
     <Niveau code="GINF1"></Niveau>
-    <Niveau code="GINF2">
-      <Eleve id="43" code="LF56111" nom="Mohamed" prenom="HACHGUER" niveau="GINF2" code_fil="GINF">
-        <DateSuppression date="mercredi 29 mars 2023" heure="10:28:15" />
-      </Eleve>
-    </Niveau>
+    <Niveau code="GINF2" />
     <Niveau code="GINF3"></Niveau>
   </Filiere>
   <Filiere code="GIL">

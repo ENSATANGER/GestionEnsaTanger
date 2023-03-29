@@ -198,6 +198,88 @@ namespace GestionEnsaTanger
             XENSATANER.Save("../../xml_files/ENSA_TANGER.xml");
         }
 
+        public static Eleve RechercheXML(string code)
+        {
+            XDocument XENSATANER = XDocument.Load("../../xml_files/ENSA_TANGER.xml");
+
+            XElement XRoot = XENSATANER.Root;
+            var XFiliere = XRoot.Elements("Filiere");
+
+            var XNiveau = XFiliere.Elements("Niveau");
+
+            var XEleve = XNiveau.Elements("Eleve");
+            var reqEleve = (from el in XEleve
+                            where el.Attribute("code").Value == code
+                            select el
+                            ).FirstOrDefault();
+
+            Eleve eleve = null;
+            if(reqEleve != null)
+            {
+                eleve = new Eleve
+                {
+                    code = reqEleve.Attribute("code").Value,
+                    nom = reqEleve.Attribute("nom").Value,
+                    prenom = reqEleve.Attribute("prenom").Value,
+                    niveau = reqEleve.Attribute("niveau").Value,
+                    code_fil = reqEleve.Attribute("code_fil").Value
+                };
+            }
+            return eleve;
+        }
+        public static Boolean Resotrer(string code)
+        {
+            XDocument XENSATANER = XDocument.Load("../../xml_files/ENSA_TANGER.xml");
+
+            XElement XRoot = XENSATANER.Root;
+            var XFiliere = XRoot.Elements("Filiere");
+
+            var XNiveau = XFiliere.Elements("Niveau");
+
+            var XEleve = XNiveau.Elements("Eleve");
+            var reqEleve = (from el in XEleve
+                            where el.Attribute("code").Value == code
+                            select el
+                            ).FirstOrDefault();
+            if(reqEleve != null)
+            {
+                //insertion de l'eleve
+                Eleve eleve = new Eleve
+                {
+                    code = reqEleve.Attribute("code").Value,
+                    nom = reqEleve.Attribute("nom").Value,
+                    prenom = reqEleve.Attribute("prenom").Value,
+                    niveau = reqEleve.Attribute("niveau").Value,
+                    code_fil = reqEleve.Attribute("code_fil").Value
+                };
+                eleve.save();
+
+                var XNotes = reqEleve.Element("Notes");
+                if (XNotes != null)
+                {
+                    var XNote = XNotes.Elements("Note");
+                    //insertion des notes
+                    foreach (var el in XNote)
+                    {
+                        Notes note = new Notes
+                        {
+                            code_eleve = el.Attribute("code_eleve").Value,
+                            code_mat = el.Attribute("code_mat").Value,
+                            note = Double.Parse(el.Element("note").Value)
+                        };
+                        note.save();
+                    }
+                    // moyenne calcule automatique(trigger)
+                }
+
+                /*---------suppresion des données dans xml------------*/
+                reqEleve.Remove();
+                XENSATANER.Save("../../xml_files/ENSA_TANGER.xml");
+                return true;
+            }
+            return false;
+        }
+
         // remplissage des attributes ce fait dans GestionEleve
         public List<object> Rechercher()
         {
@@ -209,14 +291,6 @@ namespace GestionEnsaTanger
                 eleves.Add((Eleve)item);
             }
             return eleves;
-        }
-        private void Initialize(Eleve eleve)
-        {
-            Code = eleve.Code;
-            Nom = eleve.Nom;
-            Prenom = eleve.Prenom;
-            Niveau = eleve.Niveau;
-            Code_fil = eleve.Code_fil;
         }
         public override string ToString()
         {

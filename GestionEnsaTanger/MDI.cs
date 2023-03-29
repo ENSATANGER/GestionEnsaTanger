@@ -58,5 +58,10 @@ namespace GestionEnsaTanger
             childForm.MdiParent = this; 
             childForm.Show();
         }
+
+        private void restorationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            (new RestorationEleves(this)).Show();
+        }
     }
 }

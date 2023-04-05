@@ -39,6 +39,7 @@
             this.TableCode_Fil = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonRestorer = new System.Windows.Forms.Button();
             this.message = new System.Windows.Forms.Label();
+            this.XMLSUPPRIMER = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ElevesTable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -140,12 +141,23 @@
             this.message.Size = new System.Drawing.Size(0, 13);
             this.message.TabIndex = 30;
             // 
+            // XMLSUPPRIMER
+            // 
+            this.XMLSUPPRIMER.Location = new System.Drawing.Point(435, 267);
+            this.XMLSUPPRIMER.Name = "XMLSUPPRIMER";
+            this.XMLSUPPRIMER.Size = new System.Drawing.Size(157, 36);
+            this.XMLSUPPRIMER.TabIndex = 31;
+            this.XMLSUPPRIMER.Text = "Liste Eleve Supprimer";
+            this.XMLSUPPRIMER.UseVisualStyleBackColor = true;
+            this.XMLSUPPRIMER.Click += new System.EventHandler(this.XMLSUPPRIMER_Click);
+            // 
             // RestorationEleves
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
+            this.Controls.Add(this.XMLSUPPRIMER);
             this.Controls.Add(this.message);
             this.Controls.Add(this.buttonRestorer);
             this.Controls.Add(this.ElevesTable);
@@ -176,5 +188,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TableCode_Fil;
         private System.Windows.Forms.Button buttonRestorer;
         private System.Windows.Forms.Label message;
+        private System.Windows.Forms.Button XMLSUPPRIMER;
     }
 }

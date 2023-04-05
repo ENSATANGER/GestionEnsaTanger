@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography;
@@ -70,6 +71,15 @@ namespace GestionEnsaTanger
                 }
                 ElevesTable.Rows.Clear();
             }
+        }
+
+        private void XMLSUPPRIMER_Click(object sender, EventArgs e)
+        {
+            // Replace "C:\path\to\file.xml" with the path to the XML file you want to open
+            string filePath = @"C:\Users\hachg\source\repos\GestionEnsaTanger\GestionEnsaTanger\XML_FILES/ENSA_TANGER.xml";
+
+            // Start Internet Explorer and navigate to the specified file
+            Process.Start("iexplore.exe", filePath);
         }
     }
 }

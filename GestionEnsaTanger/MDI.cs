@@ -20,15 +20,11 @@ namespace GestionEnsaTanger
             formEleves.Show();
         }
 
-
-
         private void GestionEtudiants_Load(object sender, EventArgs e)
         {
 
         }
-
         
-
         private void etudiantsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             /*formEleves.Show();*/

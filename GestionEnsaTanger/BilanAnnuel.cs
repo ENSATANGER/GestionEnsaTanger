@@ -71,6 +71,7 @@ namespace GestionEnsaTanger
         {
             
         }
+
         private void Niveau()
         {
             niveau.Items.Clear();
@@ -87,6 +88,7 @@ namespace GestionEnsaTanger
                 niveau.Items.Add(filiere.Text + "3");
             }
         }
+        
         private void ListFilieres()
         {
             List<string> filieres = new List<string>();
@@ -100,6 +102,7 @@ namespace GestionEnsaTanger
                 filiere.Items.Add(item);
             Niveau();
         }
+        
         private void fillist()
         {
             filiere.Refresh();
@@ -128,19 +131,6 @@ namespace GestionEnsaTanger
             {
                 etudiant.Items.Add(e1.code);
                 
-            }
-        }
-
-        private void calcMoy()
-        {
-            Moyennes m = new Moyennes();
-            m.niveau = niveau.SelectedItem.ToString();
-            m.code_eleve = etudiant.SelectedItem.ToString();
-            m.code_fil = filiere.SelectedItem.ToString();
-            List<object> moyennes = m.Select(m.ObjectToDictionary<object>(m));
-            if (moyennes.Count > 0)
-            {
-                moyenne.Text = ""+((Moyennes)moyennes[0]).moyenne;
             }
         }
 
@@ -186,6 +176,19 @@ namespace GestionEnsaTanger
                         }
                     }
                 }
+            }
+        }
+
+        private void calcMoy()
+        {
+            Moyennes m = new Moyennes();
+            m.niveau = niveau.SelectedItem.ToString();
+            m.code_eleve = etudiant.SelectedItem.ToString();
+            m.code_fil = filiere.SelectedItem.ToString();
+            List<object> moyennes = m.Select(m.ObjectToDictionary<object>(m));
+            if (moyennes.Count > 0)
+            {
+                moyenne.Text = "" + ((Moyennes)moyennes[0]).moyenne;
             }
         }
 
@@ -236,7 +239,6 @@ namespace GestionEnsaTanger
 
             return dt;
         }
-
 
         private void exportExcel(DataTable dt)
         {

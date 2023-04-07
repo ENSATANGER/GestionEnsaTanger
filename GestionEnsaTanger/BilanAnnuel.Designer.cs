@@ -49,7 +49,7 @@
             // rechercher
             // 
             this.rechercher.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.rechercher.Location = new System.Drawing.Point(353, 109);
+            this.rechercher.Location = new System.Drawing.Point(512, 109);
             this.rechercher.Name = "rechercher";
             this.rechercher.Size = new System.Drawing.Size(121, 23);
             this.rechercher.TabIndex = 0;
@@ -66,7 +66,7 @@
             this.Designation,
             this.Semestre,
             this.Note});
-            this.dataGridView1.Location = new System.Drawing.Point(31, 168);
+            this.dataGridView1.Location = new System.Drawing.Point(80, 168);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(443, 150);
             this.dataGridView1.TabIndex = 1;
@@ -96,7 +96,7 @@
             // 
             this.FiliereLabel.AutoSize = true;
             this.FiliereLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FiliereLabel.Location = new System.Drawing.Point(17, 63);
+            this.FiliereLabel.Location = new System.Drawing.Point(77, 63);
             this.FiliereLabel.Name = "FiliereLabel";
             this.FiliereLabel.Size = new System.Drawing.Size(41, 13);
             this.FiliereLabel.TabIndex = 2;
@@ -107,7 +107,7 @@
             this.filiere.DisplayMember = "A";
             this.filiere.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.filiere.FormattingEnabled = true;
-            this.filiere.Location = new System.Drawing.Point(103, 63);
+            this.filiere.Location = new System.Drawing.Point(163, 63);
             this.filiere.Name = "filiere";
             this.filiere.Size = new System.Drawing.Size(121, 21);
             this.filiere.TabIndex = 3;
@@ -118,7 +118,7 @@
             // 
             this.etudiant.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.etudiant.FormattingEnabled = true;
-            this.etudiant.Location = new System.Drawing.Point(103, 109);
+            this.etudiant.Location = new System.Drawing.Point(163, 109);
             this.etudiant.Name = "etudiant";
             this.etudiant.Size = new System.Drawing.Size(121, 21);
             this.etudiant.TabIndex = 4;
@@ -128,7 +128,7 @@
             // 
             this.niveau.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.niveau.FormattingEnabled = true;
-            this.niveau.Location = new System.Drawing.Point(353, 63);
+            this.niveau.Location = new System.Drawing.Point(512, 63);
             this.niveau.Name = "niveau";
             this.niveau.Size = new System.Drawing.Size(121, 21);
             this.niveau.TabIndex = 5;
@@ -138,7 +138,7 @@
             // 
             this.EtudiantLabel.AutoSize = true;
             this.EtudiantLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EtudiantLabel.Location = new System.Drawing.Point(16, 112);
+            this.EtudiantLabel.Location = new System.Drawing.Point(76, 112);
             this.EtudiantLabel.Name = "EtudiantLabel";
             this.EtudiantLabel.Size = new System.Drawing.Size(54, 13);
             this.EtudiantLabel.TabIndex = 6;
@@ -148,7 +148,7 @@
             // 
             this.NiveauLabel.AutoSize = true;
             this.NiveauLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NiveauLabel.Location = new System.Drawing.Point(257, 63);
+            this.NiveauLabel.Location = new System.Drawing.Point(416, 63);
             this.NiveauLabel.Name = "NiveauLabel";
             this.NiveauLabel.Size = new System.Drawing.Size(47, 13);
             this.NiveauLabel.TabIndex = 7;
@@ -158,7 +158,7 @@
             // 
             this.MoyenneLabel.AutoSize = true;
             this.MoyenneLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MoyenneLabel.Location = new System.Drawing.Point(28, 343);
+            this.MoyenneLabel.Location = new System.Drawing.Point(77, 343);
             this.MoyenneLabel.Name = "MoyenneLabel";
             this.MoyenneLabel.Size = new System.Drawing.Size(111, 13);
             this.MoyenneLabel.TabIndex = 8;
@@ -166,7 +166,7 @@
             // 
             // moyenne
             // 
-            this.moyenne.Location = new System.Drawing.Point(157, 340);
+            this.moyenne.Location = new System.Drawing.Point(217, 340);
             this.moyenne.Name = "moyenne";
             this.moyenne.ReadOnly = true;
             this.moyenne.Size = new System.Drawing.Size(141, 20);
@@ -175,7 +175,7 @@
             // 
             // exportButton
             // 
-            this.exportButton.Location = new System.Drawing.Point(399, 337);
+            this.exportButton.Location = new System.Drawing.Point(558, 168);
             this.exportButton.Name = "exportButton";
             this.exportButton.Size = new System.Drawing.Size(75, 23);
             this.exportButton.TabIndex = 10;
@@ -187,7 +187,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(506, 396);
+            this.ClientSize = new System.Drawing.Size(776, 396);
             this.ControlBox = false;
             this.Controls.Add(this.exportButton);
             this.Controls.Add(this.moyenne);

@@ -144,7 +144,7 @@ namespace GestionEnsaTanger
             }
         }
 
-    private void FillDataGridView(string codeEleve)
+        private void FillDataGridView(string codeEleve)
         {
             using (SqlConnection connection = new SqlConnection("Data Source=localhost;Initial Catalog=ENSA_TANGER;Integrated Security=True"))
             {
@@ -193,12 +193,11 @@ namespace GestionEnsaTanger
         {
             try
             {
-                DataTable dataTable= new DataTable();
+                DataTable dataTable = new DataTable();
                 dataTable = GetDataTableFromDGV(dataGridView1);
-               
+                
                 exportExcel(dataTable);
                 MessageBox.Show("ajouté avec succès");
-
             }
             catch (Exception ex)
             {
@@ -304,6 +303,29 @@ namespace GestionEnsaTanger
             worksheetPart.Worksheet.Save();
             spreadsheetDocument.Close();
         }
+
+
+/*        private bool DataTableHasEmptyCells(DataTable dt)
+        {
+            for (int i = 1; i < dt.Rows.Count; i++) // Start loop at index 1 to skip header row
+            {
+                bool isEmpty = true;
+                foreach (var value in dt.Rows[i].ItemArray)
+                {
+                    if (value != null && !string.IsNullOrEmpty(value.ToString()))
+                    {
+                        isEmpty = false;
+                        break;
+                    }
+                }
+                if (isEmpty)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+*/
 
 
     }

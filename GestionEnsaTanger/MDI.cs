@@ -69,5 +69,10 @@ namespace GestionEnsaTanger
         {
             (new RestorationEleves(this)).Show();
         }
+
+        private void quitterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

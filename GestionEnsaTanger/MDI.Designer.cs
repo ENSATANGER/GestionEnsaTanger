@@ -30,12 +30,9 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.gestionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.filieresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.matieresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.etudiantsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.notesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.restorationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.affichageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bilanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
@@ -47,7 +44,6 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.gestionToolStripMenuItem,
             this.restorationToolStripMenuItem,
-            this.affichageToolStripMenuItem,
             this.bilanToolStripMenuItem,
             this.quitterToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -60,26 +56,12 @@
             // gestionToolStripMenuItem
             // 
             this.gestionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.filieresToolStripMenuItem,
-            this.matieresToolStripMenuItem,
             this.etudiantsToolStripMenuItem,
             this.notesToolStripMenuItem});
             this.gestionToolStripMenuItem.Name = "gestionToolStripMenuItem";
             this.gestionToolStripMenuItem.Size = new System.Drawing.Size(59, 22);
             this.gestionToolStripMenuItem.Text = "Gestion";
             this.gestionToolStripMenuItem.Click += new System.EventHandler(this.gestionToolStripMenuItem_Click);
-            // 
-            // filieresToolStripMenuItem
-            // 
-            this.filieresToolStripMenuItem.Name = "filieresToolStripMenuItem";
-            this.filieresToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
-            this.filieresToolStripMenuItem.Text = "Filieres";
-            // 
-            // matieresToolStripMenuItem
-            // 
-            this.matieresToolStripMenuItem.Name = "matieresToolStripMenuItem";
-            this.matieresToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
-            this.matieresToolStripMenuItem.Text = "Matieres";
             // 
             // etudiantsToolStripMenuItem
             // 
@@ -102,12 +84,6 @@
             this.restorationToolStripMenuItem.Text = "Restoration";
             this.restorationToolStripMenuItem.Click += new System.EventHandler(this.restorationToolStripMenuItem_Click);
             // 
-            // affichageToolStripMenuItem
-            // 
-            this.affichageToolStripMenuItem.Name = "affichageToolStripMenuItem";
-            this.affichageToolStripMenuItem.Size = new System.Drawing.Size(70, 22);
-            this.affichageToolStripMenuItem.Text = "Affichage";
-            // 
             // bilanToolStripMenuItem
             // 
             this.bilanToolStripMenuItem.Name = "bilanToolStripMenuItem";
@@ -120,6 +96,7 @@
             this.quitterToolStripMenuItem.Name = "quitterToolStripMenuItem";
             this.quitterToolStripMenuItem.Size = new System.Drawing.Size(56, 22);
             this.quitterToolStripMenuItem.Text = "Quitter";
+            this.quitterToolStripMenuItem.Click += new System.EventHandler(this.quitterToolStripMenuItem_Click);
             // 
             // MDI
             // 
@@ -144,11 +121,8 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem gestionToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem filieresToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem matieresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem etudiantsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem notesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem affichageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bilanToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quitterToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem restorationToolStripMenuItem;

@@ -42,6 +42,7 @@
             this.NiveauLabel = new System.Windows.Forms.Label();
             this.MoyenneLabel = new System.Windows.Forms.Label();
             this.moyenne = new System.Windows.Forms.TextBox();
+            this.exportButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -172,12 +173,23 @@
             this.moyenne.TabIndex = 9;
             this.moyenne.TextChanged += new System.EventHandler(this.moyenne_TextChanged);
             // 
+            // exportButton
+            // 
+            this.exportButton.Location = new System.Drawing.Point(399, 337);
+            this.exportButton.Name = "exportButton";
+            this.exportButton.Size = new System.Drawing.Size(75, 23);
+            this.exportButton.TabIndex = 10;
+            this.exportButton.Text = "Export";
+            this.exportButton.UseVisualStyleBackColor = true;
+            this.exportButton.Click += new System.EventHandler(this.exportButton_Click);
+            // 
             // BilanAnnuel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(506, 396);
             this.ControlBox = false;
+            this.Controls.Add(this.exportButton);
             this.Controls.Add(this.moyenne);
             this.Controls.Add(this.MoyenneLabel);
             this.Controls.Add(this.NiveauLabel);
@@ -214,5 +226,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Semestre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Note;
         public System.Windows.Forms.ComboBox filiere;
+        private System.Windows.Forms.Button exportButton;
     }
 }

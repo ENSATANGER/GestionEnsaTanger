@@ -10,6 +10,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DocumentFormat.OpenXml;
+using DocumentFormat.OpenXml.Packaging;
+using DocumentFormat.OpenXml.Spreadsheet;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace GestionEnsaTanger
@@ -45,7 +48,8 @@ namespace GestionEnsaTanger
 
         private void rechercher_Click(object sender, EventArgs e)
         {
-            try { 
+            try {
+            dataGridView1.Rows.Clear();
             string codeEleve = etudiant.SelectedItem.ToString(); 
             FillDataGridView(codeEleve);
             calcMoy();
@@ -185,6 +189,118 @@ namespace GestionEnsaTanger
             }
         }
 
+        private void exportButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DataTable dataTable= new DataTable();
+                dataTable = GetDataTableFromDGV(dataGridView1);
+               
+                exportExcel(dataTable);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private DataTable GetDataTableFromDGV(DataGridView dgv)
+        {
+            DataTable dt = new DataTable();
+
+            // Add columns to the datatable
+            foreach (DataGridViewColumn column in dgv.Columns)
+            {
+                if (column.Visible)
+                {
+                    dt.Columns.Add(column.HeaderText);
+                }
+            }
+
+            // Add rows to the datatable
+            foreach (DataGridViewRow row in dgv.Rows)
+            {
+                DataRow dataRow = dt.NewRow();
+
+                for (int i = 0; i < dgv.Columns.Count; i++)
+                {
+                    if (dgv.Columns[i].Visible)
+                    {
+                        dataRow[i] = row.Cells[i].Value;
+                    }
+                }
+
+                dt.Rows.Add(dataRow);
+            }
+
+            return dt;
+        }
+
+
+        private void exportExcel(DataTable dt)
+        {
+            // Check if dataGridView1 is null or has no rows
+            if (dataGridView1 == null || dataGridView1.Rows.Count == 0)
+            {
+                MessageBox.Show("No data to export.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string filepath = @"C:\Users\louay\Desktop\BilanAnnuel.xlsx";
+
+            SpreadsheetDocument spreadsheetDocument = SpreadsheetDocument.Create(filepath, SpreadsheetDocumentType.Workbook);
+
+            WorkbookPart workbookPart = spreadsheetDocument.AddWorkbookPart();
+            workbookPart.Workbook = new Workbook();
+
+            WorksheetPart worksheetPart = workbookPart.AddNewPart<WorksheetPart>();
+            worksheetPart.Worksheet = new Worksheet(new SheetData());
+
+            Sheets sheets = spreadsheetDocument.WorkbookPart.Workbook.AppendChild<Sheets>(new Sheets());
+
+            Sheet sheet = new Sheet()
+            {
+                Id = spreadsheetDocument.WorkbookPart.GetIdOfPart(worksheetPart),
+                SheetId = 1,
+                Name = "Bilan Annuel"
+            };
+
+            sheets.Append(sheet);
+
+            Worksheet worksheet = worksheetPart.Worksheet;
+            SheetData sheetData = worksheet.GetFirstChild<SheetData>();
+
+            foreach(DataRow item in dt.Rows)
+            {
+                Row r = 
+            }
+
+            // Add headers to the worksheet
+            Row headerRow = new Row();
+            // Loop through each row in the DataGridView
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                // Create a new row in the Excel worksheet
+                Row excelRow = new Row();
+
+                // Loop through each column in the DataGridView
+                foreach (DataGridViewColumn column in dataGridView1.Columns)
+                {
+                    // Get the value of the cell in the current row and column
+                    object value = row.Cells[column.Index].Value;
+
+                    // Create a new cell in the Excel worksheet with the cell value
+                    Cell excelCell = new Cell();
+                    excelCell.CellValue = new CellValue(value.ToString());
+                    excelRow.Append(excelCell);
+                }
+
+                // Add the row to the Excel worksheet
+                sheetData.AppendChild(excelRow);
+            }
+            spreadsheetDocument.Close();
+        }
 
 
     }

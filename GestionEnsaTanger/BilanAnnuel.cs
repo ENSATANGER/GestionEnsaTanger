@@ -197,6 +197,7 @@ namespace GestionEnsaTanger
                 dataTable = GetDataTableFromDGV(dataGridView1);
                
                 exportExcel(dataTable);
+                MessageBox.Show("ajouté avec succès");
 
             }
             catch (Exception ex)
@@ -271,34 +272,36 @@ namespace GestionEnsaTanger
             Worksheet worksheet = worksheetPart.Worksheet;
             SheetData sheetData = worksheet.GetFirstChild<SheetData>();
 
-            foreach(DataRow item in dt.Rows)
-            {
-                Row r = 
-            }
-
-            // Add headers to the worksheet
             Row headerRow = new Row();
-            // Loop through each row in the DataGridView
-            foreach (DataGridViewRow row in dataGridView1.Rows)
+            foreach (DataColumn column in dt.Columns)
             {
-                // Create a new row in the Excel worksheet
-                Row excelRow = new Row();
-
-                // Loop through each column in the DataGridView
-                foreach (DataGridViewColumn column in dataGridView1.Columns)
+                Cell headerCell = new Cell()
                 {
-                    // Get the value of the cell in the current row and column
-                    object value = row.Cells[column.Index].Value;
-
-                    // Create a new cell in the Excel worksheet with the cell value
-                    Cell excelCell = new Cell();
-                    excelCell.CellValue = new CellValue(value.ToString());
-                    excelRow.Append(excelCell);
-                }
-
-                // Add the row to the Excel worksheet
-                sheetData.AppendChild(excelRow);
+                    DataType = CellValues.String,
+                    CellValue = new CellValue(column.ColumnName)
+                };
+                headerRow.Append(headerCell);
             }
+            sheetData.AppendChild(headerRow);
+
+            foreach (DataRow item in dt.Rows)
+            {
+                Row r = new Row();
+
+                for(int i=0; i<item.ItemArray.Length; i++)
+                {
+                    Cell c = new Cell()
+                    {
+                        CellValue = new CellValue(item[i].ToString()),
+                        DataType = CellValues.String
+                    };
+                    r.Append(c);
+                }
+                sheetData.Append(r);
+            }
+
+
+            worksheetPart.Worksheet.Save();
             spreadsheetDocument.Close();
         }
 

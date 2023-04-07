@@ -46,7 +46,13 @@ namespace GestionEnsaTanger
 
         private void notesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new ConsultationNotes().ShowDialog();
+            this.ActiveMdiChild.Visible = false;
+            ConsultationNotes childForm = new ConsultationNotes();
+            this.IsMdiContainer = true;
+            childForm.WindowState = FormWindowState.Maximized;
+            childForm.MdiParent = this;
+            childForm.Show();
+            /*            new ConsultationNotes().ShowDialog();*/
         }
 
         private void bilanToolStripMenuItem_Click(object sender, EventArgs e)

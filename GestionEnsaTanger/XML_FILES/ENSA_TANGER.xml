@@ -7,11 +7,53 @@
   </Filiere>
   <Filiere code="GINF">
     <Niveau code="GINF1">
+      <Eleve id="11" code="B" nom="B" prenom="A" niveau="GINF1" code_fil="GINF">
+        <DateSuppression date="08 April 2023" heure="15:27:17" />
+      </Eleve>
+      <Eleve id="9" code="A" nom="A" prenom="A" niveau="GINF1" code_fil="GINF">
+        <DateSuppression date="08 April 2023" heure="15:27:26" />
+        <Notes>
+          <Note id="72" code_mat="GINF111" code_eleve="A">
+            <note>15</note>
+          </Note>
+        </Notes>
+      </Eleve>
     </Niveau>
     <Niveau code="GINF2">
+      <Eleve id="4" code="LF57111" nom="ALAMI" prenom="Louay" niveau="GINF2" code_fil="GINF">
+        <DateSuppression date="08 April 2023" heure="15:05:21" />
+      </Eleve>
+      <Eleve id="3" code="LF56111" nom="HACHGUER" prenom="Mohamed" niveau="GINF2" code_fil="GINF">
+        <DateSuppression date="08 April 2023" heure="15:06:27" />
+        <Notes>
+          <Note id="71" code_mat="GINF311" code_eleve="LF56111">
+            <note>17</note>
+          </Note>
+        </Notes>
+      </Eleve>
+      <Eleve id="1" code="LF54111" nom="ERGHOUT" prenom="Mouad" niveau="GINF2" code_fil="GINF">
+        <DateSuppression date="08 April 2023" heure="15:06:43" />
+        <Notes>
+          <Note id="59" code_mat="GINF111" code_eleve="LF54111">
+            <note>12</note>
+          </Note>
+          <Note id="60" code_mat="GINF112" code_eleve="LF54111">
+            <note>12</note>
+          </Note>
+          <Note id="61" code_mat="GINF121" code_eleve="LF54111">
+            <note>17</note>
+          </Note>
+          <Note id="62" code_mat="GINF122" code_eleve="LF54111">
+            <note>16</note>
+          </Note>
+        </Notes>
+        <Moyenne id="12" code_eleve="LF54111" code_fil="GINF">
+          <niveau>GINF1</niveau>
+          <moyenne>14.25</moyenne>
+        </Moyenne>
+      </Eleve>
     </Niveau>
-    <Niveau code="GINF3">
-    </Niveau>
+    <Niveau code="GINF3"></Niveau>
   </Filiere>
   <Filiere code="GIL">
     <Niveau code="GIL1"></Niveau>

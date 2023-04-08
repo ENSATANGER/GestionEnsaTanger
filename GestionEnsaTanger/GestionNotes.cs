@@ -45,7 +45,7 @@ namespace GestionEnsaTanger
                 map.Add("code_eleve", n.code_eleve);
                 map.Add("code_mat", n.code_mat);
                 List<object> l = n.Select(map);
-                if (string.IsNullOrWhiteSpace(t_Note.Text) && l.Count == 0)
+                if (!string.IsNullOrWhiteSpace(t_Note.Text) && l.Count == 0)
                 {
                     DB.Connexion.Connect();
                     Connexion.Cmd.Connection = Connexion.Con;
@@ -69,7 +69,7 @@ namespace GestionEnsaTanger
                     }
                     var note = Connexion.Cmd.CreateParameter();
                     note.ParameterName = "@note";
-                    if ( float.Parse(t_Note.Text) <= 20 && float.Parse(t_Note.Text) >= 0)
+                    if ( float.Parse(t_Note.Text.ToString()) <= 20 && float.Parse(t_Note.Text.ToString()) >= 0)
                     {
                         note.Value = float.Parse(t_Note.Text.ToString());
                         Connexion.Cmd.Parameters.Add(note);

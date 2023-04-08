@@ -290,7 +290,7 @@ namespace GestionEnsaTanger
                 return;
             }
 
-            string file = @"C:\Users\mouad\C#.Net Projects\TP4(mini projet)\GestionEnsaTanger\GestionEnsaTanger";
+            string file = @"C:\Users\mouad\C#.Net Projects\TP4(mini projet)\GestionEnsaTanger\GestionEnsaTanger\";
             string extension = ".xlsx";
             number++;
             string filepath = Path.Combine(file + etudiant + extension);

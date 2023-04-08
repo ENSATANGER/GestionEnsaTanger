@@ -18,7 +18,7 @@ namespace GestionEnsaTanger
         private static Module m = new Module();
         private static Matiere matiere = new Matiere();
         private static List<object> listM;
-        private static List<object> list;
+        private static List<object> list = new List<object>();
         private static List<object> listMatiere = new List<object>();
         public GestionNotes()
         {
@@ -27,9 +27,8 @@ namespace GestionEnsaTanger
 
         private void b_Ajouter_Click(object sender, EventArgs e)
         {
-            if (list.Count != 0)
+            if (list.Count != 0 && c_Matiere.SelectedItem!=null)
             {
-
                 Dictionary<string, object> map = new Dictionary<string, object>();
                 Notes n = new Notes();
                 n.code_eleve = eleve.code;
@@ -69,9 +68,9 @@ namespace GestionEnsaTanger
                     }
                     var note = Connexion.Cmd.CreateParameter();
                     note.ParameterName = "@note";
-                    if (float.Parse(t_Note.Text.ToString(), CultureInfo.InvariantCulture.NumberFormat) <= 20 && float.Parse(t_Note.Text.ToString(), CultureInfo.InvariantCulture.NumberFormat) >= 0)
+                    if (float.Parse(t_Note.Text.ToString()) <= 20 && float.Parse(t_Note.Text.ToString()) >= 0)
                     {
-                        note.Value = float.Parse(t_Note.Text.ToString(), CultureInfo.InvariantCulture.NumberFormat);
+                        note.Value = float.Parse(t_Note.Text.ToString());
                         Connexion.Cmd.Parameters.Add(note);
                         //succes.Text = Connexion.Cmd.CommandText.ToString();
                         if (Connexion.Cmd.ExecuteNonQuery() != 0)
@@ -103,7 +102,7 @@ namespace GestionEnsaTanger
 
             }
             else
-                error.Text = "Aucun etudiant ne correspond a ce code!";
+                error.Text = "Selectionner Matiere!";
         }
 
         private void RemplirListMatiere()
@@ -120,7 +119,6 @@ namespace GestionEnsaTanger
         {
 
             t_CodeEleve.Text = GestionEleves.code_eleve;
-
             eleve.code = GestionEleves.code_eleve;
             Dictionary<string, object> map = new Dictionary<string, object>();
             map.Add("code", eleve.code);
@@ -167,7 +165,7 @@ namespace GestionEnsaTanger
 
         private void b_Modifier_Click(object sender, EventArgs e)
         {
-            if (list.Count != 0)
+            if (list.Count != 0 && c_Matiere.SelectedItem != null)
             {
 
                 Dictionary<string, object> map = new Dictionary<string, object>();
@@ -209,9 +207,9 @@ namespace GestionEnsaTanger
                     }
                     var note = Connexion.Cmd.CreateParameter();
                     note.ParameterName = "@note";
-                    if (float.Parse(t_Note.Text.ToString(), CultureInfo.InvariantCulture.NumberFormat) <= 20 && float.Parse(t_Note.Text.ToString(), CultureInfo.InvariantCulture.NumberFormat) >= 0)
+                    if (float.Parse(t_Note.Text.ToString()) <= 20 && float.Parse(t_Note.Text.ToString()) >= 0)
                     {
-                        note.Value = float.Parse(t_Note.Text.ToString(), CultureInfo.InvariantCulture.NumberFormat);
+                        note.Value = float.Parse(t_Note.Text.ToString());
                         Connexion.Cmd.Parameters.Add(note);
                         //succes.Text = Connexion.Cmd.CommandText.ToString();
                         if (Connexion.Cmd.ExecuteNonQuery() == 1)
@@ -243,12 +241,12 @@ namespace GestionEnsaTanger
 
             }
             else
-                error.Text = "Aucun etudiant ne correspond a ce code!";
+                error.Text = "Selectionner Matiere!";
         }
 
         private void b_Supprimer_Click(object sender, EventArgs e)
         {
-            if (list.Count != 0)
+            if (list.Count != 0 && c_Matiere.SelectedItem != null)
             {
                 Dictionary<string, object> map = new Dictionary<string, object>();
                 Notes n = new Notes();
@@ -316,7 +314,7 @@ namespace GestionEnsaTanger
 
         private void b_Rechercher_Click(object sender, EventArgs e)
         {
-            if (list.Count != 0)
+            if (list.Count != 0 && c_Matiere.SelectedItem != null)
             {
 
                 Dictionary<string, object> map = new Dictionary<string, object>();

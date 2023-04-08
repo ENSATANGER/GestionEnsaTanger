@@ -81,7 +81,7 @@
             // 
             // b_Nouveau
             // 
-            this.b_Nouveau.Location = new System.Drawing.Point(442, 47);
+            this.b_Nouveau.Location = new System.Drawing.Point(362, 47);
             this.b_Nouveau.Name = "b_Nouveau";
             this.b_Nouveau.Size = new System.Drawing.Size(75, 23);
             this.b_Nouveau.TabIndex = 6;
@@ -91,7 +91,7 @@
             // 
             // b_Ajouter
             // 
-            this.b_Ajouter.Location = new System.Drawing.Point(442, 88);
+            this.b_Ajouter.Location = new System.Drawing.Point(362, 88);
             this.b_Ajouter.Name = "b_Ajouter";
             this.b_Ajouter.Size = new System.Drawing.Size(75, 23);
             this.b_Ajouter.TabIndex = 7;
@@ -101,7 +101,7 @@
             // 
             // b_Modifier
             // 
-            this.b_Modifier.Location = new System.Drawing.Point(442, 132);
+            this.b_Modifier.Location = new System.Drawing.Point(362, 132);
             this.b_Modifier.Name = "b_Modifier";
             this.b_Modifier.Size = new System.Drawing.Size(75, 23);
             this.b_Modifier.TabIndex = 8;
@@ -111,7 +111,7 @@
             // 
             // b_Supprimer
             // 
-            this.b_Supprimer.Location = new System.Drawing.Point(611, 66);
+            this.b_Supprimer.Location = new System.Drawing.Point(494, 66);
             this.b_Supprimer.Name = "b_Supprimer";
             this.b_Supprimer.Size = new System.Drawing.Size(75, 23);
             this.b_Supprimer.TabIndex = 9;
@@ -121,7 +121,7 @@
             // 
             // b_Rechercher
             // 
-            this.b_Rechercher.Location = new System.Drawing.Point(611, 109);
+            this.b_Rechercher.Location = new System.Drawing.Point(494, 109);
             this.b_Rechercher.Name = "b_Rechercher";
             this.b_Rechercher.Size = new System.Drawing.Size(75, 23);
             this.b_Rechercher.TabIndex = 10;
@@ -168,7 +168,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(643, 316);
             this.ControlBox = false;
             this.Controls.Add(this.succes);
             this.Controls.Add(this.error);

@@ -57,7 +57,7 @@ namespace GestionEnsaTanger
                 dataGridView1.Rows.Clear();
                 FillDataGridView(codeEleve);          
             }
-            catch(Exception ex) {MessageBox.Show("ESSAYER DE CHOISIR UN ETUDIANT"); }
+            catch(Exception ex) {MessageBox.Show(ex.Message); }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

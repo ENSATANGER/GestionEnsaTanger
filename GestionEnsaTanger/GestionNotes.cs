@@ -68,7 +68,7 @@ namespace GestionEnsaTanger
                     }
                     var note = Connexion.Cmd.CreateParameter();
                     note.ParameterName = "@note";
-                    if (float.Parse(t_Note.Text.ToString()) <= 20 && float.Parse(t_Note.Text.ToString()) >= 0)
+                    if ( float.Parse(t_Note.Text.ToString()) <= 20 && float.Parse(t_Note.Text.ToString()) >= 0)
                     {
                         note.Value = float.Parse(t_Note.Text.ToString());
                         Connexion.Cmd.Parameters.Add(note);

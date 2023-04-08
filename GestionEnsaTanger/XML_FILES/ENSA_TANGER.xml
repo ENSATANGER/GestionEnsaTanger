@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="./ENSA_TANGER.xsl"?>
+<?xml-stylesheet type="text/xsl" href="ENSA_TANGER.xsl"?>
 <ENSA_TANGER xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="Filieres Filieres.xsd">
   <Filiere code="AP">
     <Niveau code="AP1"></Niveau>

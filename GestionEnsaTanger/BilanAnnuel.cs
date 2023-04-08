@@ -14,11 +14,13 @@ using DocumentFormat.OpenXml;
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Spreadsheet;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.IO;
 
 namespace GestionEnsaTanger
 {
     public partial class BilanAnnuel : Form
     {
+        public int number = 0;
         public BilanAnnuel()
         {
             InitializeComponent();
@@ -48,13 +50,13 @@ namespace GestionEnsaTanger
 
         private void rechercher_Click(object sender, EventArgs e)
         {
+            string codeEleve = etudiant.SelectedItem.ToString();
+            calcMoy(codeEleve);
             try {
             dataGridView1.Rows.Clear();
-            string codeEleve = etudiant.SelectedItem.ToString(); 
-            FillDataGridView(codeEleve);
-            calcMoy();
+            FillDataGridView(codeEleve);          
             }
-            catch{MessageBox.Show("ESSAYER DE CHOISIR UN ETUDIANT"); }
+            catch(Exception ex) {MessageBox.Show("ESSAYER DE CHOISIR UN ETUDIANT" + ex.Message); }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -64,7 +66,6 @@ namespace GestionEnsaTanger
 
         private void moyenne_TextChanged(object sender, EventArgs e)
         {
-            
         }
 
         private void BilanAnnuel_Load_1(object sender, EventArgs e)
@@ -136,7 +137,39 @@ namespace GestionEnsaTanger
 
         private void FillDataGridView(string codeEleve)
         {
-            using (SqlConnection connection = new SqlConnection("Data Source=localhost;Initial Catalog=ENSA_TANGER;Integrated Security=True"))
+            
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+            parameters.Add("code_eleve", codeEleve);
+
+            List<dynamic> notes = Model.select<Notes>(parameters);
+            
+            var row = new DataGridViewRow();
+           
+            foreach (var note in notes)
+            {
+                string codeMat = note.code_mat;
+                double noteValue = note.note;
+
+                parameters.Clear();
+                parameters.Add("code", codeMat);
+
+                List<dynamic> matieres = Model.select<Matiere>(parameters);
+                string designation = matieres[0].designation;
+
+                parameters.Clear();
+
+                string codeModule = matieres[0].code_module;
+
+                parameters.Clear();
+                parameters.Add("code", codeModule);
+
+                List<dynamic> modules = Model.select<Module>(parameters);
+                string semestre = modules[0].semestre;
+
+                dataGridView1.Rows.Add(codeMat, designation, semestre, noteValue);
+            }
+
+            /*using (SqlConnection connection = new SqlConnection("Data Source=localhost;Initial Catalog=ENSA_TANGER;Integrated Security=True"))
             {
                 connection.Open();
 
@@ -177,20 +210,27 @@ namespace GestionEnsaTanger
                     }
                 }
             }
-        }
+           */
 
-        private void calcMoy()
+        }
+        private void calcMoy(string codeEleve)
         {
             Moyennes m = new Moyennes();
-            m.niveau = niveau.SelectedItem.ToString();
-            m.code_eleve = etudiant.SelectedItem.ToString();
-            m.code_fil = filiere.SelectedItem.ToString();
-            List<object> moyennes = m.Select(m.ObjectToDictionary<object>(m));
+            m.code_eleve = codeEleve;
+            
+            List<dynamic> moyennes = Model.select<Moyennes>(m.ObjectToDictionary<Object>(m));
             if (moyennes.Count > 0)
             {
-                moyenne.Text = "" + ((Moyennes)moyennes[0]).moyenne;
+                m = moyennes[0];
+                moyenne.Text = "" + m.moyenne;
+            }
+            else
+            {
+
+                moyenne.Text = "N/A";
             }
         }
+
 
         private void exportButton_Click(object sender, EventArgs e)
         {
@@ -249,7 +289,11 @@ namespace GestionEnsaTanger
                 return;
             }
 
-            string filepath = @"C:\Users\louay\Desktop\BilanAnnuel.xlsx";
+            string file = @"C:\Users\louay\Desktop\BilanAnnuel";
+            string extension = ".xlsx";
+            number++;
+            string filepath = Path.Combine(file + number.ToString() + extension);
+
 
             SpreadsheetDocument spreadsheetDocument = SpreadsheetDocument.Create(filepath, SpreadsheetDocumentType.Workbook);
 
@@ -304,6 +348,7 @@ namespace GestionEnsaTanger
 
             worksheetPart.Worksheet.Save();
             spreadsheetDocument.Close();
+            
         }
 
 

@@ -223,7 +223,7 @@ namespace GestionEnsaTanger
             if (moyennes.Count > 0)
             {
                 m = moyennes[0];
-                moyenne.Text = "" + m.moyenne;
+                moyenne.Text = "" + Convert.ToDouble(m.moyenne);
             }
             else
             {

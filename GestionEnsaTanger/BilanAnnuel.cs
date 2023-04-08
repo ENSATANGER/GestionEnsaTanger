@@ -50,13 +50,14 @@ namespace GestionEnsaTanger
 
         private void rechercher_Click(object sender, EventArgs e)
         {
-            string codeEleve = etudiant.SelectedItem.ToString();
-            calcMoy(codeEleve);
+            
             try {
-            dataGridView1.Rows.Clear();
+                string codeEleve = etudiant.SelectedItem.ToString();
+                calcMoy(codeEleve);
+                dataGridView1.Rows.Clear();
             FillDataGridView(codeEleve);          
             }
-            catch(Exception ex) {MessageBox.Show("ESSAYER DE CHOISIR UN ETUDIANT" + ex.Message); }
+            catch(Exception ex) {MessageBox.Show("ESSAYER DE CHOISIR UN ETUDIANT"); }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

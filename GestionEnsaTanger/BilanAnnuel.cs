@@ -49,13 +49,14 @@ namespace GestionEnsaTanger
 
         private void rechercher_Click(object sender, EventArgs e)
         {
-            string codeEleve = etudiant.SelectedItem.ToString();
-            calcMoy(codeEleve);
+            
             try {
-            dataGridView1.Rows.Clear();
-            FillDataGridView(codeEleve);          
+                string codeEleve = etudiant.SelectedItem.ToString();
+                calcMoy(codeEleve);
+                dataGridView1.Rows.Clear();
+                FillDataGridView(codeEleve);          
             }
-            catch(Exception ex) {MessageBox.Show("ESSAYER DE CHOISIR UN ETUDIANT" + ex.Message); }
+            catch(Exception ex) {MessageBox.Show(ex.Message); }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -222,7 +223,7 @@ namespace GestionEnsaTanger
             if (moyennes.Count > 0)
             {
                 m = moyennes[0];
-                moyenne.Text = "" + m.moyenne;
+                moyenne.Text = "" + Convert.ToDouble(m.moyenne);
             }
             else
             {
@@ -237,13 +238,13 @@ namespace GestionEnsaTanger
             {
                 DataTable dataTable = new DataTable();
                 dataTable = GetDataTableFromDGV(dataGridView1);
-                
-                exportExcel(dataTable);
+                string codeEleve = etudiant.SelectedItem.ToString();
+                exportExcel(dataTable,codeEleve);
                 MessageBox.Show("ajouté avec succès");
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("INSERER ETUDIANT LAYKHALIK !!!!");
             }
         }
 
@@ -279,7 +280,7 @@ namespace GestionEnsaTanger
             return dt;
         }
 
-        private void exportExcel(DataTable dt)
+        private void exportExcel(DataTable dt, string etudiant)
         {
             // Check if dataGridView1 is null or has no rows
             if (dataGridView1 == null || dataGridView1.Rows.Count == 0)
@@ -288,10 +289,11 @@ namespace GestionEnsaTanger
                 return;
             }
 
-            string file = @"C:\Users\louay\Desktop\BilanAnnuel C:\Users\louay\Documents\GitHub\GestionEnsaTanger\GestionEnsaTanger\";
+
+            string file = @"C:\Users\mouad\C#.Net Projects\TP4(mini projet)\GestionEnsaTanger\GestionEnsaTanger\";
             string extension = ".xlsx";
             number++;
-            string filepath = Path.Combine(file + number.ToString() + extension);
+            string filepath = Path.Combine(file + etudiant + extension);
 
 
             SpreadsheetDocument spreadsheetDocument = SpreadsheetDocument.Create(filepath, SpreadsheetDocumentType.Workbook);

@@ -254,5 +254,10 @@ namespace GestionEnsaTanger
                 }
             }
         }
+
+        private void GestionEleves_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

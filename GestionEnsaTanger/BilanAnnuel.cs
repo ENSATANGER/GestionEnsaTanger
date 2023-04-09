@@ -28,7 +28,6 @@ namespace GestionEnsaTanger
 
         }
 
-
         private void filiere_SelectedIndexChanged(object sender, EventArgs e)
         {
             Niveau();
@@ -213,6 +212,7 @@ namespace GestionEnsaTanger
            */
 
         }
+
         private void calcMoy(string codeEleve)
         {
             Moyennes m = new Moyennes();
@@ -230,7 +230,6 @@ namespace GestionEnsaTanger
                 moyenne.Text = "N/A";
             }
         }
-
 
         private void exportButton_Click(object sender, EventArgs e)
         {
@@ -289,7 +288,7 @@ namespace GestionEnsaTanger
                 return;
             }
 
-            string file = @"C:\Users\louay\Desktop\BilanAnnuel";
+            string file = @"C:\Users\louay\Desktop\BilanAnnuel C:\Users\louay\Documents\GitHub\GestionEnsaTanger\GestionEnsaTanger\";
             string extension = ".xlsx";
             number++;
             string filepath = Path.Combine(file + number.ToString() + extension);

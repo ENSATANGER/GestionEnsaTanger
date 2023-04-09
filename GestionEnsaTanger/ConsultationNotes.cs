@@ -144,7 +144,11 @@ namespace GestionEnsaTanger
                         "Eleve e1 ON n.code_eleve = e1.code WHERE n.code_mat = '" + L[0].code + "'";
                     reader = Connexion.Select(req);
                     reader.Read();
-                    double moyenne = reader.GetDouble(0);
+                    double moyenne = 0.0;
+                    if (!reader.IsDBNull(0))
+                    {
+                        moyenne = reader.GetDouble(0);
+                    }
                     Moyenne.Text = moyenne.ToString();
                     reader.Close();
                 }

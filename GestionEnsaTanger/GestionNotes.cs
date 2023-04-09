@@ -245,7 +245,6 @@ namespace GestionEnsaTanger
             else
                 error.Text = "Aucun etudiant ne correspond a ce code!";
         }
-
         private void b_Supprimer_Click(object sender, EventArgs e)
         {
             if (list.Count != 0)

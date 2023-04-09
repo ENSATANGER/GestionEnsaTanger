@@ -28,7 +28,6 @@ namespace GestionEnsaTanger
 
         }
 
-
         private void filiere_SelectedIndexChanged(object sender, EventArgs e)
         {
             Niveau();
@@ -57,7 +56,7 @@ namespace GestionEnsaTanger
                 dataGridView1.Rows.Clear();
                 FillDataGridView(codeEleve);          
             }
-            catch(Exception ex) {MessageBox.Show(ex.Message); }
+            catch(Exception ex) {MessageBox.Show("VEUILLEZ INSERER UN ETUDIANT"); }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -231,7 +230,6 @@ namespace GestionEnsaTanger
                 moyenne.Text = "N/A";
             }
         }
-
 
         private void exportButton_Click(object sender, EventArgs e)
         {

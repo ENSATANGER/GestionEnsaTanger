@@ -6,21 +6,13 @@
     <Niveau code="AP2"></Niveau>
   </Filiere>
   <Filiere code="GINF">
-    <Niveau code="GINF1">
-      <Eleve id="9" code="aa" nom="aa" prenom="aa" niveau="GINF1" code_fil="GINF">
-        <DateSuppression date="Friday, April 7, 2023" heure="11:39:29 PM" />
-      </Eleve>
-    </Niveau>
+    <Niveau code="GINF1"></Niveau>
     <Niveau code="GINF2">
-      <Eleve id="10" code="aa" nom="aa" prenom="aa" niveau="GINF2" code_fil="GINF">
-        <DateSuppression date="Friday, April 7, 2023" heure="11:40:45 PM" />
+      <Eleve id="73" code="LF61594" nom="Mouad" prenom="ERGHOUT" niveau="GINF2" code_fil="GINF">
+        <DateSuppression date="samedi 8 avril 2023" heure="14:02:33" />
       </Eleve>
     </Niveau>
-    <Niveau code="GINF3">
-      <Eleve id="8" code="aa" nom="aa" prenom="aa" niveau="GINF3" code_fil="GINF">
-        <DateSuppression date="Friday, April 7, 2023" heure="11:38:24 PM" />
-      </Eleve>
-    </Niveau>
+    <Niveau code="GINF3"></Niveau>
   </Filiere>
   <Filiere code="GIL">
     <Niveau code="GIL1"></Niveau>
